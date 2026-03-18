@@ -27,12 +27,15 @@
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
     <!-- ! Link to external CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- This JS file keeps repeated personal info and project links in one place. -->
     <script defer src="assets/js/site-config.js"></script>
 
 </head>
 
 <body>
     <!-- ! Start of nav (Main Navigation) -->
+    <!-- WHY: A simple anchor-based nav is easy to explain in interviews because it uses plain HTML section links instead of JavaScript routing. -->
+    <!-- EDIT: Change the nav labels here if you rename sections later. The href values must match the section ids below. -->
     <nav>
         <a href="#landing">Home</a>
         <a href="#about">About</a>
@@ -44,6 +47,9 @@
 
     <!-- ! Start of Landing section -->
     <section id="landing" class="section-padding">
+        <!-- WHY: The hero focuses on one job only: quickly explain who you are, what you do, and why someone should keep scrolling. -->
+        <!-- EDIT: If you want to change first-impression content later, start with the eyebrow, hero-role, hero-summary, and CTA buttons here. -->
+        <!-- The hero is the first thing people see, so it holds name, role, CTA buttons, and featured media. -->
         <div class="landing-content">
             <span class="eyebrow">Developer Portfolio</span>
             <img src="assets/img/profileimage1.jpg" class="profile-pic-large" alt="Danial Zac">
@@ -64,11 +70,14 @@
                 I design and build reliable software with clean structure, thoughtful interfaces, and the discipline to make complexity feel clear.
             </p>
             <div class="cta-group">
+                <!-- WHY: These buttons split intent clearly: explore work, contact, or download resume. -->
+                <!-- EDIT: If you change the resume filename later, the actual link is controlled by site-config.js, not only this HTML fallback. -->
                 <a class="primary-cta" href="#projects">See Projects</a>
                 <a class="secondary-cta" href="#contact">Let&apos;s Connect</a>
                 <a class="secondary-cta" data-site-link="resume" href="assets/cv/CVdania.pdf" download>Download CV</a>
             </div>
             <div class="hero-facts">
+                <!-- These quick facts are there to give recruiters a fast summary before they read the longer About section. -->
                 <div class="hero-fact">
                     <strong>5+ years</strong>
                     <span>Quality assurance and systems experience</span>
@@ -82,7 +91,10 @@
                     <span>Banking, insurance, public sector, and real estate systems</span>
                 </div>
             </div>
+            <!-- This strip is meant to tell a mini story: mindset, process, then proof of work. -->
             <div class="hero-media-strip" aria-label="Featured portfolio media">
+                <!-- WHY: This strip is here to add atmosphere and narrative without replacing the main project section. -->
+                <!-- EDIT: If any hero media feels wrong, swap only the src/poster here instead of redesigning the whole hero. -->
                 <article class="hero-media-card">
                     <video autoplay loop muted playsinline preload="metadata" poster="assets/img/coast.jpg">
                         <source src="assets/media/hero-coast.mp4" type="video/mp4">
@@ -117,6 +129,8 @@
 
     <!-- ! Start of About Me section -->
     <section id="about" class="section-padding">
+        <!-- WHY: This section gives the longer professional story that the hero deliberately keeps short. -->
+        <!-- EDIT: Update this section when your experience, role target, or leadership examples change. -->
         <div class="section-heading">
             <span class="section-kicker">About</span>
             <h2>
@@ -124,6 +138,7 @@
             </h2>
         </div>
         <div class="about-grid">
+            <!-- This grid uses image on one side and longer text on the other so the section feels easier to scan. -->
             <div class="about-image">
                 <img src="assets/img/profileimage1.jpeg" alt="Danial Zac portrait" />
             </div>
@@ -138,10 +153,15 @@
 
                     I&apos;m comfortable taking ownership, aligning stakeholders, improving processes, and helping teams move forward with structure and clarity. That combination of technical execution, analytical thinking, and leadership responsibility has shaped how I build software today.<br><br>
 
+                    Outside of software, I value disciplines that sharpen focus, patience, and consistency. Martial arts is one of the practices that has influenced how I approach growth, execution, and composure under pressure.<br><br>
+
                     I care about creating stable, scalable, and user-centered applications that are not only functional, but dependable. I&apos;m looking to contribute to a strong team where I can keep learning, take on meaningful responsibility, and help turn complex problems into clean, well-executed solutions.
                 </p>
 
                 <div class="info-card-container">
+                    <!-- These cards turn longer background info into smaller blocks that are easier to understand quickly. -->
+                    <!-- WHY: Summary cards help recruiters skim faster than long paragraphs alone. -->
+                    <!-- EDIT: Keep these cards short. They work best as quick facts, not mini paragraphs. -->
                     <div class="info-card">
                         <h4>
                             5+ Years of Experience</h4>
@@ -166,11 +186,14 @@
 
     <!-- ! Start of Experience section -->
     <section id="experience" class="section-padding">
+        <!-- WHY: The toolbox section gives visual proof of technical familiarity without needing another long text block. -->
+        <!-- EDIT: Add or remove icons here when your stack changes, but keep only tools you can talk about confidently. -->
         <div class="section-heading">
             <span class="section-kicker">Toolbox</span>
             <h2>Tools I use to build steady, production-minded work</h2>
         </div>
         <div class="icon-grid">
+            <!-- Each icon here is a simple visual summary of the tools mentioned in the About and Projects sections. -->
             <ul class="icon-cont">
                 <li>
                     <img class="icon" src="assets/img/html5.png" title="HTML5" alt="html5">
@@ -221,11 +244,14 @@
 
     <!-- ! Start of Projects section -->
     <section id="projects" class="section-padding">
+        <!-- WHY: Projects are the proof section. In interviews, this is where you show execution, tradeoffs, and technical decisions. -->
+        <!-- EDIT: If you add a new project, copy one project card block and then update its data-project-* values to match site-config.js. -->
         <div class="section-heading">
             <span class="section-kicker">Selected Work</span>
             <h2>Selected work presented as studies in execution</h2>
         </div>
         <div class="project-grid">
+            <!-- Every project card follows the same pattern: media, short label, title, summary, tech stack, then links. -->
             <div class="project-card">
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/Voltara-Demo-recording.mp4" type="video/mp4">
@@ -233,6 +259,9 @@
                 </video>
                 <div class="project-details">
                     <div>
+                        <!-- data-project-description lets the JS file replace this text from one central config file. -->
+                        <!-- WHY: Keeping descriptions in one config file reduces repetition and lowers the chance of inconsistent edits. -->
+                        <!-- EDIT: Change the actual project summary in site-config.js under the matching project key. -->
                         <span class="project-eyebrow">Featured Build</span>
                         <h3>Capstone Project</h3>
                         <p data-project-description="capstone-project">
@@ -249,6 +278,8 @@
                         </ul>
                     </div>
                     <div class="project-links">
+                        <!-- data-project-link lets the JS file control demo/repo URLs without editing many places in HTML. -->
+                        <!-- EDIT: To update repo/demo links later, change them in site-config.js, not in every card manually. -->
                         <a data-project-link="capstone-project-demo" href="https://github.com/danialzac/voltora">View Demo</a>
                         <a data-project-link="capstone-project-repo" href="https://github.com/danialzac/voltara-backend.git">GitHub Repo</a>
                     </div>
@@ -385,14 +416,17 @@
 
     <!-- ! Start of Contact section -->
     <section id="contact" class="section-padding">
+        <!-- WHY: The contact section stays intentionally simple so the call-to-action is clear and low-friction. -->
+        <!-- EDIT: If you ever change contact methods, update the links here and the matching values in site-config.js. -->
         <div class="section-heading">
             <span class="section-kicker">Contact</span>
             <h2>Open to thoughtful teams, clear problems, and meaningful work</h2>
         </div>
         <p>Let&apos;s connect and talk about building dependable, well-crafted software.</p>
         <div class="contact-links">
-            <a href="#" aria-disabled="true"><i
-                    class="fa-brands fa-whatsapp"></i>WhatsApp Soon</a><br>
+            <!-- Contact links are intentionally simple: resume, email, GitHub, and LinkedIn. -->
+            <a data-site-link="resume" href="assets/cv/CVdania.pdf" download><i
+                    class="fa-regular fa-file-lines"></i>Download CV</a><br>
             <a data-site-link="email" href="mailto:danialzac@gmail.com"><span>📧</span> Email Me</a>
             <a data-site-link="github" href="https://github.com/danialzac" target="_blank" rel="noopener noreferrer">
                 <span>💻</span> GitHub Profile</a>
