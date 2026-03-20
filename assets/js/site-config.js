@@ -21,7 +21,12 @@ const siteConfig = {
         "capstone-project": {
             demo: "#",
             repo: "#",
-            description: "A React and Vite study platform for real estate salesperson exam prep, with guided curriculum, practice flows, mock exams, and progress-focused study tools.",
+            description: "An IoT and maker learning platform concept for sharing electronics builds, exploring tutorials, and growing a community around hands-on microcontroller projects.",
+        },
+        "res-exam-mastery": {
+            demo: "#",
+            repo: "#",
+            description: "A separate React exam-learning app repackaged from the original platform into a Singapore RES Paper 1 and Paper 2 prep product with topic practice, revision loops, and readiness tracking.",
         },
         "spotify-playlist": {
             demo: "https://lucent-maamoul-066f68.netlify.app/",
