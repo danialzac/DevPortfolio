@@ -42,15 +42,10 @@ const siteConfig = {
             repo: "https://github.com/danialzac",
             description: "An interactive Pokedex that uses live API data to turn raw information into a cleaner, more exploratory browsing experience.",
         },
-        "diamond-lit": {
-            demo: "#",
-            repo: "#",
-            description: "A static jewelry storefront for ready-stock inventory, featuring concierge-style product discovery, cart handling, and direct payment-link checkout.",
-        },
         "prayer-pattern-viewer": {
             demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
-            description: "A full-stack prayer reflection app with quick or personalized consistency estimates, Ramadan-focused reminders, and protected saved summaries.",
+            description: "A prayer reflection app first built with Java Spring Boot and React, then rebuilt with FastAPI and React TypeScript to compare stacks while keeping the same calm user flow.",
         },
         "colmar-academy": {
             demo: "#",
