@@ -19,9 +19,9 @@ const siteConfig = {
     projects: {
         // EDIT: Each project key must match the data-project-* names used in index.html.
         "capstone-project": {
-            demo: "https://github.com/danialzac/voltora",
-            repo: "https://github.com/danialzac/voltara-backend.git",
-            description: "A full-stack platform concept for sharing and exploring electronics builds, designed with structured content, secure access, and room to scale.",
+            demo: "#",
+            repo: "#",
+            description: "A React and Vite study platform for real estate salesperson exam prep, with guided curriculum, practice flows, mock exams, and progress-focused study tools.",
         },
         "spotify-playlist": {
             demo: "https://lucent-maamoul-066f68.netlify.app/",
@@ -45,17 +45,12 @@ const siteConfig = {
         "diamond-lit": {
             demo: "#",
             repo: "#",
-            description: "A luxury e-commerce storefront concept centered on premium presentation, elegant browsing, and a polished checkout experience.",
+            description: "A static jewelry storefront for ready-stock inventory, featuring concierge-style product discovery, cart handling, and direct payment-link checkout.",
         },
         "prayer-pattern-viewer": {
             demo: "#",
             repo: "#",
             description: "Grow in prayer with gentle, hopeful guidance, reflect deeply during Ramadan, and keep your summaries safely secured.",
-        },
-        "res-exam-mastery": {
-            demo: "#",
-            repo: "#",
-            description: "A portfolio-style full-stack starter for property listing workflows, built with React, Spring Boot, JWT authentication, and MySQL-ready CRUD APIs.",
         },
         "colmar-academy": {
             demo: "#",
