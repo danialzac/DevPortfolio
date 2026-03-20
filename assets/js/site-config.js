@@ -48,9 +48,9 @@ const siteConfig = {
             description: "A static jewelry storefront for ready-stock inventory, featuring concierge-style product discovery, cart handling, and direct payment-link checkout.",
         },
         "prayer-pattern-viewer": {
-            demo: "#",
+            demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
-            description: "Grow in prayer with gentle, hopeful guidance, reflect deeply during Ramadan, and keep your summaries safely secured.",
+            description: "A full-stack prayer reflection app with quick or personalized consistency estimates, Ramadan-focused reminders, and protected saved summaries.",
         },
         "colmar-academy": {
             demo: "#",
