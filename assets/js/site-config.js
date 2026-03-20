@@ -42,6 +42,11 @@ const siteConfig = {
             repo: "https://github.com/danialzac",
             description: "An interactive Pokedex that uses live API data to turn raw information into a cleaner, more exploratory browsing experience.",
         },
+        "diamond-lite": {
+            demo: "#",
+            repo: "#",
+            description: "A static jewelry storefront for ready-stock inventory, featuring concierge-style product discovery, cart handling, and direct payment-link checkout.",
+        },
         "prayer-pattern-viewer": {
             demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
