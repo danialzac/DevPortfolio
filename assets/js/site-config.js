@@ -7,7 +7,7 @@ const siteConfig = {
         // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
         title: "Danial Zac | Developer Portfolio",
-        description: "Danial Zac's developer portfolio showcasing full-stack and frontend projects.",
+        description: "Danial Zac's developer portfolio featuring completed full-stack and frontend projects built to learn, ship, and grow.",
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
         email: "danialzac@gmail.com",
@@ -19,48 +19,43 @@ const siteConfig = {
     projects: {
         // EDIT: Each project key must match the data-project-* names used in index.html.
         "capstone-project": {
-            demo: "#",
-            repo: "#",
-            description: "An IoT and maker learning platform concept for sharing electronics builds, exploring tutorials, and growing a community around hands-on microcontroller projects.",
-        },
-        "res-exam-mastery": {
-            demo: "#",
-            repo: "#",
-            description: "A separate React exam-learning app repackaged from the original platform into a Singapore RES Paper 1 and Paper 2 prep product with topic practice, revision loops, and readiness tracking.",
+            demo: "https://github.com/danialzac/voltora",
+            repo: "https://github.com/danialzac/voltara-backend.git",
+            description: "A full-stack platform completed to learn how structured content, secure access, and backend integration come together in a project designed to grow over time.",
         },
         "spotify-playlist": {
             demo: "https://lucent-maamoul-066f68.netlify.app/",
             repo: "https://github.com/danialzac/spotify-jamming.git",
-            description: "A React playlist builder focused on smooth interaction, clean component structure, and a polished listening-flow experience.",
+            description: "A React project completed to strengthen component structure, state handling, and smoother user flows around playlist creation.",
         },
         "airstream-sportswear": {
             demo: "#",
             repo: "https://github.com/danialzac",
-            description: "A responsive storefront concept built to practice layout clarity, interface polish, and client-facing interactions such as form validation.",
+            description: "A storefront practice build completed to improve responsive layout work, interface polish, and simple customer-facing interactions such as form validation.",
         },
         "find-your-hat": {
             repo: "https://github.com/danialzac",
-            description: "A JavaScript maze game centered on game-state logic, movement rules, and simple mechanics that stay readable and fun.",
+            description: "A JavaScript game project completed to practice logic flow, game-state handling, and code that stays simple enough to follow.",
         },
         "pokedex": {
             demo: "#",
             repo: "https://github.com/danialzac",
-            description: "An interactive Pokedex that uses live API data to turn raw information into a cleaner, more exploratory browsing experience.",
+            description: "An API-based project completed to learn how live data can be fetched, organized, and presented in a way that feels more usable and exploratory.",
         },
         "diamond-lite": {
             demo: "#",
             repo: "#",
-            description: "A static jewelry storefront for ready-stock inventory, featuring concierge-style product discovery, cart handling, and direct payment-link checkout.",
+            description: "A luxury storefront build completed to practice premium presentation, clearer browsing flow, and a more polished checkout-style experience.",
         },
         "prayer-pattern-viewer": {
             demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
-            description: "A prayer reflection app first built with Java Spring Boot and React, then rebuilt with FastAPI and React TypeScript to compare stacks while keeping the same calm user flow.",
+            description: "A prayer reflection project completed to explore calm product design, protected summaries, and how the same idea can be built across different backend stacks.",
         },
         "colmar-academy": {
             demo: "#",
             repo: "https://github.com/danialzac",
-            description: "A responsive academy landing page focused on layout systems, visual hierarchy, and adapting content cleanly across screen sizes.",
+            description: "A responsive layout project completed to strengthen page structure, visual hierarchy, and cleaner adaptation across screen sizes.",
         },
     },
 };
