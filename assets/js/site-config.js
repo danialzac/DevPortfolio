@@ -55,7 +55,7 @@ const siteConfig = {
         "res-exam-mastery": {
             demo: "#",
             repo: "#",
-            description: "A React exam learning app for Singapore RES Paper 1 and Paper 2, built around topic practice, mock exams, weak-area revision, and readiness tracking.",
+            description: "A portfolio-style full-stack starter for property listing workflows, built with React, Spring Boot, JWT authentication, and MySQL-ready CRUD APIs.",
         },
         "colmar-academy": {
             demo: "#",
