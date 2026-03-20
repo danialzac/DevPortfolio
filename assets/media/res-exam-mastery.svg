@@ -1,0 +1,41 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="64" x2="1170" y2="665" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102233"/>
+      <stop offset="0.55" stop-color="#18384E"/>
+      <stop offset="1" stop-color="#305E63"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F1D7A3"/>
+      <stop offset="1" stop-color="#C89B52"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" rx="36" fill="url(#bg)"/>
+  <circle cx="1080" cy="122" r="190" fill="#FFFFFF" fill-opacity="0.06"/>
+  <circle cx="150" cy="630" r="230" fill="#C89B52" fill-opacity="0.13"/>
+  <rect x="74" y="72" width="220" height="36" rx="18" fill="#F3E5C8"/>
+  <text x="110" y="95" fill="#6F4D1E" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2">LEARNING PRODUCT</text>
+  <text x="74" y="214" fill="white" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="700">RES Exam</text>
+  <text x="74" y="294" fill="white" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="700">Mastery</text>
+  <text x="78" y="360" fill="#D8E0E6" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="500">Singapore Real Estate Salesperson prep app focused on</text>
+  <text x="78" y="401" fill="#D8E0E6" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="500">Paper 1, Paper 2, weak-topic revision, and mock exams.</text>
+  <rect x="78" y="466" width="198" height="64" rx="22" fill="url(#gold)"/>
+  <text x="122" y="506" fill="#162331" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800">React + Vite</text>
+  <rect x="302" y="466" width="212" height="64" rx="22" fill="#FFFFFF" fill-opacity="0.14"/>
+  <text x="348" y="506" fill="white" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Study Loops</text>
+  <rect x="540" y="466" width="232" height="64" rx="22" fill="#FFFFFF" fill-opacity="0.14"/>
+  <text x="582" y="506" fill="white" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Mock Exams</text>
+  <rect x="838" y="150" width="360" height="420" rx="32" fill="#FFFDF8"/>
+  <rect x="872" y="190" width="130" height="22" rx="11" fill="#F3E5C8"/>
+  <rect x="872" y="238" width="284" height="22" rx="11" fill="#193146"/>
+  <rect x="872" y="280" width="252" height="14" rx="7" fill="#B6C4D1"/>
+  <rect x="872" y="308" width="220" height="14" rx="7" fill="#B6C4D1"/>
+  <rect x="872" y="352" width="284" height="72" rx="20" fill="#F5F0E8"/>
+  <rect x="892" y="374" width="170" height="14" rx="7" fill="#193146"/>
+  <rect x="892" y="402" width="230" height="12" rx="6" fill="#B6C4D1"/>
+  <rect x="872" y="442" width="284" height="72" rx="20" fill="#F5F0E8"/>
+  <rect x="892" y="464" width="156" height="14" rx="7" fill="#193146"/>
+  <rect x="892" y="492" width="210" height="12" rx="6" fill="#B6C4D1"/>
+  <rect x="872" y="536" width="136" height="20" rx="10" fill="#C89B52"/>
+  <text x="905" y="551" fill="#102233" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">PAPER 1 / 2</text>
+</svg>

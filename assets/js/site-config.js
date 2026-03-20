@@ -52,6 +52,11 @@ const siteConfig = {
             repo: "#",
             description: "Grow in prayer with gentle, hopeful guidance, reflect deeply during Ramadan, and keep your summaries safely secured.",
         },
+        "res-exam-mastery": {
+            demo: "#",
+            repo: "#",
+            description: "A React exam learning app for Singapore RES Paper 1 and Paper 2, built around topic practice, mock exams, weak-area revision, and readiness tracking.",
+        },
         "colmar-academy": {
             demo: "#",
             repo: "https://github.com/danialzac",
