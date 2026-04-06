@@ -576,7 +576,7 @@
                 onclick="document.getElementById('paynow-modal').classList.add('is-open')"
                 aria-haspopup="dialog"
                 aria-controls="paynow-modal">
-                <span>🙏</span> Support My Work
+                <span>☕</span> Fuel My Learning
             </button>
         </div>
     </section>
@@ -584,7 +584,7 @@
 
     <!-- ! Start of Footer -->
     <footer>
-
+    </footer>
         <!-- ! End of Footer -->
 
     <!-- ── PAYNOW MODAL ─────────────────────────────────────────────
@@ -612,14 +612,48 @@
                 &times;
             </button>
 
-            <h3>Support My Work</h3>
-            <p class="modal-subtitle">Scan with any Singapore banking app</p>
+            <h3>Back a Builder</h3>
+            <p class="modal-subtitle">
+                Everything here was built with late nights, free tutorials,
+                and a stubborn refusal to stop learning.
+            </p>
 
-            <!-- EDIT: make sure your QR image is saved at assets/img/paynow-qr.png -->
-            <!-- EDIT: pastikan imej QR kamu disimpan di assets/img/paynow-qr.png -->
-            <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code — scan to donate" />
+            <!-- Both QRs shown at once — no tabs, no clicks, just scan -->
+            <div class="qr-grid">
 
-            <p class="modal-note">Any amount is appreciated. Thank you! 🙏</p>
+                <div class="qr-panel qr-paynow">
+                    <div class="qr-panel-header">
+                        <span class="qr-flag">🇸🇬</span>
+                        <div>
+                            <strong>PayNow</strong>
+                            <span class="qr-currency">SGD</span>
+                        </div>
+                    </div>
+                    <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code" />
+                    <p class="qr-hint">Any SG banking app</p>
+                </div>
+
+                <div class="qr-panel qr-tng">
+                    <div class="qr-panel-header">
+                        <span class="qr-flag">🇲🇾</span>
+                        <div>
+                            <strong>TNG eWallet</strong>
+                            <span class="qr-currency">MYR</span>
+                        </div>
+                    </div>
+                    <img src="assets/img/tng-qr.jpeg" alt="TNG eWallet QR Code" />
+                    <p class="qr-hint">Touch 'n Go app</p>
+                </div>
+
+            </div>
+
+            <p class="modal-note">
+                If something you saw here sparked an idea — or you just want
+                to say <em>"keep going"</em> — scan the code above.<br><br>
+                Your coffee money funds the next course, the next project,
+                and the next late night of figuring things out.<br><br>
+                <strong>Any amount. Totally your call. Thank you. 🙏</strong>
+            </p>
         </div>
     </div>
 

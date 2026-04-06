@@ -789,7 +789,7 @@ nav a:focus-visible {
 
 .modal-card {
     position: relative;
-    width: min(22rem, 100%);
+    width: min(36rem, 100%);
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: var(--radius-md);
@@ -843,6 +843,82 @@ nav a:focus-visible {
 
 .modal-close:hover {
     color: var(--color-ink);
+}
+
+/* ── QR SIDE BY SIDE GRID ───────────────────────────────────────── */
+.qr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.qr-panel {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+/* PayNow — purple accent matching their brand */
+.qr-paynow {
+    border-color: #6b2fa0;
+}
+
+.qr-paynow .qr-panel-header {
+    background: #6b2fa0;
+    color: #fff;
+}
+
+/* TNG — blue accent matching their brand */
+.qr-tng {
+    border-color: #0070ba;
+}
+
+.qr-tng .qr-panel-header {
+    background: #0070ba;
+    color: #fff;
+}
+
+.qr-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+}
+
+.qr-flag {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.qr-panel-header strong {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.qr-currency {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.82;
+}
+
+.qr-panel img {
+    width: 100%;
+    display: block;
+    padding: 0.6rem;
+    background: #fff;
+}
+
+.qr-hint {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--color-ink-soft);
+    padding: 0.45rem 0.5rem;
+    background: rgba(24, 36, 51, 0.04);
 }
 
 footer {
