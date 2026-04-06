@@ -513,6 +513,71 @@
                     </div>
                 </div>
             </div>
+            <!-- Todo API — Spring Boot backend project -->
+            <div class="project-card">
+                <div class="project-image todo-cover"></div>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Backend API</span>
+                        <h3>Todo List API</h3>
+                        <p data-project-description="todo-api"></p>
+                        <ul class="toolused">
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>MySQL</li>
+                            <li>REST API</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="todo-api-repo" href="https://github.com/danialzac/GenSG-Java-Spring-Boot-Assessment">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Management System — Java OOP project -->
+            <div class="project-card">
+                <div class="project-image student-cover"></div>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Java Console App</span>
+                        <h3>Student Management System</h3>
+                        <p data-project-description="student-management"></p>
+                        <ul class="toolused">
+                            <li>Java</li>
+                            <li>OOP</li>
+                            <li>JUnit 5</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="student-management-repo" href="https://github.com/danialzac/Project-StudentGen-student-management-system-">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KopiConnect — visible and ready -->
+            <div class="project-card">
+                <div class="project-image kopi-cover"></div>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Community Impact Build</span>
+                        <h3>KopiConnect</h3>
+                        <p data-project-description="kopi-connect">
+                            A Singapore mental health service finder with an emotion-aware chatbot.
+                        </p>
+                        <ul class="toolused">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Bootstrap 5</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="kopi-connect-demo" href="#">View Demo</a>
+                        <a data-project-link="kopi-connect-repo" href="https://github.com/danialzac/kopi-connect">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
@@ -618,33 +683,26 @@
                 and a stubborn refusal to stop learning.
             </p>
 
-            <!-- Both QRs shown at once — no tabs, no clicks, just scan -->
-            <div class="qr-grid">
+            <!-- Step 1: pick your app. Step 2: scan. That's it. -->
+            <p class="qr-choose">Which app are you using?</p>
+            <div class="qr-picker">
+                <button class="qr-pick active" onclick="switchQR('paynow')">
+                    🇸🇬 PayNow
+                </button>
+                <button class="qr-pick" onclick="switchQR('tng')">
+                    🇲🇾 TNG eWallet
+                </button>
+            </div>
 
-                <div class="qr-panel qr-paynow">
-                    <div class="qr-panel-header">
-                        <span class="qr-flag">🇸🇬</span>
-                        <div>
-                            <strong>PayNow</strong>
-                            <span class="qr-currency">SGD</span>
-                        </div>
-                    </div>
-                    <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code" />
-                    <p class="qr-hint">Any SG banking app</p>
-                </div>
+            <!-- One large centered QR at a time — easy to scan -->
+            <div id="qr-paynow" class="qr-display">
+                <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code" />
+                <p class="qr-hint">Open any Singapore banking app and scan</p>
+            </div>
 
-                <div class="qr-panel qr-tng">
-                    <div class="qr-panel-header">
-                        <span class="qr-flag">🇲🇾</span>
-                        <div>
-                            <strong>TNG eWallet</strong>
-                            <span class="qr-currency">MYR</span>
-                        </div>
-                    </div>
-                    <img src="assets/img/tng-qr.jpeg" alt="TNG eWallet QR Code" />
-                    <p class="qr-hint">Touch 'n Go app</p>
-                </div>
-
+            <div id="qr-tng" class="qr-display" hidden>
+                <img src="assets/img/tng-qr.jpeg" alt="TNG eWallet QR Code" />
+                <p class="qr-hint">Open your TNG eWallet app and scan</p>
             </div>
 
             <p class="modal-note">
