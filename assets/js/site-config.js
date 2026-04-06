@@ -86,6 +86,15 @@ const siteConfig = {
 // If you skip this, your JS tries to find elements that don't exist yet.
 // Kalau skip ni, JS cuba cari elemen yang belum ada. Error je hasilnya.
 // ────────────────────────────────────────────────────────────────────
+// Switches between PayNow and TNG QR panels in the modal
+// Tukar antara panel PayNow dan TNG dalam modal
+function switchQR(type) {
+    document.getElementById('qr-paynow').hidden = (type !== 'paynow');
+    document.getElementById('qr-tng').hidden = (type !== 'tng');
+    document.querySelectorAll('.qr-tab').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.qr-tab[onclick="switchQR('${type}')"]`).classList.add('active');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // These first lines keep the browser title and SEO tags in sync with the config above.
     // WHY: This avoids one common portfolio problem where the visible content changes but metadata is forgotten.
