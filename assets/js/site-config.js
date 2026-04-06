@@ -1,3 +1,21 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║  site-config.js — The control room. Change stuff here, not HTML. ║
+ * ║  site-config.js — Bilik kawalan. Ubah kat sini, bukan dalam HTML.║
+ * ║                                                                  ║
+ * ║  siteConfig{}     → all personal info + project links in one box ║
+ * ║  DOMContentLoaded → runs AFTER the HTML is fully loaded          ║
+ * ║                     Jalankan SELEPAS HTML habis dimuatkan        ║
+ * ║  querySelectorAll → finds every element with a matching label    ║
+ * ║                     Cari semua elemen dengan label yang sepadan  ║
+ * ║                                                                  ║
+ * ║  Why one config file? So you update your GitHub link ONCE        ║
+ * ║  and every button on the page updates automatically.             ║
+ * ║  Kenapa? Supaya ubah sekali, semua tempat update sendiri.        ║
+ * ║  Malas itu kebijaksanaan. (Laziness is engineering wisdom.)      ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ */
+
 // This object is the main "single source of truth" for personal info and project links.
 // If you need to update name, resume, GitHub, or project URLs, start here first.
 // WHY: Centralizing repeated content here makes the HTML easier to maintain and easier to explain in interviews.
@@ -60,6 +78,14 @@ const siteConfig = {
     },
 };
 
+// ── WHY "DOMContentLoaded"? ─────────────────────────────────────────
+// JavaScript runs fast. Sometimes TOO fast — before the HTML even exists.
+// JS berlari laju. Kadang terlalu laju — HTML pun belum wujud lagi!
+// DOMContentLoaded = "wait for the HTML to finish loading, THEN run this"
+// Macam tunggu nasi masak dulu sebelum nak makan. Sabar sikit.
+// If you skip this, your JS tries to find elements that don't exist yet.
+// Kalau skip ni, JS cuba cari elemen yang belum ada. Error je hasilnya.
+// ────────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
     // These first lines keep the browser title and SEO tags in sync with the config above.
     // WHY: This avoids one common portfolio problem where the visible content changes but metadata is forgotten.
@@ -128,6 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Each project link name ends with "-demo" or "-repo".
     // We split that value so we can look up the correct URL in the config above.
     // WHY: This pattern keeps the HTML clean while still letting each card point to different URLs.
+    // ── THE REGEX EXPLAINED (don't panic) ───────────────────────────
+    // /-(?=[^-]+$)/ means: "split at the LAST hyphen only"
+    // Maksudnya: "pisah pada sempang TERAKHIR sahaja"
+    // Example: "capstone-project-demo" → ["capstone-project", "demo"]
+    // Contoh:   "spotify-playlist-repo" → ["spotify-playlist", "repo"]
+    // The ?= part is a "lookahead" — it checks ahead without consuming.
+    // Bahagian ?= adalah "pandang ke hadapan" — tengok tanpa makan aksara.
+    // You don't need to memorise this. Just know what it produces. Relax.
+    // Tak perlu hafal ni. Tahu apa yang dihasilkan je sudah. Tenang!
+    // ─────────────────────────────────────────────────────────────────
     document.querySelectorAll("[data-project-link]").forEach((element) => {
         const [projectKey, linkType] = element.getAttribute("data-project-link").split(/-(?=[^-]+$)/);
         const project = siteConfig.projects[projectKey];
