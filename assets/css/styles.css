@@ -655,6 +655,56 @@ nav a:focus-visible {
     background: rgba(255, 255, 255, 0.46);
 }
 
+/* ── ABSTRACT PROJECT COVERS ────────────────────────────────────────
+   No text, no placeholders — just intentional abstract art.
+   Each cover uses layered gradients + a floating circle shape
+   to feel designed, not missing.
+   ─────────────────────────────────────────────────────────────────── */
+.todo-cover,
+.student-cover,
+.kopi-cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+/* Shared floating circle on all covers */
+.todo-cover::after,
+.student-cover::after,
+.kopi-cover::after {
+    content: "";
+    position: absolute;
+    width: 55%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0.18;
+    bottom: -20%;
+    right: -10%;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Todo API — deep navy, feels technical and solid */
+.todo-cover {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(99, 179, 237, 0.3), transparent 50%),
+        linear-gradient(135deg, #0f0c29, #1a1a4e, #302b63);
+}
+
+/* Student Management — teal/cyan, clean and academic */
+.student-cover {
+    background:
+        radial-gradient(circle at 75% 20%, rgba(129, 230, 217, 0.28), transparent 50%),
+        linear-gradient(135deg, #0a2e38, #0d5c6e, #1a8a9e);
+}
+
+/* KopiConnect — warm pink/purple, approachable and human */
+.kopi-cover {
+    background:
+        radial-gradient(circle at 30% 70%, rgba(255, 200, 221, 0.3), transparent 50%),
+        linear-gradient(135deg, #6b21a8, #a855f7, #ec4899);
+}
+
 .project-links a.is-disabled:hover,
 .project-links a.is-disabled:focus-visible {
     transform: none;
@@ -845,80 +895,67 @@ nav a:focus-visible {
     color: var(--color-ink);
 }
 
-/* ── QR SIDE BY SIDE GRID ───────────────────────────────────────── */
-.qr-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
-    margin-bottom: 1.25rem;
+/* ── QR PICKER ──────────────────────────────────────────────────── */
+.qr-choose {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-ink-soft);
+    margin-bottom: 0.6rem;
 }
 
-.qr-panel {
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    border: 2px solid transparent;
-    text-align: center;
-}
-
-/* PayNow — purple accent matching their brand */
-.qr-paynow {
-    border-color: #6b2fa0;
-}
-
-.qr-paynow .qr-panel-header {
-    background: #6b2fa0;
-    color: #fff;
-}
-
-/* TNG — blue accent matching their brand */
-.qr-tng {
-    border-color: #0070ba;
-}
-
-.qr-tng .qr-panel-header {
-    background: #0070ba;
-    color: #fff;
-}
-
-.qr-panel-header {
+.qr-picker {
     display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    padding: 0.6rem 0.75rem;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: rgba(24, 36, 51, 0.06);
+    padding: 0.35rem;
+    border-radius: 999px;
 }
 
-.qr-flag {
-    font-size: 1.3rem;
-    line-height: 1;
+.qr-pick {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-ink-soft);
+    cursor: pointer;
+    transition: all var(--transition);
 }
 
-.qr-panel-header strong {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 800;
-    line-height: 1.2;
+.qr-pick.active {
+    background: var(--color-paper-soft);
+    color: var(--color-deep);
+    box-shadow: 0 2px 8px rgba(15, 24, 36, 0.1);
 }
 
-.qr-currency {
-    font-size: 0.72rem;
-    font-weight: 600;
-    opacity: 0.82;
+/* ── QR DISPLAY — one large centered QR ────────────────────────── */
+.qr-display {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
-.qr-panel img {
+.qr-display img {
     width: 100%;
+    max-width: 22rem;
+    margin: 0 auto 0.75rem;
     display: block;
-    padding: 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 3px solid var(--color-stone);
     background: #fff;
+    padding: 0.5rem;
 }
 
 .qr-hint {
-    font-size: 0.76rem;
-    font-weight: 700;
+    font-size: 0.84rem;
     color: var(--color-ink-soft);
-    padding: 0.45rem 0.5rem;
-    background: rgba(24, 36, 51, 0.04);
+    font-weight: 600;
 }
 
 footer {

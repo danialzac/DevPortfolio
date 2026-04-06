@@ -75,6 +75,21 @@ const siteConfig = {
             repo: "https://github.com/danialzac",
             description: "A responsive layout project completed to strengthen page structure, visual hierarchy, and cleaner adaptation across screen sizes.",
         },
+        "todo-api": {
+            demo: "#",
+            repo: "https://github.com/danialzac/todoapplication",
+            description: "A RESTful Todo API built with Java Spring Boot and MySQL. Implements full CRUD operations, input validation, and database integration — a focused backend build to practise clean API design and data persistence.",
+        },
+        "student-management": {
+            demo: "#",
+            repo: "https://github.com/danialzac/Project-StudentGen-student-management-system-",
+            description: "A Java console application for managing student enrollment, course registration, and grading. Built with OOP principles, a clean service/model layer separation, and unit tests written with JUnit 5.",
+        },
+        "kopi-connect": {
+            demo: "#",
+            repo: "https://github.com/danialzac/kopi-connect",
+            description: "A Singapore mental health service finder with an emotion-aware chatbot. Detects 11+ emotional states through keyword analysis and matches users to 40+ real local support services — from crisis lines to youth counselling — with zero backend required.",
+        },
     },
 };
 
@@ -91,8 +106,8 @@ const siteConfig = {
 function switchQR(type) {
     document.getElementById('qr-paynow').hidden = (type !== 'paynow');
     document.getElementById('qr-tng').hidden = (type !== 'tng');
-    document.querySelectorAll('.qr-tab').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`.qr-tab[onclick="switchQR('${type}')"]`).classList.add('active');
+    document.querySelectorAll('.qr-pick').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.qr-pick[onclick="switchQR('${type}')"]`).classList.add('active');
 }
 
 document.addEventListener("DOMContentLoaded", () => {
