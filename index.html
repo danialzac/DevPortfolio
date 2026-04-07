@@ -1,8 +1,40 @@
 <!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  FAIL: index.html — The one file to rule them all                ║
+  ║  Fail: index.html — Satu fail untuk perintah semuanya           ║
+  ║                                                                  ║
+  ║  This is the skeleton of your whole website.                     ║
+  ║  Ini adalah tulang belakang laman web kamu.                      ║
+  ║                                                                  ║
+  ║  Structure:                                                       ║
+  ║  <head>    → the invisible brain (no one sees it, very like me) ║
+  ║  <body>    → the visible body (what the world actually judges)   ║
+  ║    <nav>        → the top menu bar                               ║
+  ║    #landing     → first impression (makeorang tengok dalam 3 saat) ║
+  ║    #about       → your backstory (macam LinkedIn, tapi cooler)   ║
+  ║    #experience  → tools you know (tunjuk barang dalam toolbox)   ║
+  ║    #projects    → proof of work (ini je yang recruiter nak tengok) ║
+  ║    #contact     → call to action (jangan bagi je nombor telefon) ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
 <html lang="en">
 
 <head>
+    <!-- ═══════════════════════════════════════════════════════════
+         THE HEAD — nobody sees this, but the internet cares a lot
+         KEPALA — tak nampak, tapi Google tengok benda ni dulu
+         Think of it like your resume cover page: invisible to friends,
+         critical to the people who decide if you get the job.
+         Macam cover letter — boring tapi penting gila.
+    ═══════════════════════════════════════════════════════════ -->
+
+    <!-- charset="UTF-8" = "please support emoji and all human languages"
+         Tanpa ni, nama dengan aksara pelik jadi kotak kosong. Haru. -->
     <meta charset="UTF-8" />
+
+    <!-- viewport = "make this look good on phones, not like a shrunken desktop"
+         Tanpa ni, laman web kamu akan nampak macam diorama dalam cermin  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Danial Zac | Developer Portfolio</title>
     <meta name="description" content="Danial Zac's developer portfolio featuring completed full-stack and frontend projects built to learn, ship, and grow." />
@@ -34,8 +66,14 @@
 
 <body>
     <!-- ! Start of nav (Main Navigation) -->
-    <!-- WHY: A simple anchor-based nav is easy to explain in interviews because it uses plain HTML section links instead of JavaScript routing. -->
-    <!-- EDIT: Change the nav labels here if you rename sections later. The href values must match the section ids below. -->
+    <!-- ═══════════════════════════════════════════════════════════
+         NAV — the sticky top menu that follows you everywhere
+         NAV — menu yang ikut kamu macam adik kecil. Tak boleh elak.
+         Each href="#section-id" is just a bookmark link — click it
+         and the browser jumps to whatever section has that id="..."
+         Klik link → browser scroll ke section dengan id yang sama.
+         No JavaScript needed. Pure HTML superpower. Kuasa HTML tulen!
+    ═══════════════════════════════════════════════════════════ -->
     <nav>
         <a href="#landing">Home</a>
         <a href="#about">About</a>
@@ -46,9 +84,15 @@
     <!-- ! End of nav (Main Navigation) -->
 
     <!-- ! Start of Landing section -->
+    <!-- ═══════════════════════════════════════════════════════════
+         LANDING / HERO — your digital first handshake
+         LANDING — jabat tangan digital kamu. Buat yang terbaik!
+         You have ~3 seconds before a visitor decides to stay or leave.
+         Kamu ada 3 saat sebelum orang cabut. Tak main-main ni.
+         This section has: profile pic, name, role, CTA buttons,
+         quick facts, and 3 media cards to tell a visual story.
+    ═══════════════════════════════════════════════════════════ -->
     <section id="landing" class="section-padding">
-        <!-- WHY: The hero focuses on one job only: quickly explain who you are, what you do, and why someone should keep scrolling. -->
-        <!-- EDIT: If you want to change first-impression content later, start with the eyebrow, hero-role, hero-summary, and CTA buttons here. -->
         <!-- The hero is the first thing people see, so it holds name, role, CTA buttons, and featured media. -->
         <div class="landing-content">
             <span class="eyebrow">Developer Portfolio</span>
@@ -70,8 +114,6 @@
                 I build practical projects to strengthen technical judgment, improve execution across the stack, and turn new tools into software that is clear, stable, and usable.
             </p>
             <div class="cta-group">
-                <!-- WHY: These buttons split intent clearly: explore work, contact, or download resume. -->
-                <!-- EDIT: If you change the resume filename later, the actual link is controlled by site-config.js, not only this HTML fallback. -->
                 <a class="primary-cta" href="#projects">See Projects</a>
                 <a class="secondary-cta" href="#contact">Let&apos;s Connect</a>
                 <a class="secondary-cta" data-site-link="resume" href="assets/cv/CVdania.pdf" download>Download CV</a>
@@ -93,8 +135,6 @@
             </div>
             <!-- This strip is meant to tell a mini story: mindset, process, then proof of work. -->
             <div class="hero-media-strip" aria-label="Featured portfolio media">
-                <!-- WHY: This strip is here to add atmosphere and narrative without replacing the main project section. -->
-                <!-- EDIT: If any hero media feels wrong, swap only the src/poster here instead of redesigning the whole hero. -->
                 <article class="hero-media-card">
                     <video autoplay loop muted playsinline preload="metadata" poster="assets/img/coast.jpg">
                         <source src="assets/media/hero-coast.mp4" type="video/mp4">
@@ -128,9 +168,15 @@
     <!-- ! End of Landing section -->
 
     <!-- ! Start of About Me section -->
+    <!-- ═══════════════════════════════════════════════════════════
+         ABOUT — your longer professional story
+         ABOUT — cerita panjang sikit pasal kamu. Bukan novel, okay.
+         The hero kept it short. This section earns the detail.
+         Hero section dah bagi sneak peek. Ni baru cerita sebenar.
+         Two-column layout: photo on left, text panel on right.
+         Grid dua kolom: gambar kiri, teks kanan. Cantik je.
+    ═══════════════════════════════════════════════════════════ -->
     <section id="about" class="section-padding">
-        <!-- WHY: This section gives the longer professional story that the hero deliberately keeps short. -->
-        <!-- EDIT: Update this section when your experience, role target, or leadership examples change. -->
         <div class="section-heading">
             <span class="section-kicker">About</span>
                 <h2>
@@ -160,8 +206,6 @@
 
                 <div class="info-card-container">
                     <!-- These cards turn longer background info into smaller blocks that are easier to understand quickly. -->
-                    <!-- WHY: Summary cards help recruiters skim faster than long paragraphs alone. -->
-                    <!-- EDIT: Keep these cards short. They work best as quick facts, not mini paragraphs. -->
                     <div class="info-card">
                         <h4>
                             5+ Years of Experience</h4>
@@ -183,9 +227,15 @@
     <!-- ! End of About Me section -->
 
     <!-- ! Start of Experience section -->
+    <!-- ═══════════════════════════════════════════════════════════
+         EXPERIENCE / TOOLBOX — show your weapons, not just your words
+         TOOLBOX — tunjukkan senjata kamu. Cakap je tak cukup!
+         Each icon = a tool you can confidently talk about in interviews.
+         Setiap ikon = alat yang kamu boleh jelaskan kalau ditanya.
+         Rule: only add icons for tools you've actually used.
+         Peraturan: jangan letak ikon tools yang kamu tak pernah sentuh.
+    ═══════════════════════════════════════════════════════════ -->
     <section id="experience" class="section-padding">
-        <!-- WHY: The toolbox section gives visual proof of technical familiarity without needing another long text block. -->
-        <!-- EDIT: Add or remove icons here when your stack changes, but keep only tools you can talk about confidently. -->
         <div class="section-heading">
             <span class="section-kicker">Toolbox</span>
             <h2>Tools I use across completed projects, testing work, and ongoing learning</h2>
@@ -241,9 +291,17 @@
     <!-- ! End of Experience section -->
 
     <!-- ! Start of Projects section -->
+    <!-- ═══════════════════════════════════════════════════════════
+         PROJECTS — the proof section. This is where you earn trust.
+         PROJEK — bahagian bukti. Ini je yang recruiter nak tengok!
+         Cards hidden with the "hidden" attribute are works in progress.
+         Kad yang ada "hidden" = projek belum ready. Sorok dulu, malu.
+         When a project is ready: remove the hidden attribute to show it.
+         Bila dah ready: buang je perkataan "hidden" tu. Selesai!
+         Each card gets its text + links from site-config.js, not here.
+         Teks dan link datang dari site-config.js. Ubah di sana dulu.
+    ═══════════════════════════════════════════════════════════ -->
     <section id="projects" class="section-padding">
-        <!-- WHY: Projects are the proof section. In interviews, this is where you show execution, tradeoffs, and technical decisions. -->
-        <!-- EDIT: If you add a new project, copy one project card block and then update its data-project-* values to match site-config.js. -->
         <div class="section-heading">
             <span class="section-kicker">Selected Work</span>
             <h2>Selected projects that best show how I build, learn, and deliver</h2>
@@ -258,8 +316,6 @@
                 <div class="project-details">
                     <div>
                         <!-- data-project-description lets the JS file replace this text from one central config file. -->
-                        <!-- WHY: Keeping descriptions in one config file reduces repetition and lowers the chance of inconsistent edits. -->
-                        <!-- EDIT: Change the actual project summary in site-config.js under the matching project key. -->
                         <span class="project-eyebrow">Featured Build</span>
                         <h3>Capstone Project</h3>
                         <p data-project-description="capstone-project">
@@ -277,7 +333,6 @@
                     </div>
                     <div class="project-links">
                         <!-- data-project-link lets the JS file control demo/repo URLs without editing many places in HTML. -->
-                        <!-- EDIT: To update repo/demo links later, change them in site-config.js, not in every card manually. -->
                         <a data-project-link="capstone-project-demo" href="https://github.com/danialzac/voltora">View Demo</a>
                         <a data-project-link="capstone-project-repo" href="https://github.com/danialzac/voltara-backend.git">GitHub Repo</a>
                     </div>
@@ -308,7 +363,6 @@
                     </div>
                 </div>
             </div>
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card project-card-wide" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/airstream.mp4" type="video/mp4">
@@ -334,7 +388,6 @@
                 </div>
             </div>
 
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/find your hat.mp4" type="video/mp4">
@@ -359,7 +412,6 @@
                     </div>
                 </div>
             </div>
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/pokedex.mp4" type="video/mp4">
@@ -386,7 +438,6 @@
                     </div>
                 </div>
             </div>
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/diamondlite-demo.mov" type="video/quicktime">
@@ -439,7 +490,71 @@
                     </div>
                 </div>
             </div>
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
+            <!-- Todo API — Spring Boot backend project -->
+            <div class="project-card">
+                <div class="project-image todo-cover"></div>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Backend API</span>
+                        <h3>Todo List API</h3>
+                        <p data-project-description="todo-api"></p>
+                        <ul class="toolused">
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>MySQL</li>
+                            <li>REST API</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="todo-api-repo" href="https://github.com/danialzac/GenSG-Java-Spring-Boot-Assessment">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Management System — Java OOP project -->
+            <div class="project-card">
+                <div class="project-image student-cover"></div>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Java Console App</span>
+                        <h3>Student Management System</h3>
+                        <p data-project-description="student-management"></p>
+                        <ul class="toolused">
+                            <li>Java</li>
+                            <li>OOP</li>
+                            <li>JUnit 5</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="student-management-repo" href="https://github.com/danialzac/Project-StudentGen-student-management-system-">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KopiConnect — visible and ready -->
+            <div class="project-card">
+                <div class="project-image kopi-cover"></div>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Community Impact Build</span>
+                        <h3>KopiConnect</h3>
+                        <p data-project-description="kopi-connect">
+                            A Singapore mental health service finder with an emotion-aware chatbot.
+                        </p>
+                        <ul class="toolused">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Bootstrap 5</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="kopi-connect-demo" href="#">View Demo</a>
+                        <a data-project-link="kopi-connect-repo" href="https://github.com/danialzac/kopi-connect">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/colmar.mp4" type="video/mp4">
@@ -469,9 +584,15 @@
     <!-- ! End of Projects section -->
 
     <!-- ! Start of Contact section -->
+    <!-- ═══════════════════════════════════════════════════════════
+         CONTACT — the finish line. Make it easy to reach you.
+         HUBUNGI — garisan penamat. Jangan buat orang susah nak cari kamu!
+         Four links: CV download, email, GitHub, LinkedIn.
+         Empat cara: muat turun CV, emel, GitHub, LinkedIn.
+         Keep this simple. A confused visitor won't reach out.
+         Buat simple je. Orang keliru tak akan hubungi kamu.
+    ═══════════════════════════════════════════════════════════ -->
     <section id="contact" class="section-padding">
-        <!-- WHY: The contact section stays intentionally simple so the call-to-action is clear and low-friction. -->
-        <!-- EDIT: If you ever change contact methods, update the links here and the matching values in site-config.js. -->
         <div class="section-heading">
             <span class="section-kicker">Contact</span>
             <h2>Open to thoughtful teams, meaningful work, and steady growth</h2>
@@ -486,14 +607,88 @@
                 <span>💻</span> GitHub Profile</a>
             <a data-site-link="linkedin" href="https://www.linkedin.com/in/danial-rohman/" target="_blank" rel="noopener noreferrer">
                 <span>🔗</span> LinkedIn Profile</a>
+
+            <!-- Support button: opens the PayNow QR modal when clicked -->
+            <!-- Butang sokongan: buka modal QR PayNow bila diklik -->
+            <button
+                class="support-btn"
+                onclick="document.getElementById('paynow-modal').classList.add('is-open')"
+                aria-haspopup="dialog"
+                aria-controls="paynow-modal">
+                <span>☕</span> Fuel My Learning
+            </button>
         </div>
     </section>
     <!-- ! End of Contact section -->
 
     <!-- ! Start of Footer -->
     <footer>
-
+    </footer>
         <!-- ! End of Footer -->
+
+    <!-- ── PAYNOW MODAL ─────────────────────────────────────────────
+         This modal lives outside all sections so it can float above everything.
+         Modal ni duduk luar semua section supaya boleh terapung atas semua.
+         Clicking the dark overlay (outside the card) also closes it.
+         Klik luar kad gelap pun boleh tutup modal. Mudah!
+    ──────────────────────────────────────────────────────────────── -->
+    <div
+        id="paynow-modal"
+        class="modal-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="PayNow QR Code"
+        onclick="this.classList.remove('is-open')">
+
+        <!-- stopPropagation stops clicks inside the card from closing the modal -->
+        <!-- stopPropagation halang klik dalam kad dari tutup modal secara tak sengaja -->
+        <div class="modal-card" onclick="event.stopPropagation()">
+
+            <button
+                class="modal-close"
+                aria-label="Close"
+                onclick="document.getElementById('paynow-modal').classList.remove('is-open')">
+                &times;
+            </button>
+
+            <h3>Back a Builder</h3>
+            <p class="modal-subtitle">
+                Everything here was built with late nights, free tutorials,
+                and a stubborn refusal to stop learning.
+            </p>
+
+            <!-- Step 1: pick your app. Step 2: scan. That's it. -->
+            <p class="qr-choose">Which app are you using?</p>
+            <div class="qr-picker">
+                <button class="qr-pick active" onclick="switchQR('paynow')">
+                    🇸🇬 PayNow
+                </button>
+                <button class="qr-pick" onclick="switchQR('tng')">
+                    🇲🇾 TNG eWallet
+                </button>
+            </div>
+
+            <!-- One large centered QR at a time — easy to scan -->
+            <div id="qr-paynow" class="qr-display">
+                <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code" />
+                <p class="qr-hint">Open any Singapore banking app and scan</p>
+            </div>
+
+            <div id="qr-tng" class="qr-display" hidden>
+                <img src="assets/img/tng-qr.jpeg" alt="TNG eWallet QR Code" />
+                <p class="qr-hint">Open your TNG eWallet app and scan</p>
+            </div>
+
+            <p class="modal-note">
+                If something you saw here sparked an idea — or you just want
+                to say <em>"keep going"</em> — scan the code above.<br><br>
+                Your coffee money funds the next course, the next project,
+                and the next late night of figuring things out.<br><br>
+                <strong>Any amount. Totally your call. Thank you. 🙏</strong>
+            </p>
+        </div>
+    </div>
+
 </body>
 
 </html>

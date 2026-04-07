@@ -1,8 +1,27 @@
+/*
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  styles.css — The wardrobe. The whole wardrobe.                  ║
+  ║  styles.css — Almari baju. Semua baju ada kat sini.              ║
+  ║                                                                  ║
+  ║  Structure:                                                       ║
+  ║  :root         → design tokens (warna, font, saiz — satu tempat) ║
+  ║  * reset       → clear browser's ugly default styles             ║
+  ║  body          → base look of the whole page                     ║
+  ║  nav           → sticky top menu                                 ║
+  ║  #landing      → hero section (big, dark, dramatic)              ║
+  ║  #about        → two-column story section                        ║
+  ║  #experience   → icon toolbox grid                               ║
+  ║  #projects     → project card grid                               ║
+  ║  #contact      → dark footer-style CTA section                   ║
+  ║  @media        → responsive rules (ubah untuk skrin kecil)       ║
+  ╚══════════════════════════════════════════════════════════════════╝
+*/
+
 :root {
     /* These variables control the main visual system.
        Change colors, fonts, or border radius here to update the whole site faster. */
-    /* WHY: Design tokens like these make the CSS easier to maintain and talk through in an interview. */
-    /* EDIT: If you want a new color theme later, change the variables here first instead of hunting through the whole file. */
+    /* 🎨 Think of :root like a paint shop. Mix colours here, use them everywhere.
+       Anggap :root macam kedai cat. Pilih warna kat sini, pakai seluruh laman. */
     --font-sans: "Manrope", sans-serif;
     --font-serif: "Newsreader", serif;
     --color-ink: #182433;
@@ -28,6 +47,14 @@
     scroll-behavior: smooth;
 }
 
+/* ── RESET ──────────────────────────────────────────────────────────
+   Every browser (Chrome, Firefox, Safari) adds its own default spacing.
+   Setiap browser ada "pendapat sendiri" pasal saiz dan jarak.
+   This * reset says: "No. We start from zero. Kita mula dari kosong."
+   box-sizing: border-box → padding won't make boxes bigger than expected.
+                            Padding tak akan buat kotak jadi lebih besar.
+   margin/padding: 0       → wipe all default gaps. Kita sapu semua.
+   ─────────────────────────────────────────────────────────────────── */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -67,7 +94,6 @@ a {
 
 .section-padding {
     /* This keeps all main sections aligned to the same width and vertical spacing rhythm. */
-    /* WHY: Shared spacing rules make the page feel intentional instead of stitched together section by section. */
     width: min(1120px, calc(100% - 2rem));
     padding: 6rem 0;
     margin: 0 auto;
@@ -121,7 +147,10 @@ h2 {
 
 nav {
     /* Sticky nav stays visible while scrolling so the user can jump between sections easily. */
-    /* EDIT: If the nav ever feels crowded, adjust padding and gap here before changing each link individually. */
+    /* position: sticky = "follow me as I scroll, but stay at the top"
+       Macam pengawal peribadi — ikut ke mana kamu pergi, tapi duduk atas.
+       z-index: 1000 = make sure nav floats ABOVE everything else on the page.
+       Nombor besar = lagi atas. Nav kena nampak, jangan sorok bawah gambar. */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -156,7 +185,6 @@ nav a:focus-visible {
 
 #landing {
     /* The hero uses the coast image plus dark overlays so the text stays readable on top. */
-    /* WHY: Overlays protect readability while still keeping the background image visible. */
     position: relative;
     min-height: calc(100dvh - 3rem);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
@@ -330,7 +358,6 @@ nav a:focus-visible {
 
 .hero-media-strip {
     /* This is a 3-card strip inside the hero. It is there to support the brand story, not replace the projects section. */
-    /* EDIT: Treat this as optional support content. If it gets noisy, simplify it instead of adding more cards. */
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.9rem;
@@ -385,7 +412,11 @@ nav a:focus-visible {
 
 .about-grid {
     /* Two-column layout on larger screens, then stacks on smaller screens in media queries below. */
-    /* WHY: This creates a readable desktop layout without breaking mobile. */
+    /* display: grid = "I want to control where children go, like a strict parent"
+       CSS Grid is like planning a seating arrangement at a kenduri.
+       Grid macam susun kerusi kenduri — kamu tentukan siapa duduk mana.
+       minmax(260px, 0.82fr) = "at least 260px wide, but flexible after that"
+       Sekurang-kurangnya 260px, tapi boleh membesar kalau ada ruang. */
     display: grid;
     grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.34fr);
     gap: 2rem;
@@ -493,7 +524,6 @@ nav a:focus-visible {
 
 .project-grid {
     /* Auto-fit makes the cards wrap based on screen width without needing custom row-by-row layout code. */
-    /* EDIT: If project cards feel too cramped or too wide, change the min width here first. */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.35rem;
@@ -522,7 +552,6 @@ nav a:focus-visible {
 
 .project-card .project-image {
     /* object-fit keeps video thumbnails from stretching even when cards resize. */
-    /* WHY: Media should scale with the card without distorting the video frame. */
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
@@ -617,6 +646,56 @@ nav a:focus-visible {
     background: rgba(255, 255, 255, 0.46);
 }
 
+/* ── ABSTRACT PROJECT COVERS ────────────────────────────────────────
+   No text, no placeholders — just intentional abstract art.
+   Each cover uses layered gradients + a floating circle shape
+   to feel designed, not missing.
+   ─────────────────────────────────────────────────────────────────── */
+.todo-cover,
+.student-cover,
+.kopi-cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+/* Shared floating circle on all covers */
+.todo-cover::after,
+.student-cover::after,
+.kopi-cover::after {
+    content: "";
+    position: absolute;
+    width: 55%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0.18;
+    bottom: -20%;
+    right: -10%;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Todo API — deep navy, feels technical and solid */
+.todo-cover {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(99, 179, 237, 0.3), transparent 50%),
+        linear-gradient(135deg, #0f0c29, #1a1a4e, #302b63);
+}
+
+/* Student Management — teal/cyan, clean and academic */
+.student-cover {
+    background:
+        radial-gradient(circle at 75% 20%, rgba(129, 230, 217, 0.28), transparent 50%),
+        linear-gradient(135deg, #0a2e38, #0d5c6e, #1a8a9e);
+}
+
+/* KopiConnect — warm pink/purple, approachable and human */
+.kopi-cover {
+    background:
+        radial-gradient(circle at 30% 70%, rgba(255, 200, 221, 0.3), transparent 50%),
+        linear-gradient(135deg, #6b21a8, #a855f7, #ec4899);
+}
+
 .project-links a.is-disabled:hover,
 .project-links a.is-disabled:focus-visible {
     transform: none;
@@ -695,6 +774,181 @@ nav a:focus-visible {
     transform: none;
 }
 
+/* ── SUPPORT / PAYNOW BUTTON ────────────────────────────────────────
+   This is the "Support My Work" button in the contact section.
+   Butang "Support My Work" dalam bahagian contact.
+   It looks like the other contact links so it fits in naturally.
+   ─────────────────────────────────────────────────────────────────── */
+.support-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(255, 248, 240, 0.18);
+    border-radius: 999px;
+    background: rgba(181, 106, 45, 0.22);
+    color: rgba(255, 251, 246, 0.95);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.support-btn:hover,
+.support-btn:focus-visible {
+    transform: translateY(-2px);
+    background: rgba(181, 106, 45, 0.36);
+    border-color: rgba(255, 222, 196, 0.32);
+    outline: none;
+}
+
+/* ── PAYNOW MODAL ───────────────────────────────────────────────────
+   The modal is hidden by default (opacity 0, pointer-events none).
+   Modal tersembunyi pada mulanya. Muncul bila butang diklik.
+   Adding the class "is-open" makes it visible. Simple toggle.
+   Tambah class "is-open" → modal muncul. Buang → hilang semula.
+   ─────────────────────────────────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;                          /* covers the whole screen */
+    z-index: 9999;                     /* floats above everything */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(15, 24, 36, 0.72);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;              /* invisible = unclickable */
+    transition: opacity 220ms ease;
+}
+
+.modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: all;               /* visible = clickable */
+}
+
+.modal-card {
+    position: relative;
+    width: min(36rem, 100%);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+    background: var(--color-paper-soft);
+    box-shadow: var(--shadow-strong);
+    text-align: center;
+    transform: translateY(12px);
+    transition: transform 220ms ease;
+}
+
+.modal-overlay.is-open .modal-card {
+    transform: translateY(0);          /* slides up when opened */
+}
+
+.modal-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-deep);
+    margin-bottom: 0.4rem;
+}
+
+.modal-card .modal-subtitle {
+    font-size: 0.94rem;
+    color: var(--color-ink-soft);
+    margin-bottom: 1.25rem;
+}
+
+.modal-card img {
+    width: 100%;
+    max-width: 16rem;
+    margin: 0 auto 1rem;
+    border-radius: var(--radius-sm);
+}
+
+.modal-note {
+    font-size: 0.88rem;
+    color: var(--color-ink-soft);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.85rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--color-ink-soft);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--color-ink);
+}
+
+/* ── QR PICKER ──────────────────────────────────────────────────── */
+.qr-choose {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-ink-soft);
+    margin-bottom: 0.6rem;
+}
+
+.qr-picker {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: rgba(24, 36, 51, 0.06);
+    padding: 0.35rem;
+    border-radius: 999px;
+}
+
+.qr-pick {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-ink-soft);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.qr-pick.active {
+    background: var(--color-paper-soft);
+    color: var(--color-deep);
+    box-shadow: 0 2px 8px rgba(15, 24, 36, 0.1);
+}
+
+/* ── QR DISPLAY — one large centered QR ────────────────────────── */
+.qr-display {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.qr-display img {
+    width: 100%;
+    max-width: 22rem;
+    margin: 0 auto 0.75rem;
+    display: block;
+    border-radius: var(--radius-sm);
+    border: 3px solid var(--color-stone);
+    background: #fff;
+    padding: 0.5rem;
+}
+
+.qr-hint {
+    font-size: 0.84rem;
+    color: var(--color-ink-soft);
+    font-weight: 600;
+}
+
 footer {
     padding: 1.5rem;
     text-align: center;
@@ -711,9 +965,21 @@ footer {
     }
 }
 
+/* ── MEDIA QUERIES — the responsive magic ───────────────────────────
+   @media = "only apply these rules IF the screen is this size"
+   Macam baju saiz S, M, L — laman web pun kena ada saiz berbeza!
+   We don't design for ONE screen. Phones, tablets, laptops — all different.
+   Kita tak design untuk satu skrin je. Telefon, tablet, laptop — semua lain.
+   Read them bottom-up: big screen rules above, small screen overrides below.
+   Baca dari bawah: skrin besar atas, skrin kecil override kat bawah.
+   ─────────────────────────────────────────────────────────────────── */
+
 @media (prefers-reduced-motion: reduce) {
     /* Accessibility: users who prefer less motion should not get animations forced on them. */
-    /* WHY: This is a good interview talking point because it shows accessibility awareness, not just visual styling. */
+    /* prefers-reduced-motion = some users get dizzy from animations. Respect that.
+       Sesetengah orang rasa pening tengok animasi. Kita hormati mereka.
+       This turns off ALL transitions for those users. Zero animations. Kosong.
+       Interview tip: mention this! Shows you think about real users, not just looks. */
     *,
     *::before,
     *::after {
