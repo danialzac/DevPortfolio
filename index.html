@@ -66,6 +66,14 @@
 
 <body>
     <!-- ! Start of nav (Main Navigation) -->
+    <!-- ═══════════════════════════════════════════════════════════
+         NAV — the sticky top menu that follows you everywhere
+         NAV — menu yang ikut kamu macam adik kecil. Tak boleh elak.
+         Each href="#section-id" is just a bookmark link — click it
+         and the browser jumps to whatever section has that id="..."
+         Klik link → browser scroll ke section dengan id yang sama.
+         No JavaScript needed. Pure HTML superpower. Kuasa HTML tulen!
+    ═══════════════════════════════════════════════════════════ -->
     <!-- WHY: A simple anchor-based nav is easy to explain in interviews because it uses plain HTML section links instead of JavaScript routing. -->
     <!-- EDIT: Change the nav labels here if you rename sections later. The href values must match the section ids below. -->
     <!-- ═══════════════════════════════════════════════════════════
@@ -95,9 +103,9 @@
          quick facts, and 3 media cards to tell a visual story.
     ═══════════════════════════════════════════════════════════ -->
     <section id="landing" class="section-padding">
+        <!-- The hero is the first thing people see, so it holds name, role, CTA buttons, and featured media. -->
         <!-- WHY: The hero focuses on one job only: quickly explain who you are, what you do, and why someone should keep scrolling. -->
         <!-- EDIT: If you want to change first-impression content later, start with the eyebrow, hero-role, hero-summary, and CTA buttons here. -->
-        <!-- The hero is the first thing people see, so it holds name, role, CTA buttons, and featured media. -->
         <div class="landing-content">
             <span class="eyebrow">Developer Portfolio</span>
             <img src="assets/img/profileimage1.jpg" class="profile-pic-large" alt="Danial Zac">
@@ -185,14 +193,14 @@
          Grid dua kolom: gambar kiri, teks kanan. Cantik je.
     ═══════════════════════════════════════════════════════════ -->
     <section id="about" class="section-padding">
-        <!-- WHY: This section gives the longer professional story that the hero deliberately keeps short. -->
-        <!-- EDIT: Update this section when your experience, role target, or leadership examples change. -->
         <div class="section-heading">
             <span class="section-kicker">About</span>
                 <h2>
                 Learning fast, building carefully, and delivering dependable software
             </h2>
         </div>
+        <!-- WHY: This section gives the longer professional story that the hero deliberately keeps short. -->
+        <!-- EDIT: Update this section when your experience, role target, or leadership examples change. -->
         <div class="about-grid">
             <!-- This grid uses image on one side and longer text on the other so the section feels easier to scan. -->
             <div class="about-image">
@@ -316,12 +324,12 @@
          Teks dan link datang dari site-config.js. Ubah di sana dulu.
     ═══════════════════════════════════════════════════════════ -->
     <section id="projects" class="section-padding">
-        <!-- WHY: Projects are the proof section. In interviews, this is where you show execution, tradeoffs, and technical decisions. -->
-        <!-- EDIT: If you add a new project, copy one project card block and then update its data-project-* values to match site-config.js. -->
         <div class="section-heading">
             <span class="section-kicker">Selected Work</span>
             <h2>Selected projects that best show how I build, learn, and deliver</h2>
         </div>
+        <!-- WHY: Projects are the proof section. In interviews, this is where you show execution, tradeoffs, and technical decisions. -->
+        <!-- EDIT: If you add a new project, copy one project card block and then update its data-project-* values to match site-config.js. -->
         <div class="project-grid">
             <!-- Every project card follows the same pattern: media, short label, title, summary, tech stack, then links. -->
             <div class="project-card">
@@ -332,10 +340,10 @@
                 <div class="project-details">
                     <div>
                         <!-- data-project-description lets the JS file replace this text from one central config file. -->
-                        <!-- WHY: Keeping descriptions in one config file reduces repetition and lowers the chance of inconsistent edits. -->
-                        <!-- EDIT: Change the actual project summary in site-config.js under the matching project key. -->
                         <span class="project-eyebrow">Featured Build</span>
                         <h3>Capstone Project</h3>
+                        <!-- WHY: Keeping descriptions in one config file reduces repetition and lowers the chance of inconsistent edits. -->
+                        <!-- EDIT: Change the actual project summary in site-config.js under the matching project key. -->
                         <p data-project-description="capstone-project">
                             A full-stack platform built to learn how structured content, secure access, and backend integration come together in a project with room to grow.
                         </p>
@@ -382,7 +390,6 @@
                     </div>
                 </div>
             </div>
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card project-card-wide" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/airstream.mp4" type="video/mp4">
@@ -408,7 +415,6 @@
                 </div>
             </div>
 
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/find your hat.mp4" type="video/mp4">
@@ -433,7 +439,6 @@
                     </div>
                 </div>
             </div>
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/pokedex.mp4" type="video/mp4">
@@ -460,7 +465,6 @@
                     </div>
                 </div>
             </div>
-            <!-- EDIT: Restore this card later by removing the hidden attribute once the project has a stable demo or repo link. -->
             <div class="project-card" hidden>
                 <video class="project-image" controls muted playsinline preload="metadata">
                     <source src="assets/media/diamondlite-demo.mov" type="video/quicktime">
@@ -617,8 +621,6 @@
          Buat simple je. Orang keliru tak akan hubungi kamu.
     ═══════════════════════════════════════════════════════════ -->
     <section id="contact" class="section-padding">
-        <!-- WHY: The contact section stays intentionally simple so the call-to-action is clear and low-friction. -->
-        <!-- EDIT: If you ever change contact methods, update the links here and the matching values in site-config.js. -->
         <div class="section-heading">
             <span class="section-kicker">Contact</span>
             <h2>Open to thoughtful teams, meaningful work, and steady growth</h2>
