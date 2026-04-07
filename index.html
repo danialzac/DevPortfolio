@@ -74,6 +74,8 @@
          Klik link → browser scroll ke section dengan id yang sama.
          No JavaScript needed. Pure HTML superpower. Kuasa HTML tulen!
     ═══════════════════════════════════════════════════════════ -->
+    <!-- WHY: A simple anchor-based nav is easy to explain in interviews because it uses plain HTML section links instead of JavaScript routing. -->
+    <!-- EDIT: Change the nav labels here if you rename sections later. The href values must match the section ids below. -->
     <nav>
         <a href="#landing">Home</a>
         <a href="#about">About</a>
@@ -94,6 +96,8 @@
     ═══════════════════════════════════════════════════════════ -->
     <section id="landing" class="section-padding">
         <!-- The hero is the first thing people see, so it holds name, role, CTA buttons, and featured media. -->
+        <!-- WHY: The hero focuses on one job only: quickly explain who you are, what you do, and why someone should keep scrolling. -->
+        <!-- EDIT: If you want to change first-impression content later, start with the eyebrow, hero-role, hero-summary, and CTA buttons here. -->
         <div class="landing-content">
             <span class="eyebrow">Developer Portfolio</span>
             <img src="assets/img/profileimage1.jpg" class="profile-pic-large" alt="Danial Zac">
@@ -114,6 +118,8 @@
                 I build practical projects to strengthen technical judgment, improve execution across the stack, and turn new tools into software that is clear, stable, and usable.
             </p>
             <div class="cta-group">
+                <!-- WHY: These buttons split intent clearly: explore work, contact, or download resume. -->
+                <!-- EDIT: If you change the resume filename later, the actual link is controlled by site-config.js, not only this HTML fallback. -->
                 <a class="primary-cta" href="#projects">See Projects</a>
                 <a class="secondary-cta" href="#contact">Let&apos;s Connect</a>
                 <a class="secondary-cta" data-site-link="resume" href="assets/cv/CVdania.pdf" download>Download CV</a>
@@ -135,6 +141,8 @@
             </div>
             <!-- This strip is meant to tell a mini story: mindset, process, then proof of work. -->
             <div class="hero-media-strip" aria-label="Featured portfolio media">
+                <!-- WHY: This strip is here to add atmosphere and narrative without replacing the main project section. -->
+                <!-- EDIT: If any hero media feels wrong, swap only the src/poster here instead of redesigning the whole hero. -->
                 <article class="hero-media-card">
                     <video autoplay loop muted playsinline preload="metadata" poster="assets/img/coast.jpg">
                         <source src="assets/media/hero-coast.mp4" type="video/mp4">
@@ -183,6 +191,8 @@
                 Learning fast, building carefully, and delivering dependable software
             </h2>
         </div>
+        <!-- WHY: This section gives the longer professional story that the hero deliberately keeps short. -->
+        <!-- EDIT: Update this section when your experience, role target, or leadership examples change. -->
         <div class="about-grid">
             <!-- This grid uses image on one side and longer text on the other so the section feels easier to scan. -->
             <div class="about-image">
@@ -206,6 +216,8 @@
 
                 <div class="info-card-container">
                     <!-- These cards turn longer background info into smaller blocks that are easier to understand quickly. -->
+                    <!-- WHY: Summary cards help recruiters skim faster than long paragraphs alone. -->
+                    <!-- EDIT: Keep these cards short. They work best as quick facts, not mini paragraphs. -->
                     <div class="info-card">
                         <h4>
                             5+ Years of Experience</h4>
@@ -236,6 +248,8 @@
          Peraturan: jangan letak ikon tools yang kamu tak pernah sentuh.
     ═══════════════════════════════════════════════════════════ -->
     <section id="experience" class="section-padding">
+        <!-- WHY: The toolbox section gives visual proof of technical familiarity without needing another long text block. -->
+        <!-- EDIT: Add or remove icons here when your stack changes, but keep only tools you can talk about confidently. -->
         <div class="section-heading">
             <span class="section-kicker">Toolbox</span>
             <h2>Tools I use across completed projects, testing work, and ongoing learning</h2>
@@ -306,6 +320,8 @@
             <span class="section-kicker">Selected Work</span>
             <h2>Selected projects that best show how I build, learn, and deliver</h2>
         </div>
+        <!-- WHY: Projects are the proof section. In interviews, this is where you show execution, tradeoffs, and technical decisions. -->
+        <!-- EDIT: If you add a new project, copy one project card block and then update its data-project-* values to match site-config.js. -->
         <div class="project-grid">
             <!-- Every project card follows the same pattern: media, short label, title, summary, tech stack, then links. -->
             <div class="project-card">
@@ -318,6 +334,8 @@
                         <!-- data-project-description lets the JS file replace this text from one central config file. -->
                         <span class="project-eyebrow">Featured Build</span>
                         <h3>Capstone Project</h3>
+                        <!-- WHY: Keeping descriptions in one config file reduces repetition and lowers the chance of inconsistent edits. -->
+                        <!-- EDIT: Change the actual project summary in site-config.js under the matching project key. -->
                         <p data-project-description="capstone-project">
                             A full-stack platform built to learn how structured content, secure access, and backend integration come together in a project with room to grow.
                         </p>
@@ -333,6 +351,7 @@
                     </div>
                     <div class="project-links">
                         <!-- data-project-link lets the JS file control demo/repo URLs without editing many places in HTML. -->
+                        <!-- EDIT: To update repo/demo links later, change them in site-config.js, not in every card manually. -->
                         <a data-project-link="capstone-project-demo" href="https://github.com/danialzac/voltora">View Demo</a>
                         <a data-project-link="capstone-project-repo" href="https://github.com/danialzac/voltara-backend.git">GitHub Repo</a>
                     </div>

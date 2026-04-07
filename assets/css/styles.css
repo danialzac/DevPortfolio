@@ -20,6 +20,8 @@
 :root {
     /* These variables control the main visual system.
        Change colors, fonts, or border radius here to update the whole site faster. */
+    /* WHY: Design tokens like these make the CSS easier to maintain and talk through in an interview. */
+    /* EDIT: If you want a new color theme later, change the variables here first instead of hunting through the whole file. */
     /* 🎨 Think of :root like a paint shop. Mix colours here, use them everywhere.
        Anggap :root macam kedai cat. Pilih warna kat sini, pakai seluruh laman. */
     --font-sans: "Manrope", sans-serif;
@@ -94,6 +96,7 @@ a {
 
 .section-padding {
     /* This keeps all main sections aligned to the same width and vertical spacing rhythm. */
+    /* WHY: Shared spacing rules make the page feel intentional instead of stitched together section by section. */
     width: min(1120px, calc(100% - 2rem));
     padding: 6rem 0;
     margin: 0 auto;
@@ -147,6 +150,7 @@ h2 {
 
 nav {
     /* Sticky nav stays visible while scrolling so the user can jump between sections easily. */
+    /* EDIT: If the nav ever feels crowded, adjust padding and gap here before changing each link individually. */
     /* position: sticky = "follow me as I scroll, but stay at the top"
        Macam pengawal peribadi — ikut ke mana kamu pergi, tapi duduk atas.
        z-index: 1000 = make sure nav floats ABOVE everything else on the page.
@@ -185,6 +189,7 @@ nav a:focus-visible {
 
 #landing {
     /* The hero uses the coast image plus dark overlays so the text stays readable on top. */
+    /* WHY: Overlays protect readability while still keeping the background image visible. */
     position: relative;
     min-height: calc(100dvh - 3rem);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
@@ -358,6 +363,7 @@ nav a:focus-visible {
 
 .hero-media-strip {
     /* This is a 3-card strip inside the hero. It is there to support the brand story, not replace the projects section. */
+    /* EDIT: Treat this as optional support content. If it gets noisy, simplify it instead of adding more cards. */
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.9rem;
@@ -412,6 +418,7 @@ nav a:focus-visible {
 
 .about-grid {
     /* Two-column layout on larger screens, then stacks on smaller screens in media queries below. */
+    /* WHY: This creates a readable desktop layout without breaking mobile. */
     /* display: grid = "I want to control where children go, like a strict parent"
        CSS Grid is like planning a seating arrangement at a kenduri.
        Grid macam susun kerusi kenduri — kamu tentukan siapa duduk mana.
@@ -524,6 +531,7 @@ nav a:focus-visible {
 
 .project-grid {
     /* Auto-fit makes the cards wrap based on screen width without needing custom row-by-row layout code. */
+    /* EDIT: If project cards feel too cramped or too wide, change the min width here first. */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.35rem;
@@ -552,6 +560,7 @@ nav a:focus-visible {
 
 .project-card .project-image {
     /* object-fit keeps video thumbnails from stretching even when cards resize. */
+    /* WHY: Media should scale with the card without distorting the video frame. */
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
@@ -976,6 +985,7 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
     /* Accessibility: users who prefer less motion should not get animations forced on them. */
+    /* WHY: This is a good interview talking point because it shows accessibility awareness, not just visual styling. */
     /* prefers-reduced-motion = some users get dizzy from animations. Respect that.
        Sesetengah orang rasa pening tengok animasi. Kita hormati mereka.
        This turns off ALL transitions for those users. Zero animations. Kosong.

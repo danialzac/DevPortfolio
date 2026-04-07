@@ -18,8 +18,11 @@
 
 // This object is the main "single source of truth" for personal info and project links.
 // If you need to update name, resume, GitHub, or project URLs, start here first.
+// WHY: Centralizing repeated content here makes the HTML easier to maintain and easier to explain in interviews.
+// EDIT: When updating the portfolio later, change this file first before touching repeated values in HTML.
 const siteConfig = {
     personal: {
+        // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
         title: "Danial Zac | Developer Portfolio",
         description: "Danial Zac's developer portfolio featuring completed full-stack and frontend projects built to learn, ship, and grow.",
@@ -32,6 +35,7 @@ const siteConfig = {
         },
     },
     projects: {
+        // EDIT: Each project key must match the data-project-* names used in index.html.
         "capstone-project": {
             demo: "https://github.com/danialzac/voltora",
             repo: "https://github.com/danialzac/voltara-backend.git",
@@ -108,6 +112,7 @@ function switchQR(type) {
 
 document.addEventListener("DOMContentLoaded", () => {
     // These first lines keep the browser title and SEO tags in sync with the config above.
+    // WHY: This avoids one common portfolio problem where the visible content changes but metadata is forgotten.
     document.title = siteConfig.personal.title;
 
     const descriptionMeta = document.querySelector('meta[name="description"]');
@@ -131,11 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // This replaces any HTML element marked with data-site-field="name".
+    // WHY: One data attribute can update many repeated spots at once.
     document.querySelectorAll('[data-site-field="name"]').forEach((element) => {
         element.textContent = siteConfig.personal.name;
     });
 
     // This updates repeated personal links such as resume, email, GitHub, and LinkedIn.
+    // EDIT: Add another branch here if you create a new reusable contact link type later.
     document.querySelectorAll("[data-site-link]").forEach((element) => {
         const linkType = element.getAttribute("data-site-link");
 
@@ -158,6 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // This lets project summaries live in one config file instead of inside every HTML card.
+    // WHY: Project copy changes often, so this keeps edits safer and faster.
     document.querySelectorAll("[data-project-description]").forEach((element) => {
         const projectKey = element.getAttribute("data-project-description");
         const project = siteConfig.projects[projectKey];
@@ -169,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Each project link name ends with "-demo" or "-repo".
     // We split that value so we can look up the correct URL in the config above.
+    // WHY: This pattern keeps the HTML clean while still letting each card point to different URLs.
     // ── THE REGEX EXPLAINED (don't panic) ───────────────────────────
     // /-(?=[^-]+$)/ means: "split at the LAST hyphen only"
     // Maksudnya: "pisah pada sempang TERAKHIR sahaja"
@@ -187,7 +196,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const url = project[linkType];
             element.setAttribute("href", url);
 
+            // WHY: Some projects are still being finalized, so this turns placeholder links into intentional
             // "coming soon" states instead of making the UI feel broken.
+            // EDIT: Replace "#" in the project config with a real URL later and the button will return to normal automatically.
             if (url === "#") {
                 element.classList.add("is-disabled");
                 element.setAttribute("aria-disabled", "true");
