@@ -669,20 +669,22 @@ nav a:focus-visible {
    No text, no placeholders — just intentional abstract art.
    Each cover uses layered gradients + a floating circle shape
    to feel designed, not missing.
+   WHY: Selectors use ".project-card .todo-cover" (specificity 0,2,0)
+        to beat ".project-card .project-image" (also 0,2,0 but declared
+        later). This ensures the cover background wins over the fallback.
+        Kalau tak buat gini, warna generic menang. CSS specificity rules!
    ─────────────────────────────────────────────────────────────────── */
-.todo-cover,
-.student-cover,
-.kopi-cover {
+.project-card .todo-cover,
+.project-card .student-cover,
+.project-card .kopi-cover {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
     overflow: hidden;
 }
 
 /* Shared floating circle on all covers */
-.todo-cover::after,
-.student-cover::after,
-.kopi-cover::after {
+.project-card .todo-cover::after,
+.project-card .student-cover::after,
+.project-card .kopi-cover::after {
     content: "";
     position: absolute;
     width: 55%;
@@ -695,21 +697,21 @@ nav a:focus-visible {
 }
 
 /* Todo API — deep navy, feels technical and solid */
-.todo-cover {
+.project-card .todo-cover {
     background:
         radial-gradient(circle at 20% 80%, rgba(99, 179, 237, 0.3), transparent 50%),
         linear-gradient(135deg, #0f0c29, #1a1a4e, #302b63);
 }
 
 /* Student Management — teal/cyan, clean and academic */
-.student-cover {
+.project-card .student-cover {
     background:
         radial-gradient(circle at 75% 20%, rgba(129, 230, 217, 0.28), transparent 50%),
         linear-gradient(135deg, #0a2e38, #0d5c6e, #1a8a9e);
 }
 
 /* KopiConnect — warm pink/purple, approachable and human */
-.kopi-cover {
+.project-card .kopi-cover {
     background:
         radial-gradient(circle at 30% 70%, rgba(255, 200, 221, 0.3), transparent 50%),
         linear-gradient(135deg, #6b21a8, #a855f7, #ec4899);
