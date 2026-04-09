@@ -101,6 +101,15 @@ const siteConfig = {
 // If you skip this, your JS tries to find elements that don't exist yet.
 // Kalau skip ni, JS cuba cari elemen yang belum ada. Error je hasilnya.
 // ────────────────────────────────────────────────────────────────────
+// Opens modal AND pre-selects $5 so visitor has a clear action path immediately
+// WHY: Zero selection = decision paralysis. Pre-selecting $5 lowers the barrier.
+// Buka modal DAN pilih $5 terus supaya pelawat tahu apa yang patut dibuat.
+function openModal() {
+    document.getElementById('paynow-modal').classList.add('is-open');
+    // Small delay so the modal animation plays first, then the pill highlights
+    setTimeout(() => pickAmount(5), 80);
+}
+
 // Closes modal and shows the thank you toast briefly
 // Tutup modal dan tunjuk toast ucapan terima kasih
 function closeModal() {
@@ -119,21 +128,25 @@ function switchQR(type) {
     document.querySelector(`.qr-pick[onclick="switchQR('${type}')"]`).classList.add('active');
 }
 
-// Highlights selected amount and updates the hint text with what to enter in the banking app
-// Highlight amaun yang dipilih dan tunjuk arahan untuk dimasukkan dalam app bank
+// Highlights selected amount and updates the hint text
+// WHY: Works both from click events AND when called programmatically (openModal pre-select)
+// Boleh dipanggil dari klik ATAU dari kod — dua-dua jalan.
 function pickAmount(amount) {
     document.querySelectorAll('.amount-pill').forEach(btn => btn.classList.remove('active'));
-    event.currentTarget.classList.add('active');
+    // Use click target if available, otherwise find the button by its onclick value
+    const activeBtn = (window.event && window.event.currentTarget)
+        || document.querySelector(`.amount-pill[onclick="pickAmount(${amount})"]`);
+    if (activeBtn) activeBtn.classList.add('active');
 
-    // WHY: Specific, personal copy here converts better than generic "thank you" text.
+    // WHY: Specific, personal copy converts better than generic "thank you" text.
     // Each line answers "what does MY money actually do?" — the #1 question before giving.
     const purposes = {
-        5:   '☕ Enter $5 — that\'s one coffee. It fuels one late night. I\'ll ship something because of it.',
-        15:  '📖 Enter $15 — that\'s one course chapter I couldn\'t afford. You\'re literally teaching me.',
-        30:  '🖥️ Enter $30 — that keeps this portfolio online for a full month. Real impact.',
-        50:  '🎓 Enter $50 — that unlocks a full course. You just levelled me up.',
-        100: '🚀 Enter $100 — you just funded 3 months of building. That\'s co-founder energy right there.',
-        200: '👑 Enter $200 — you\'re my first angel investor. I will not forget this.',
+        5:   '☕ Enter $5 in your app — one coffee. It fuels one late night. I\'ll ship something because of it.',
+        15:  '📖 Enter $15 in your app — that\'s one course chapter I couldn\'t afford. You\'re literally teaching me.',
+        30:  '🖥️ Enter $30 in your app — keeps this portfolio online for a full month. Real impact.',
+        50:  '🎓 Enter $50 in your app — unlocks a full course. You just levelled me up.',
+        100: '🚀 Enter $100 in your app — you funded 3 months of building. That\'s co-founder energy.',
+        200: '👑 Enter $200 in your app — you\'re my first angel investor. I will not forget this.',
     };
 
     document.getElementById('amount-hint').textContent = purposes[amount] || `Enter $${amount} in your banking app`;
