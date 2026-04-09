@@ -702,12 +702,21 @@
             </div>
 
             <!-- Step 1: pick amount -->
+            <!-- WHY: Two tiers — everyday amounts and "I just believe in you" amounts. -->
+            <!-- Dua peringkat — biasa dan "aku percaya kau bro" peringkat. -->
             <p class="qr-choose">How much would you like to send?</p>
             <div class="amount-pills">
                 <button class="amount-pill" onclick="pickAmount(5)">☕ $5</button>
                 <button class="amount-pill" onclick="pickAmount(15)">📖 $15</button>
                 <button class="amount-pill" onclick="pickAmount(30)">🖥️ $30</button>
                 <button class="amount-pill" onclick="pickAmount(50)">🎓 $50</button>
+            </div>
+            <!-- Larger amounts for the generous ones — no hard sell, just there if they want it. -->
+            <!-- EDIT: Update copy below if you want to change the "go big" label. -->
+            <p class="amount-divider">or go big — you only live once 🤑</p>
+            <div class="amount-pills">
+                <button class="amount-pill amount-pill--big" onclick="pickAmount(100)">🚀 $100</button>
+                <button class="amount-pill amount-pill--big" onclick="pickAmount(200)">👑 $200</button>
             </div>
             <p id="amount-hint" class="amount-hint">Pick an amount above, or enter your own in the app</p>
 
