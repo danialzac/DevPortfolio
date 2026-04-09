@@ -101,6 +101,15 @@ const siteConfig = {
 // If you skip this, your JS tries to find elements that don't exist yet.
 // Kalau skip ni, JS cuba cari elemen yang belum ada. Error je hasilnya.
 // ────────────────────────────────────────────────────────────────────
+// Closes modal and shows the thank you toast briefly
+// Tutup modal dan tunjuk toast ucapan terima kasih
+function closeModal() {
+    document.getElementById('paynow-modal').classList.remove('is-open');
+    const toast = document.getElementById('thankyou-toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
 // Switches between PayNow and TNG QR panels in the modal
 // Tukar antara panel PayNow dan TNG dalam modal
 function switchQR(type) {
@@ -108,6 +117,24 @@ function switchQR(type) {
     document.getElementById('qr-tng').hidden = (type !== 'tng');
     document.querySelectorAll('.qr-pick').forEach(btn => btn.classList.remove('active'));
     document.querySelector(`.qr-pick[onclick="switchQR('${type}')"]`).classList.add('active');
+}
+
+// Highlights selected amount and updates the hint text with what to enter in the banking app
+// Highlight amaun yang dipilih dan tunjuk arahan untuk dimasukkan dalam app bank
+function pickAmount(amount) {
+    document.querySelectorAll('.amount-pill').forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    const purposes = {
+        5:   'Enter $5 in your app ☕ — one coffee that keeps the late nights going',
+        15:  'Enter $15 in your app 📖 — funds a full course chapter, genuinely',
+        30:  'Enter $30 in your app 🖥️ — covers a full month of hosting costs',
+        50:  'Enter $50 in your app 🎓 — unlocks a complete course, no joke',
+        100: 'Enter $100 in your app 🚀 — you just funded my next 3 months of building',
+        200: 'Enter $200 in your app 👑 — you\'re basically my angel investor now',
+    };
+
+    document.getElementById('amount-hint').textContent = purposes[amount] || `Enter $${amount} in your banking app`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {

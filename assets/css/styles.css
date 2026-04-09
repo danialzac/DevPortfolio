@@ -567,6 +567,16 @@ nav a:focus-visible {
     background: linear-gradient(135deg, rgba(181, 106, 45, 0.12), rgba(17, 29, 43, 0.12));
 }
 
+/* WHY: When a screenshot <img> is inside .project-image, it needs to fill */
+/*      the fixed-ratio container the same way a <video> would.             */
+/*      object-fit only works on the element itself, not its parent div.    */
+.project-card .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .project-details {
     display: flex;
     flex-direction: column;
@@ -840,6 +850,10 @@ nav a:focus-visible {
 .modal-card {
     position: relative;
     width: min(36rem, 100%);
+    /* WHY: max-height + overflow-y lets the modal scroll on small phone screens */
+    /*      instead of getting cut off at the bottom. Penting untuk telefon kecil. */
+    max-height: 90dvh;
+    overflow-y: auto;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: var(--radius-md);
@@ -895,6 +909,134 @@ nav a:focus-visible {
     color: var(--color-ink);
 }
 
+/* ── CURRENTLY BUILDING ─────────────────────────────────────────── */
+.currently-building {
+    font-size: 0.82rem;
+    color: var(--color-accent-strong);
+    background: var(--color-accent-soft);
+    border: 1px solid rgba(181, 106, 45, 0.2);
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+/* ── SUGGESTED AMOUNT PILLS ─────────────────────────────────────── */
+.amount-pills {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+}
+
+.amount-pill {
+    padding: 0.55rem 1rem;
+    border: 2px solid var(--color-stone);
+    border-radius: 999px;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.amount-pill:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-strong);
+    background: var(--color-accent-soft);
+}
+
+.amount-pill.active {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: #fff;
+}
+
+/* ── BIG AMOUNT PILLS — for the generous ones ───────────────────────
+   These look premium on purpose. Gold border signals "this is special".
+   WHY: Anchoring — seeing $5–$50 first makes $100+ feel like a bold
+   but available choice, not a default. No pressure, just presence.
+   ──────────────────────────────────────────────────────────────────── */
+.amount-pill--big {
+    border-color: #c8952a;
+    color: #c8952a;
+    font-weight: 900;
+}
+
+.amount-pill--big:hover {
+    border-color: #e0a830;
+    color: #e0a830;
+    background: rgba(200, 149, 42, 0.08);
+}
+
+.amount-pill--big.active {
+    border-color: #c8952a;
+    background: linear-gradient(135deg, #c8952a, #e0c060);
+    color: #fff;
+}
+
+/* ── AMOUNT DIVIDER — "or go big" label between the two pill rows ────
+   Dashed line + small label so it reads as a light upgrade invitation,
+   not a hard upsell. Macam menu restoran ada "Chef's Special" section.
+   ──────────────────────────────────────────────────────────────────── */
+.amount-divider {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #c8952a;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0.2rem 0 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.amount-divider::before,
+.amount-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(200, 149, 42, 0.3);
+    max-width: 3rem;
+}
+
+.amount-hint {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent-strong);
+    margin-bottom: 1.25rem;
+    min-height: 1.2em;
+    text-align: center;
+}
+
+/* ── THANK YOU TOAST ────────────────────────────────────────────── */
+.thankyou-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(4rem);
+    z-index: 99999;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    background: var(--color-deep);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 300ms ease, transform 300ms ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.thankyou-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 /* ── QR PICKER ──────────────────────────────────────────────────── */
 .qr-choose {
     font-size: 0.82rem;
@@ -943,7 +1085,7 @@ nav a:focus-visible {
 
 .qr-display img {
     width: 100%;
-    max-width: 22rem;
+    max-width: 26rem;
     margin: 0 auto 0.75rem;
     display: block;
     border-radius: var(--radius-sm);
