@@ -926,8 +926,95 @@ nav a:focus-visible {
     border: 1px solid rgba(181, 106, 45, 0.2);
     border-radius: 999px;
     padding: 0.45rem 1rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.9rem;
     text-align: center;
+}
+
+/* ── GOAL PROXIMITY BAR ──────────────────────────────────────────────
+   WHY: Zeigarnik effect — people feel pulled to complete something that's
+   almost done. "Only $40 away" is far more motivating than no context.
+   EDIT: Update style="width:X%" and the "$ to go" span text in index.html
+         whenever you receive support. Keep it honest.
+   ──────────────────────────────────────────────────────────────────── */
+.goal-bar {
+    background: var(--color-paper);
+    border: 1px solid var(--color-stone);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.goal-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+}
+
+.goal-bar-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-ink);
+}
+
+.goal-bar-remaining {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--color-accent-strong);
+    white-space: nowrap;
+}
+
+.goal-bar-track {
+    height: 7px;
+    background: var(--color-stone);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.goal-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent), #e0a830);
+    border-radius: 999px;
+    transition: width 800ms ease;
+}
+
+/* ── TRANSPARENCY LINE ───────────────────────────────────────────────
+   WHY: "Where does this even go?" is the silent question that kills transfers.
+   One line of honesty removes it completely. Kena jujur untuk orang percaya.
+   ──────────────────────────────────────────────────────────────────── */
+.modal-transparency {
+    font-size: 0.8rem;
+    color: var(--color-ink-soft);
+    margin-bottom: 1.1rem;
+}
+
+/* ── SCAN TIME LABEL ─────────────────────────────────────────────────
+   WHY: Naming the time cost neutralises the effort perception.
+   "15 seconds" makes scanning feel instant, not like a commitment.
+   Sebut masa yang pendek → orang rasa senang nak buat.
+   ──────────────────────────────────────────────────────────────────── */
+.scan-time {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-ink-soft);
+    margin: 0.5rem 0 0.75rem;
+}
+
+/* ── QR PULSE ANIMATION ──────────────────────────────────────────────
+   WHY: The eye goes to moving things. A gentle pulse on the QR border
+   triggers the camera instinct — people literally reach for their phone.
+   Mata manusia tertarik pada pergerakan. Pulse = orang nak scan.
+   ──────────────────────────────────────────────────────────────────── */
+@keyframes qr-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(181, 106, 45, 0.5); }
+    60%       { box-shadow: 0 0 0 10px rgba(181, 106, 45, 0); }
+}
+
+.qr-img {
+    border-radius: 12px;
+    animation: qr-pulse 2.4s ease-out infinite;
 }
 
 /* ── SUGGESTED AMOUNT PILLS ─────────────────────────────────────────

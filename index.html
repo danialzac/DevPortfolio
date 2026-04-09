@@ -640,7 +640,7 @@
             <!-- Butang sokongan: buka modal QR PayNow bila diklik -->
             <button
                 class="support-btn"
-                onclick="document.getElementById('paynow-modal').classList.add('is-open')"
+                onclick="openModal()"
                 aria-haspopup="dialog"
                 aria-controls="paynow-modal">
                 <span>☕</span> Fuel My Learning
@@ -684,24 +684,44 @@
                 &times;
             </button>
 
-            <!-- WHY: The headline and subtitle do psychological heavy lifting before the QR appears. -->
-            <!-- Identity → story → social proof → action. Classic persuasion arc. -->
+            <!-- WHY: Order follows AIDA — Attention → Interest → Desire → Action.       -->
+            <!-- Hook first, show the goal (Zeigarnik), then ask, then make scanning easy. -->
+
             <h3>Fuel the grind 🔥</h3>
-            <p class="modal-subtitle">
-                Degree done. Bootcamp done. Now comes the part nobody teaches —
-                <strong>actually shipping things.</strong>
-                Every project here is me proving it with real work, not just credentials.
-                If you believe in that — here's how you back it.
-            </p>
 
             <!-- Currently building — specificity makes support feel real and timely -->
-            <!-- WHY: "I can see exactly what my money goes toward" = higher conversion. -->
+            <!-- WHY: People support active builders, not vague "learners". Show momentum. -->
             <div class="currently-building">
                 🔨 Currently shipping: <strong>Find My Hat — Pontianak Edition</strong>
             </div>
 
-            <!-- Step 1: pick amount -->
-            <!-- WHY: Two tiers — everyday amounts and "I just believe in you" amounts. -->
+            <!-- GOAL PROXIMITY BAR — Zeigarnik effect: people feel compelled to complete -->
+            <!-- something that's almost done. "Only $40 away" is more motivating than nothing. -->
+            <!-- EDIT: Update the % (style="width:X%") and "$ to go" text as you receive support. -->
+            <div class="goal-bar">
+                <div class="goal-bar-header">
+                    <span class="goal-bar-title">🎯 Next goal: AWS Developer Certification</span>
+                    <span class="goal-bar-remaining">$40 to go</span>
+                </div>
+                <div class="goal-bar-track">
+                    <div class="goal-bar-fill" style="width: 67%"></div>
+                </div>
+            </div>
+
+            <!-- Subtitle — identity + story, kept tight so people read it -->
+            <p class="modal-subtitle">
+                Degree done. Bootcamp done. Now comes the part nobody teaches —
+                <strong>actually shipping things.</strong>
+                Every project here is proof of work, not just credentials.
+            </p>
+
+            <!-- Transparency builds trust — removes "where does this even go?" doubt -->
+            <p class="modal-transparency">
+                🔒 100% goes to courses, tools &amp; hosting. Nothing else.
+            </p>
+
+            <!-- Step 1: pick amount — $5 pre-selected on open to lower decision barrier -->
+            <!-- WHY: Zero selection = decision paralysis. Default = action path of least resistance. -->
             <!-- Dua peringkat — biasa dan "aku percaya kau bro" peringkat. -->
             <p class="qr-choose">How much do you want to chip in?</p>
             <div class="amount-pills">
@@ -710,14 +730,13 @@
                 <button class="amount-pill" onclick="pickAmount(30)">🖥️ $30</button>
                 <button class="amount-pill" onclick="pickAmount(50)">🎓 $50</button>
             </div>
-            <!-- Larger amounts for the generous ones — no hard sell, just there if they want it. -->
-            <!-- EDIT: Update copy below if you want to change the "go big" label. -->
+            <!-- EDIT: Update "or go big" label here if needed -->
             <p class="amount-divider">or go big — you only live once 🤑</p>
             <div class="amount-pills amount-pills--large">
                 <button class="amount-pill amount-pill--big" onclick="pickAmount(100)">🚀 $100</button>
                 <button class="amount-pill amount-pill--big" onclick="pickAmount(200)">👑 $200</button>
             </div>
-            <p id="amount-hint" class="amount-hint">Pick an amount above, or enter your own in the app</p>
+            <p id="amount-hint" class="amount-hint"></p>
 
             <!-- Step 2: pick your app -->
             <p class="qr-choose">Which app are you using?</p>
@@ -730,19 +749,21 @@
                 </button>
             </div>
 
-            <!-- Step 3: scan -->
+            <!-- Step 3: scan — friction remover + pulse animation draws the camera instinct -->
+            <!-- WHY: Naming the time cost ("15 seconds") neutralises the effort perception. -->
+            <p class="scan-time">📷 Takes ~15 seconds. No login needed.</p>
+
             <div id="qr-paynow" class="qr-display">
-                <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code" />
+                <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code" class="qr-img" />
                 <p class="qr-hint">Open any Singapore banking app → scan → done ✓</p>
             </div>
 
             <div id="qr-tng" class="qr-display" hidden>
-                <img src="assets/img/tng-qr.jpeg" alt="TNG eWallet QR Code" />
+                <img src="assets/img/tng-qr.jpeg" alt="TNG eWallet QR Code" class="qr-img" />
                 <p class="qr-hint">Open TNG eWallet → scan → done ✓</p>
             </div>
 
-            <!-- WHY: Closing line removes pressure while keeping warmth. -->
-            <!-- "No obligation" removes guilt. "Genuinely" feels human, not scripted. -->
+            <!-- WHY: Closing line removes guilt without begging. "Being here" = reciprocity nudge. -->
             <p class="modal-note">
                 No pressure, genuinely. Even just being here means something. 🙏
             </p>
