@@ -684,13 +684,17 @@
                 &times;
             </button>
 
-            <h3>Back a Builder</h3>
+            <!-- WHY: The headline and subtitle do psychological heavy lifting before the QR appears. -->
+            <!-- Identity → story → social proof → action. Classic persuasion arc. -->
+            <h3>Fuel the grind 🔥</h3>
             <p class="modal-subtitle">
-                Everything here was built with late nights, free tutorials,
-                and a stubborn refusal to stop learning.
+                No bootcamp. No safety net. Just late nights, free docs, and one rule:
+                <strong>don't stop building.</strong>
+                If that story means something to you — here's how you say it.
             </p>
 
-            <!-- Currently building callout -->
+            <!-- Currently building — specificity makes support feel real and timely -->
+            <!-- WHY: "I can see exactly what my money goes toward" = higher conversion. -->
             <div class="currently-building">
                 🔨 Currently shipping: <strong>Find My Hat — Pontianak Edition</strong>
             </div>
@@ -698,7 +702,7 @@
             <!-- Step 1: pick amount -->
             <!-- WHY: Two tiers — everyday amounts and "I just believe in you" amounts. -->
             <!-- Dua peringkat — biasa dan "aku percaya kau bro" peringkat. -->
-            <p class="qr-choose">How much would you like to send?</p>
+            <p class="qr-choose">How much do you want to chip in?</p>
             <div class="amount-pills">
                 <button class="amount-pill" onclick="pickAmount(5)">☕ $5</button>
                 <button class="amount-pill" onclick="pickAmount(15)">📖 $15</button>
@@ -728,16 +732,18 @@
             <!-- Step 3: scan -->
             <div id="qr-paynow" class="qr-display">
                 <img src="assets/img/paynow-qr.jpeg" alt="PayNow QR Code" />
-                <p class="qr-hint">Open any Singapore banking app and scan</p>
+                <p class="qr-hint">Open any Singapore banking app → scan → done ✓</p>
             </div>
 
             <div id="qr-tng" class="qr-display" hidden>
                 <img src="assets/img/tng-qr.jpeg" alt="TNG eWallet QR Code" />
-                <p class="qr-hint">Open your TNG eWallet app and scan</p>
+                <p class="qr-hint">Open TNG eWallet → scan → done ✓</p>
             </div>
 
+            <!-- WHY: Closing line removes pressure while keeping warmth. -->
+            <!-- "No obligation" removes guilt. "Genuinely" feels human, not scripted. -->
             <p class="modal-note">
-                Any amount. Totally your call. 🙏
+                No pressure, genuinely. Even just being here means something. 🙏
             </p>
         </div>
     </div>
