@@ -25,7 +25,7 @@ const siteConfig = {
         // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
         title: "Danial Zac | Developer Portfolio",
-        description: "Danial Zac's developer portfolio featuring completed full-stack and frontend projects built to learn, ship, and grow.",
+        description: "Danial Zac's portfolio: full-stack developer, financial-services professional, and technical educator building dependable software with real-world context.",
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
         email: "danialzac@gmail.com",
@@ -39,26 +39,26 @@ const siteConfig = {
         "capstone-project": {
             demo: "https://github.com/danialzac/voltora",
             repo: "https://github.com/danialzac/voltara-backend.git",
-            description: "A full-stack platform completed to learn how structured content, secure access, and backend integration come together in a project designed to grow over time.",
+            description: "A full-stack platform build used to strengthen secure access, structured content, and backend integration across a project designed with room to grow.",
         },
         "spotify-playlist": {
             demo: "https://lucent-maamoul-066f68.netlify.app/",
             repo: "https://github.com/danialzac/spotify-jamming.git",
-            description: "A React project completed to strengthen component structure, state handling, and smoother user flows around playlist creation.",
+            description: "A React build focused on cleaner component structure, state handling, and a smoother playlist-creation flow from search to save.",
         },
         "airstream-sportswear": {
             demo: "#",
             repo: "https://github.com/danialzac",
-            description: "A storefront practice build completed to improve responsive layout work, interface polish, and simple customer-facing interactions such as form validation.",
+            description: "A responsive storefront project used to practise layout polish, merchandising flow, and customer-facing interactions such as forms and navigation.",
         },
         "find-your-hat": {
             repo: "https://github.com/danialzac",
-            description: "A JavaScript game project completed to practice logic flow, game-state handling, and code that stays simple enough to follow.",
+            description: "A JavaScript game build created to practise logic flow, game-state handling, and clearer control over player movement and win-loss conditions.",
         },
         "pokedex": {
             demo: "#",
             repo: "https://github.com/danialzac",
-            description: "An API-based project completed to learn how live data can be fetched, organized, and presented in a way that feels more usable and exploratory.",
+            description: "An API-based project used to strengthen data fetching, response handling, and a cleaner way to present live information to users.",
         },
         "diamond-lite": {
             demo: "#",
@@ -68,27 +68,27 @@ const siteConfig = {
         "prayer-pattern-viewer": {
             demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
-            description: "A prayer reflection project completed to explore calm product design, protected summaries, and how the same idea can be built across different backend stacks.",
+            description: "A reflection-focused product build exploring calmer interface design, protected summaries, and how the same idea can be implemented across different backend stacks.",
         },
         "colmar-academy": {
             demo: "#",
             repo: "https://github.com/danialzac",
-            description: "A responsive layout project completed to strengthen page structure, visual hierarchy, and cleaner adaptation across screen sizes.",
+            description: "A responsive layout project focused on stronger page structure, visual hierarchy, and cleaner adaptation across desktop and mobile screens.",
         },
         "todo-api": {
             demo: "#",
             repo: "https://github.com/danialzac/todoapplication",
-            description: "A RESTful Todo API built with Java Spring Boot and MySQL. Implements full CRUD operations, input validation, and database integration — a focused backend build to practise clean API design and data persistence.",
+            description: "A RESTful Todo API built with Java Spring Boot and MySQL to practise CRUD operations, validation, and cleaner backend data persistence.",
         },
         "student-management": {
             demo: "#",
             repo: "https://github.com/danialzac/Project-StudentGen-student-management-system-",
-            description: "A Java console application for managing student enrollment, course registration, and grading. Built with OOP principles, a clean service/model layer separation, and unit tests written with JUnit 5.",
+            description: "A Java console application for student enrollment, course registration, and grading, built to practise OOP structure, service separation, and testable logic.",
         },
         "kopi-connect": {
             demo: "#",
             repo: "https://github.com/danialzac/kopi-connect",
-            description: "A Singapore mental health service finder with an emotion-aware chatbot. Detects 11+ emotional states through keyword analysis and matches users to 40+ real local support services — from crisis lines to youth counselling — with zero backend required.",
+            description: "A Singapore mental-health service finder with an emotion-aware chatbot that maps users to real local support options through a lightweight frontend-only build.",
         },
     },
 };
@@ -141,12 +141,12 @@ function pickAmount(amount) {
     // WHY: Specific, personal copy converts better than generic "thank you" text.
     // Each line answers "what does MY money actually do?" — the #1 question before giving.
     const purposes = {
-        5:   '☕ Enter $5 in your app — one coffee. It fuels one late night. I\'ll ship something because of it.',
-        15:  '📖 Enter $15 in your app — that\'s one course chapter I couldn\'t afford. You\'re literally teaching me.',
-        30:  '🖥️ Enter $30 in your app — keeps this portfolio online for a full month. Real impact.',
-        50:  '🎓 Enter $50 in your app — unlocks a full course. You just levelled me up.',
-        100: '🚀 Enter $100 in your app — you funded 3 months of building. That\'s co-founder energy.',
-        200: '👑 Enter $200 in your app — you\'re my first angel investor. I will not forget this.',
+        5:   '☕ Enter $5 in your app — a small gesture that helps keep the learning momentum going.',
+        15:  '📖 Enter $15 in your app — helps cover course material, tools, or practice resources.',
+        30:  '🖥️ Enter $30 in your app — supports hosting, subscriptions, and continued project work.',
+        50:  '🎓 Enter $50 in your app — goes a long way toward a new course or certification cost.',
+        100: '🚀 Enter $100 in your app — meaningful support for deeper learning and more serious project time.',
+        200: '👑 Enter $200 in your app — generous support that meaningfully backs the next stage of growth.',
     };
 
     document.getElementById('amount-hint').textContent = purposes[amount] || `Enter $${amount} in your banking app`;
