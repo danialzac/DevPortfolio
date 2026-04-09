@@ -849,12 +849,13 @@ nav a:focus-visible {
 
 .modal-card {
     position: relative;
-    width: min(36rem, 100%);
+    /* WHY: wider card (42rem) gives pills and QR more room to breathe */
+    width: min(42rem, 92vw);
     /* WHY: max-height + overflow-y lets the modal scroll on small phone screens */
     /*      instead of getting cut off at the bottom. Penting untuk telefon kecil. */
     max-height: 90dvh;
     overflow-y: auto;
-    padding: 2rem;
+    padding: 2.4rem 2.4rem 2rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: var(--radius-md);
     background: var(--color-paper-soft);
@@ -921,26 +922,36 @@ nav a:focus-visible {
     text-align: center;
 }
 
-/* ── SUGGESTED AMOUNT PILLS ─────────────────────────────────────── */
+/* ── SUGGESTED AMOUNT PILLS ─────────────────────────────────────────
+   Grid layout keeps pills uniform — no awkward wrapping or centering.
+   WHY: 2-column grid = each pill fills equal space, touch-friendly size.
+   Macam keyboard numpad — senang nak tekan, nampak kemas.
+   ──────────────────────────────────────────────────────────────────── */
 .amount-pills {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 0.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+    margin-bottom: 0.5rem;
+}
+
+/* WHY: Big pills get their own row that fills the full width — */
+/*      they should feel like a "featured" option, not an afterthought. */
+.amount-pills--large {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .amount-pill {
-    padding: 0.55rem 1rem;
+    padding: 0.85rem 1rem;
     border: 2px solid var(--color-stone);
-    border-radius: 999px;
+    border-radius: var(--radius-sm);
     background: transparent;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--color-ink);
     cursor: pointer;
     transition: all var(--transition);
+    width: 100%;
 }
 
 .amount-pill:hover {
@@ -956,7 +967,7 @@ nav a:focus-visible {
 }
 
 /* ── BIG AMOUNT PILLS — for the generous ones ───────────────────────
-   These look premium on purpose. Gold border signals "this is special".
+   Gold border signals "this is premium / special tier".
    WHY: Anchoring — seeing $5–$50 first makes $100+ feel like a bold
    but available choice, not a default. No pressure, just presence.
    ──────────────────────────────────────────────────────────────────── */
@@ -964,6 +975,7 @@ nav a:focus-visible {
     border-color: #c8952a;
     color: #c8952a;
     font-weight: 900;
+    font-size: 1.05rem;
 }
 
 .amount-pill--big:hover {
@@ -979,19 +991,19 @@ nav a:focus-visible {
 }
 
 /* ── AMOUNT DIVIDER — "or go big" label between the two pill rows ────
-   Dashed line + small label so it reads as a light upgrade invitation,
-   not a hard upsell. Macam menu restoran ada "Chef's Special" section.
+   WHY: A visual break signals a tier change without hard-selling.
+   Macam menu restoran ada "Chef's Special" section — ada, tapi tak paksa.
    ──────────────────────────────────────────────────────────────────── */
 .amount-divider {
     font-size: 0.78rem;
     font-weight: 700;
     color: #c8952a;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    margin: 0.2rem 0 0.4rem;
+    margin: 0.6rem 0 0.5rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     justify-content: center;
 }
 
@@ -1000,8 +1012,7 @@ nav a:focus-visible {
     content: "";
     flex: 1;
     height: 1px;
-    background: rgba(200, 149, 42, 0.3);
-    max-width: 3rem;
+    background: rgba(200, 149, 42, 0.35);
 }
 
 .amount-hint {
@@ -1039,12 +1050,12 @@ nav a:focus-visible {
 
 /* ── QR PICKER ──────────────────────────────────────────────────── */
 .qr-choose {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-ink-soft);
-    margin-bottom: 0.6rem;
+    margin: 1.1rem 0 0.6rem;
 }
 
 .qr-picker {
