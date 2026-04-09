@@ -412,6 +412,7 @@ nav a:focus-visible {
 
 
 #about,
+#offers,
 #projects {
     background: transparent;
 }
@@ -491,6 +492,35 @@ nav a:focus-visible {
 
 .info-card p {
     font-size: 0.94rem;
+}
+
+#offers {
+    padding-top: 1rem;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+}
+
+.offer-card {
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 247, 236, 0.92));
+    box-shadow: var(--shadow-soft);
+}
+
+.offer-card h3 {
+    margin-top: 0.95rem;
+    margin-bottom: 0.7rem;
+    font-size: 1.35rem;
+    color: var(--color-deep);
+}
+
+.offer-card p {
+    color: var(--color-ink-soft);
 }
 
 #experience {
@@ -1258,6 +1288,7 @@ footer {
         padding: 5rem 0;
     }
 
+    .offer-grid,
     .hero-facts {
         grid-template-columns: 1fr;
     }
@@ -1294,6 +1325,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .offer-grid,
     .info-card-container {
         grid-template-columns: 1fr;
     }
