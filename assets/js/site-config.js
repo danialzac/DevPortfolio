@@ -125,13 +125,15 @@ function pickAmount(amount) {
     document.querySelectorAll('.amount-pill').forEach(btn => btn.classList.remove('active'));
     event.currentTarget.classList.add('active');
 
+    // WHY: Specific, personal copy here converts better than generic "thank you" text.
+    // Each line answers "what does MY money actually do?" — the #1 question before giving.
     const purposes = {
-        5:   'Enter $5 in your app ☕ — one coffee that keeps the late nights going',
-        15:  'Enter $15 in your app 📖 — funds a full course chapter, genuinely',
-        30:  'Enter $30 in your app 🖥️ — covers a full month of hosting costs',
-        50:  'Enter $50 in your app 🎓 — unlocks a complete course, no joke',
-        100: 'Enter $100 in your app 🚀 — you just funded my next 3 months of building',
-        200: 'Enter $200 in your app 👑 — you\'re basically my angel investor now',
+        5:   '☕ Enter $5 — that\'s one coffee. It fuels one late night. I\'ll ship something because of it.',
+        15:  '📖 Enter $15 — that\'s one course chapter I couldn\'t afford. You\'re literally teaching me.',
+        30:  '🖥️ Enter $30 — that keeps this portfolio online for a full month. Real impact.',
+        50:  '🎓 Enter $50 — that unlocks a full course. You just levelled me up.',
+        100: '🚀 Enter $100 — you just funded 3 months of building. That\'s co-founder energy right there.',
+        200: '👑 Enter $200 — you\'re my first angel investor. I will not forget this.',
     };
 
     document.getElementById('amount-hint').textContent = purposes[amount] || `Enter $${amount} in your banking app`;
