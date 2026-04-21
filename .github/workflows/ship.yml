@@ -1,0 +1,125 @@
+name: Ship
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Agent 1 — HTML Validator
+#   Runs first on every push to portfolio/expand-projects.
+#   Catches broken HTML before it ever touches main.
+#   If this fails, Agent 2 never runs. Nothing broken goes live.
+#
+# Agent 2 — Auto-merge to main
+#   Only runs if Agent 1 passes.
+#   Merges the feature branch to main automatically.
+#   The existing deploy.yml then picks up main and publishes to GitHub Pages.
+#
+# WHY: This eliminates the manual "git fetch / merge / push" dance after
+#      every single change. Push your branch — it ships. That's it.
+#      Kalau lulus check, terus masuk main. Tak perlu buat apa-apa lagi.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  push:
+    branches:
+      - portfolio/expand-projects
+
+jobs:
+
+  # ── AGENT 1: HTML VALIDATOR ───────────────────────────────────────────────
+  validate:
+    name: Agent 1 — Validate HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check HTML structure
+        run: |
+          python3 - <<'EOF'
+          import sys
+          from html.parser import HTMLParser
+
+          class StructureChecker(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.stack = []
+                  self.errors = []
+                  # Tags that are self-closing and do not need a closing tag
+                  self.void = {
+                      'area','base','br','col','embed','hr','img','input',
+                      'link','meta','param','source','track','wbr'
+                  }
+
+              def handle_starttag(self, tag, attrs):
+                  if tag not in self.void:
+                      self.stack.append(tag)
+
+              def handle_endtag(self, tag):
+                  if tag in self.void:
+                      return
+                  if self.stack and self.stack[-1] == tag:
+                      self.stack.pop()
+                  else:
+                      self.errors.append(f'Unexpected closing tag </{tag}>')
+
+          with open('index.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+
+          # Check required top-level structure exists
+          required = ['<!doctype html', '<html', '<head', '<body', '</html>']
+          missing = [r for r in required if r.lower() not in content.lower()]
+          if missing:
+              print(f'FAIL: Missing required elements: {missing}')
+              sys.exit(1)
+
+          # Check for obviously missing closing tags
+          checker = StructureChecker()
+          checker.feed(content)
+          if checker.errors:
+              print('FAIL: HTML structure errors found:')
+              for e in checker.errors:
+                  print(f'  {e}')
+              sys.exit(1)
+
+          # Check modal and QR elements exist (regression guard)
+          critical = ['id="paynow-modal"', 'id="qr-paynow"', 'id="qr-tng"', 'id="amount-hint"']
+          missing_els = [el for el in critical if el not in content]
+          if missing_els:
+              print(f'FAIL: Critical elements missing from HTML: {missing_els}')
+              sys.exit(1)
+
+          print('PASS: HTML structure is valid.')
+          print(f'PASS: All {len(critical)} critical elements present.')
+          EOF
+
+      - name: Check for placeholder links
+        run: |
+          # Warn if any href="#" links are present (demo links not yet filled)
+          count=$(grep -c 'href="#"' index.html || true)
+          echo "Info: $count placeholder href='#' links found (expected for demo-soon projects)"
+
+  # ── AGENT 2: AUTO-MERGE TO MAIN ──────────────────────────────────────────
+  auto-merge:
+    name: Agent 2 — Merge to main
+    needs: validate          # Only runs if Agent 1 passed
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # Needs write access to push to main
+
+    steps:
+      - name: Checkout with full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge feature branch into main
+        run: |
+          git checkout main
+          git pull origin main
+          git merge origin/portfolio/expand-projects --no-edit --no-ff
+          git push origin main
+          echo "Merged portfolio/expand-projects into main. Deploy workflow will now trigger."
