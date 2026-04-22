@@ -11,10 +11,10 @@ name: Ship
 #   Merges the feature branch to main automatically.
 #
 # Agent 3 — Deploy to GitHub Pages
-#   Only runs if Agent 2 passed.
+#   Handled by deploy.yml via workflow_run trigger.
 #   WHY: GitHub blocks GITHUB_TOKEN pushes from triggering other workflows
-#   (security feature). So the old deploy.yml never fired after auto-merge.
-#   Deploying directly here in Agent 3 fixes that.
+#   (security feature). deploy.yml listens for Ship completion and deploys.
+#   Only one workflow can own github-pages at a time — so deploy stays there.
 #
 # WHY: This eliminates the manual "git fetch / merge / push" dance after
 #      every single change. Push your branch — it ships. That's it.
