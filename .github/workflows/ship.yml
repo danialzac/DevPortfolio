@@ -9,11 +9,16 @@ name: Ship
 # Agent 2 — Auto-merge to main
 #   Only runs if Agent 1 passes.
 #   Merges the feature branch to main automatically.
-#   The existing deploy.yml then picks up main and publishes to GitHub Pages.
+#
+# Agent 3 — Deploy to GitHub Pages
+#   Only runs if Agent 2 passed.
+#   WHY: GitHub blocks GITHUB_TOKEN pushes from triggering other workflows
+#   (security feature). So the old deploy.yml never fired after auto-merge.
+#   Deploying directly here in Agent 3 fixes that.
 #
 # WHY: This eliminates the manual "git fetch / merge / push" dance after
 #      every single change. Push your branch — it ships. That's it.
-#      Kalau lulus check, terus masuk main. Tak perlu buat apa-apa lagi.
+#      Kalau lulus check, terus masuk main dan deploy. Tak perlu buat apa-apa.
 # ─────────────────────────────────────────────────────────────────────────────
 
 on:
@@ -122,4 +127,36 @@ jobs:
           git pull origin main
           git merge origin/portfolio/expand-projects --no-edit --no-ff
           git push origin main
-          echo "Merged portfolio/expand-projects into main. Deploy workflow will now trigger."
+          echo "Merged portfolio/expand-projects into main."
+
+  # ── AGENT 3: DEPLOY TO GITHUB PAGES ──────────────────────────────────────
+  deploy:
+    name: Agent 3 — Deploy to GitHub Pages
+    needs: auto-merge          # Only runs if Agent 2 passed
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
