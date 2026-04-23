@@ -39,12 +39,12 @@ const siteConfig = {
         "capstone-project": {
             demo: "https://github.com/danialzac/voltora",
             repo: "https://github.com/danialzac/voltara-backend.git",
-            description: "A full-stack platform build used to strengthen secure access, structured content, and backend integration across a project designed with room to grow.",
+            description: "A full-stack platform demonstrating secure access, structured content, backend integration, and a scalable foundation for sharing electronics-related learning material.",
         },
         "spotify-playlist": {
             demo: "https://lucent-maamoul-066f68.netlify.app/",
             repo: "https://github.com/danialzac/spotify-jamming.git",
-            description: "A React build focused on cleaner component structure, state handling, and a smoother playlist-creation flow from search to save.",
+            description: "A React playlist app demonstrating component structure, state handling, and a smooth search-to-save user flow.",
         },
         "airstream-sportswear": {
             demo: "#",
@@ -68,7 +68,7 @@ const siteConfig = {
         "prayer-pattern-viewer": {
             demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
-            description: "A reflection-focused product build exploring calmer interface design, protected summaries, and how the same idea can be implemented across different backend stacks.",
+            description: "A reflection-focused application exploring calm interface design, protected summaries, and backend implementation across different technology approaches.",
         },
         "colmar-academy": {
             demo: "#",
@@ -78,17 +78,17 @@ const siteConfig = {
         "todo-api": {
             demo: "#",
             repo: "https://github.com/danialzac/todoapplication",
-            description: "A RESTful Todo API built with Java Spring Boot and MySQL to practise CRUD operations, validation, and cleaner backend data persistence.",
+            description: "A RESTful API built with Java Spring Boot and MySQL, demonstrating CRUD operations, validation, and clean backend data persistence.",
         },
         "student-management": {
             demo: "#",
             repo: "https://github.com/danialzac/Project-StudentGen-student-management-system-",
-            description: "A Java console application for student enrollment, course registration, and grading, built to practise OOP structure, service separation, and testable logic.",
+            description: "A Java console application for student enrollment, course registration, and grading, built with OOP structure and testable service logic.",
         },
         "kopi-connect": {
             demo: "#",
             repo: "https://github.com/danialzac/kopi-connect",
-            description: "A Singapore mental-health service finder with an emotion-aware chatbot that maps users to real local support options through a lightweight frontend-only build.",
+            description: "A Singapore mental-health service finder with an emotion-aware chatbot that maps users to local support options through a lightweight frontend build.",
         },
     },
 };
@@ -141,12 +141,12 @@ function pickAmount(amount) {
     // WHY: Specific, personal copy converts better than generic "thank you" text.
     // Each line answers "what does MY money actually do?" — the #1 question before giving.
     const purposes = {
-        5:   '☕ Enter $5 in your app — a small gesture that helps keep the learning momentum going.',
-        15:  '📖 Enter $15 in your app — helps cover course material, tools, or practice resources.',
-        30:  '🖥️ Enter $30 in your app — supports hosting, subscriptions, and continued project work.',
-        50:  '🎓 Enter $50 in your app — goes a long way toward a new course or certification cost.',
-        100: '🚀 Enter $100 in your app — meaningful support for deeper learning and more serious project time.',
-        200: '👑 Enter $200 in your app — generous support that meaningfully backs the next stage of growth.',
+        5:   'Enter $5 in your app — a small contribution toward learning resources.',
+        15:  'Enter $15 in your app — helps cover course material, tools, or practice resources.',
+        30:  'Enter $30 in your app — supports hosting, subscriptions, and continued project work.',
+        50:  'Enter $50 in your app — goes toward a course or certification preparation cost.',
+        100: 'Enter $100 in your app — meaningful support for deeper learning and project time.',
+        200: 'Enter $200 in your app — generous support for the next stage of growth.',
     };
 
     document.getElementById('amount-hint').textContent = purposes[amount] || `Enter $${amount} in your banking app`;
