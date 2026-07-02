@@ -1,0 +1,21 @@
+{
+  "frontend": {
+    "NEXT_PUBLIC_API_BASE_URL": "https://your-backend-app.azurewebsites.net"
+  },
+  "backend": {
+    "APP_HOST": "0.0.0.0",
+    "APP_PORT": "8000",
+    "ALLOWED_ORIGINS": "https://your-frontend-app.azurestaticapps.net",
+    "POSTGRES_HOST": "your-postgres-server.postgres.database.azure.com",
+    "POSTGRES_PORT": "5432",
+    "POSTGRES_DB": "candidate_tracker",
+    "POSTGRES_USER": "learner",
+    "POSTGRES_PASSWORD": "store-in-key-vault-not-here",
+    "SNOWFLAKE_ACCOUNT": "your-account",
+    "SNOWFLAKE_USER": "your-user",
+    "SNOWFLAKE_PASSWORD": "store-in-key-vault-not-here",
+    "SNOWFLAKE_WAREHOUSE": "your-warehouse",
+    "SNOWFLAKE_DATABASE": "your-database",
+    "SNOWFLAKE_SCHEMA": "PUBLIC"
+  }
+}

@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: candidate_tracker_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: candidate_tracker
+      POSTGRES_USER: learner
+      POSTGRES_PASSWORD: learner_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  postgres_data:

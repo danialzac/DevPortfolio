@@ -1,13 +1,21 @@
+# ═══════════════════════════════════════════════════════════════════════
+#  DEPLOY — the only automation you need.
+#
+#  Plain English: every time your portfolio is pushed to GitHub,
+#  this file rebuilds your live website automatically. You do nothing.
+#
+#  Melayu: setiap kali portfolio ditolak ke GitHub, fail ini akan
+#  bina semula laman web anda secara automatik. Anda tak buat apa-apa.
+#
+#  Your live site:  https://danialzac.github.io/DevPortfolio/
+# ═══════════════════════════════════════════════════════════════════════
+
 name: Deploy Portfolio
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
-  workflow_run:
-    workflows: ["Ship"]
-    types: [completed]
+    branches: [main]     # publish whenever main changes
+  workflow_dispatch:     # ...or click "Run" manually in the Actions tab
 
 permissions:
   contents: read
@@ -25,24 +33,37 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
+      - name: Get the code
         uses: actions/checkout@v4
         with:
           lfs: true
 
-      - name: Pull LFS media
+      - name: Pull large media (videos/images)
         run: git lfs pull
 
-      - name: Setup Pages
+      # Safety net: only blocks if index.html is truly broken (missing the
+      # basic skeleton). Normal edits always pass. Keeps broken pages off your
+      # live site in front of clients.
+      - name: Quick sanity check
+        run: |
+          for tag in "<html" "<head" "<body" "</html>"; do
+            if ! grep -qi "$tag" index.html; then
+              echo "STOP: index.html is missing $tag — not publishing a broken page."
+              exit 1
+            fi
+          done
+          echo "OK: index.html looks healthy. Publishing."
+
+      - name: Prepare Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
 
-      - name: Upload site artifact
+      - name: Package the site
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - name: Deploy to GitHub Pages
+      - name: Publish to the web
         id: deployment
         uses: actions/deploy-pages@v4
