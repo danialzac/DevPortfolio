@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Charlie 1 · RTT Exam Drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Atkinson Hyperlegible = a font literally designed for low-vision / dyslexia readability.
+     JetBrains Mono = the "radio log / pocket book" texture for role-plays. -->
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E7;        /* warm cream bg — softer than white, easier on dyslexic eyes */
+    --surface:#FFFDF8;      /* card surface */
+    --ink:#22282E;          /* soft near-black, not harsh pure black */
+    --muted:#5C6670;
+    --line:#E4DCCB;
+    --hivis:#F5B301;        /* signature: hi-vis safety amber */
+    --hivis-deep:#C98A00;
+    --navy:#173541;         /* duty / radio dark */
+    --good:#2E7D5B;
+    --review:#C2410C;
+    /* topic colour-coding (wayfinding for ADHD) */
+    --t-intro:#6B7A8F;
+    --t1:#B5532A;  /* contemporary threats */
+    --t2:#2E7D5B;  /* person-borne */
+    --t3:#2A6F97;  /* vehicle-borne */
+    --t4:#8A5A9E;  /* object-based */
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Atkinson Hyperlegible',system-ui,sans-serif;
+    line-height:1.6;
+    letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:90px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px}
+
+  /* ---------- HEADER / DUTY BAR ---------- */
+  header{
+    background:var(--navy);
+    color:#FBF7EE;
+    border-bottom:4px solid var(--hivis);
+    position:sticky;top:0;z-index:30;
+  }
+  .duty{display:flex;align-items:center;gap:12px;padding:14px 18px;max-width:760px;margin:0 auto}
+  .badge{
+    background:var(--hivis);color:#1c1300;font-weight:700;
+    font-size:.7rem;letter-spacing:.12em;padding:5px 9px;border-radius:6px;
+    text-transform:uppercase;white-space:nowrap;
+    box-shadow:0 0 0 3px rgba(245,179,1,.25);
+  }
+  .titles h1{font-size:1.18rem;margin:0;letter-spacing:.02em}
+  .titles p{font-size:.78rem;margin:2px 0 0;color:#B9C7CE}
+  .streak{margin-left:auto;text-align:right;font-size:.74rem;color:#B9C7CE;line-height:1.3}
+  .streak b{color:var(--hivis);font-size:1.05rem;display:block}
+
+  /* ---------- TABS ---------- */
+  nav{position:sticky;top:0;z-index:20;background:var(--paper);}
+  .tabs{display:flex;gap:8px;overflow-x:auto;padding:12px 18px;max-width:760px;margin:0 auto;
+        scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    border:2px solid var(--line);background:var(--surface);color:var(--muted);
+    font-family:inherit;font-weight:700;font-size:.86rem;
+    padding:10px 14px;border-radius:999px;white-space:nowrap;cursor:pointer;
+    transition:transform .12s ease, background .15s, color .15s, border-color .15s;
+  }
+  .tab:hover{transform:translateY(-2px)}
+  .tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .tab:focus-visible{outline:3px solid var(--hivis);outline-offset:2px}
+
+  /* ---------- PROGRESS ---------- */
+  .progress{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:6px 0 18px}
+  .progress > i{display:block;height:100%;width:0;background:var(--hivis);
+                transition:width .35s ease;border-radius:999px}
+  .meta-row{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-top:14px}
+  .meta-row .count{margin-left:auto;font-weight:700;color:var(--ink)}
+
+  /* ---------- CARD ---------- */
+  .card{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px 20px;box-shadow:0 6px 0 rgba(23,53,65,.06);
+    position:relative;min-height:260px;
+  }
+  .topictab{
+    display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:#fff;padding:5px 11px;border-radius:8px;margin-bottom:14px;
+  }
+  .qno{font-size:.78rem;color:var(--muted);font-weight:700;letter-spacing:.06em}
+  .qtext{font-size:1.28rem;font-weight:700;margin:6px 0 4px;line-height:1.4}
+  .hint{font-size:.85rem;color:var(--muted);margin-top:14px}
+  .tap-pill{
+    display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+    background:var(--hivis);color:#1c1300;font-weight:700;border:none;
+    font-family:inherit;font-size:.95rem;padding:13px 20px;border-radius:12px;cursor:pointer;
+    box-shadow:0 4px 0 var(--hivis-deep);transition:transform .1s;
+  }
+  .tap-pill:active{transform:translateY(3px);box-shadow:0 1px 0 var(--hivis-deep)}
+  .tap-pill:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+
+  /* answer reveal */
+  .answer{margin-top:18px;border-top:2px dashed var(--line);padding-top:16px}
+  .answer h4{margin:0 0 6px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  ul.ans{list-style:none;margin:0;padding:0}
+  ul.ans li{
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    padding:10px 12px;margin:8px 0;font-size:1rem;display:flex;gap:10px;align-items:flex-start;
+  }
+  ul.ans li::before{content:"▸";color:var(--hivis-deep);font-weight:700}
+  .pick{font-size:.82rem;color:var(--review);font-weight:700;margin:4px 0 0}
+
+  .hook{
+    margin-top:16px;background:#FFF6DA;border:2px solid var(--hivis);border-radius:12px;
+    padding:12px 14px;
+  }
+  .hook .lab{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hivis-deep)}
+  .hook p{margin:6px 0 0;font-size:1rem}
+  .bm{display:block;margin-top:8px;font-size:.9rem;color:var(--muted);font-style:italic}
+  .bm b{color:var(--t2);font-style:normal}
+
+  /* got it / review buttons */
+  .grade{display:flex;gap:10px;margin-top:18px}
+  .grade button{
+    flex:1;font-family:inherit;font-weight:700;font-size:.95rem;padding:13px;border-radius:12px;
+    cursor:pointer;border:2px solid;transition:transform .1s;
+  }
+  .grade button:active{transform:scale(.97)}
+  .grade .got{background:var(--good);color:#fff;border-color:var(--good)}
+  .grade .rev{background:#fff;color:var(--review);border-color:var(--review)}
+  .grade button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+
+  /* nav arrows */
+  .nav-arrows{display:flex;gap:10px;margin-top:16px}
+  .nav-arrows button{
+    flex:1;font-family:inherit;font-weight:700;font-size:.92rem;padding:12px;border-radius:12px;
+    background:var(--surface);border:2px solid var(--line);color:var(--ink);cursor:pointer;
+  }
+  .nav-arrows button:disabled{opacity:.4;cursor:not-allowed}
+  .nav-arrows button:focus-visible{outline:3px solid var(--hivis);outline-offset:2px}
+  .toolbar{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .toolbar button{
+    font-family:inherit;font-weight:700;font-size:.8rem;padding:8px 13px;border-radius:999px;
+    background:var(--surface);border:2px solid var(--line);color:var(--muted);cursor:pointer;
+  }
+  .toolbar button:focus-visible{outline:3px solid var(--hivis);outline-offset:2px}
+
+  /* ---------- ROLE PLAY ---------- */
+  .scene{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:20px;margin-bottom:16px;
+  }
+  .scene .scn-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .scene h3{margin:0;font-size:1.15rem}
+  .setting{font-size:.95rem;color:var(--muted);margin:0 0 4px}
+  .inject{border-left:4px solid var(--line);padding:10px 0 10px 14px;margin:14px 0}
+  .inject .who{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--review)}
+  .inject .said{font-size:1.02rem;margin:4px 0 0;font-style:italic}
+  .doreveal{
+    margin-top:10px;background:var(--hivis);color:#1c1300;border:none;font-family:inherit;
+    font-weight:700;font-size:.85rem;padding:9px 14px;border-radius:10px;cursor:pointer;
+    box-shadow:0 3px 0 var(--hivis-deep);
+  }
+  .doreveal:active{transform:translateY(2px)}
+  .doreveal:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+  .yourmove{margin-top:10px;background:#0E232B;color:#E9F3F0;border-radius:12px;padding:12px;
+            font-family:'JetBrains Mono',monospace;font-size:.84rem;line-height:1.55}
+  .yourmove .radio{color:var(--hivis)}
+  .yourmove ol{margin:6px 0 0;padding-left:20px}
+  .yourmove li{margin:5px 0}
+  /* tagged steps */
+  .mv{display:flex;gap:9px;align-items:flex-start;padding:9px 10px;margin:7px 0;border-radius:9px;
+      background:rgba(255,255,255,.05);border-left:4px solid #3a5560}
+  .mv-txt{flex:1}
+  .mv-tag{font-weight:700;font-size:.66rem;letter-spacing:.06em;padding:3px 7px;border-radius:6px;
+          white-space:nowrap;line-height:1.4}
+  .mv-say   {border-left-color:var(--hivis)}
+  .mv-say   .mv-tag{background:var(--hivis);color:#1c1300}
+  .mv-say   .mv-txt{color:#FFE9A8}
+  .mv-ask   {border-left-color:#7FC9E8}
+  .mv-ask   .mv-tag{background:#7FC9E8;color:#06222e}
+  .mv-do    {border-left-color:#9FB7C0}
+  .mv-do    .mv-tag{background:#9FB7C0;color:#08222b}
+  .mv-write {border-left-color:#79D6A8}
+  .mv-write .mv-tag{background:#79D6A8;color:#06351f}
+  .mv-write .mv-txt{color:#CDEFDC}
+  .pb-card{flex-basis:100%;margin-top:8px;background:#06181e;border:1px dashed #79D6A8;border-radius:8px;padding:8px 10px}
+  .pb-title{color:#79D6A8;font-weight:700;font-size:.74rem;margin-bottom:4px}
+  .pb-card ul{margin:0;padding-left:16px}
+  .pb-card li{margin:2px 0;color:#BFE3CE}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 14px}
+  .legend span{font-size:.72rem;font-weight:700;padding:5px 9px;border-radius:999px;border:2px solid}
+  .lg-say{border-color:var(--hivis);color:var(--hivis-deep)}
+  .lg-ask{border-color:#2A6F97;color:#2A6F97}
+  .lg-do{border-color:#5C6670;color:#5C6670}
+  .lg-write{border-color:var(--good);color:var(--good)}
+
+  /* ---------- GENERIC PANELS ---------- */
+  .panel{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+  .panel h3{margin:0 0 4px;font-size:1.12rem}
+  .panel h3 .dot{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:middle}
+  .factgrid{display:grid;gap:12px}
+  .fact{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+  .fact b{display:block;font-size:.95rem;margin-bottom:2px}
+  .fact span{font-size:.92rem;color:var(--muted)}
+  .hot{background:#FFF6DA;border:2px solid var(--hivis);border-radius:12px;padding:12px 14px;margin-top:8px}
+  .hot a{color:var(--navy);font-weight:700;text-decoration:none}
+  .lead{font-size:1.02rem}
+
+  .intro-hello{
+    background:linear-gradient(135deg,#173541,#21505f);color:#FBF7EE;border-radius:var(--radius);
+    padding:22px;margin-bottom:18px;border:none
+  }
+  .intro-hello h2{margin:0 0 8px;font-size:1.35rem}
+  .intro-hello p{margin:0 0 6px;color:#D6E2E6}
+  .intro-hello .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .intro-hello .chips span{background:rgba(245,179,1,.15);border:1px solid var(--hivis);
+        color:var(--hivis);font-size:.78rem;font-weight:700;padding:5px 10px;border-radius:999px}
+
+  footer{max-width:760px;margin:24px auto 0;padding:0 18px;color:var(--muted);font-size:.78rem;text-align:center}
+  .author{font-size:.92rem;color:var(--ink);font-weight:700;margin-bottom:6px}
+  .author b{color:var(--navy)}
+  .disc{margin-top:8px;font-size:.72rem;opacity:.8}
+
+  .hidden{display:none !important}
+  .pop{animation:pop .35s ease}
+  @keyframes pop{0%{transform:scale(.96)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;animation:none !important}
+  }
+  @media (max-width:480px){
+    .qtext{font-size:1.14rem}
+    .titles h1{font-size:1.02rem}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="duty">
+    <span class="badge">● On Duty</span>
+    <div class="titles">
+      <h1>Charlie 1 · RTT Drill</h1>
+      <p>Recognise Terrorist Threats — 9 questions + 3 role-plays</p>
+    </div>
+    <div class="streak">
+      <b id="gotCount">0</b>
+      cards nailed
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="tabs" role="tablist" aria-label="Study modes">
+    <button class="tab" role="tab" aria-selected="true" data-mode="home">🎯 Start Here</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="cards">🃏 Drill Cards (9)</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="roleplay">🎬 Role-Plays (3)</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="hooks">🧠 Memory Hooks</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="facts">📌 Quick Facts</button>
+  </div>
+</nav>
+
+<main class="wrap" id="app"></main>
+
+<footer>
+  <div class="author">Authored by <b>Muhammad Danial bin Saifulrohman</b> · 2026</div>
+  Built as a study aid for the RTT module. Practise out loud — the real test is spoken.
+  <div class="disc">
+    © 2026 Muhammad Danial bin Saifulrohman. Original design, code, layout and study method by the author.
+    Independent study aid based on the WSQ "Recognise Terrorist Threats" module; the underlying course content and official procedures remain the property of their respective owners (SkillsFuture Singapore / Security Industry Institute / PLRD).
+    <br><b>CONFIDENTIAL</b> — provided for the recipient's personal study only. Not to be copied, redistributed, or used commercially without the author's written permission.
+  </div>
+</footer>
+
+<script>
+/* =========================================================================
+   CHARLIE 1 · RTT EXAM DRILL  —  the brain of the app
+   ========================================================================= */
+
+const TOPIC = {
+  intro:{c:'var(--t-intro)', name:'Intro · Threats to S\'pore'},
+  t1:{c:'var(--t1)', name:'Topic 1 · Contemporary Threats'},
+  t2:{c:'var(--t2)', name:'Topic 2 · Person-borne'},
+  t3:{c:'var(--t3)', name:'Topic 3 · Vehicle-borne'},
+  t4:{c:'var(--t4)', name:'Topic 4 · Object-based'},
+};
+
+const CARDS = [
+  {
+    topic:'t1', q:1,
+    question:'List THREE actions of someone doing surveillance / "casing" a place.',
+    pick:'Say any 3 (there are 10 in the guide).',
+    answer:[
+      'Taking photos/video of the building with a camera or handphone',
+      'Loitering — repeated or very long lingering at the premises',
+      'Trying to elicit (fish for) sensitive info about the facility or an upcoming event',
+      'Studying access points / the approach & departure routes',
+      'Studying the building façade and structure',
+      'Overstaying, or making unauthorised entry',
+      'Testing how alert the security officers are',
+    ],
+    hook:'SNAP · STAY · SNOOP. He SNAPs photos, STAYs too long, and SNOOPs for info. A creepy tourist who won\'t leave.',
+    bm:'Snap = <b>ambil gambar</b>, Stay = <b>melepak lama</b>, Snoop = <b>mengintip maklumat</b>.'
+  },
+  {
+    topic:'t1', q:2,
+    question:'Give THREE impacts of a successful terrorist attack on Singapore.',
+    pick:'Say any 3 (5 in the guide).',
+    answer:[
+      'Death and injuries',
+      'Disruption of businesses',
+      'Destruction of property in affected areas',
+      'Damage to Singapore\'s reputation',
+      'Psychological trauma',
+    ],
+    hook:'The 3 D\'s + Trauma → DEATH, DISRUPTION (business), DESTRUCTION (property)… and people get traumatised. "3 D\'s and a cry."',
+    bm:'Death = <b>kematian</b>, Disruption = <b>gangguan perniagaan</b>, Destruction = <b>kemusnahan harta</b>.'
+  },
+  {
+    topic:'t1', q:3,
+    question:'Give TWO examples that explain CURRENT TRENDS in terrorism.',
+    pick:'Say any 2 (5 in the guide).',
+    answer:[
+      'Rise in self-radicalised / "self-grown" individuals',
+      'Increase in the number and frequency of attacks',
+      'Growing links between different terrorist groups',
+      'Spill-over from external events (e.g. hate speech)',
+      'Emerging threats like far-right extremism',
+    ],
+    hook:'"MORE LONERS, MORE OFTEN." More self-radicalised lone wolves + attacks happening more frequently.',
+    bm:'Self-radicalised = <b>radikal sendiri</b> (online), more often = <b>lebih kerap</b>.'
+  },
+  {
+    topic:'t1', q:4,
+    question:'Describe TWO types of terrorist attacks.',
+    pick:'Both required.',
+    answer:[
+      'LONE WOLF — one person acts alone, outside any command structure, no help from a group.',
+      'GROUP ATTACK — a coordinated assault on the target by a group of attackers.',
+    ],
+    hook:'SOLO vs SQUAD. Lone wolf = solo player. Group = full squad.',
+    bm:'Solo = <b>seorang diri</b>, Squad = <b>berkumpulan</b>.'
+  },
+  {
+    topic:'t1', q:5,
+    question:'Describe the MAIN STAGES of planning a terrorist attack.',
+    pick:'3 stages — know all three.',
+    answer:[
+      'STAGE 1 — OBJECTIVES (any 3): create fear, cause destruction, demand ransom, disrupt daily activities, gain recognition for their cause, embarrass authorities.',
+      'STAGE 2 — TARGET SELECTION (4 types): Hard (airport, govt buildings, embassies) · Soft (crowded civilian spots) · Person-centric (VIPs, politicians) · Symbolic (landmarks).',
+      'STAGE 3 — PLANNING: observe the target · prepare manpower & equipment · pick the date, time & place.',
+    ],
+    hook:'The big anchor = "O-T-P" (like a one-time-passcode!): Objectives → Targets → Planning. For targets remember 4: Hard, Soft, People, Places-of-meaning.',
+    bm:'O-T-P = Objektif → Sasaran → Perancangan.'
+  },
+  {
+    topic:'t2', q:6,
+    question:'Give THREE tell-tale signs of a suspected PERSON-borne IED (bomb on a person).',
+    pick:'Say any 3 (7 in the guide).',
+    answer:[
+      'Wearing oversized / baggy clothes to conceal something',
+      'Electrical wires sticking out from under the clothing',
+      'Hiding or disguising identity (hoodie, helmet)',
+      'Loitering for an extended time',
+      'Placing an object in a crowd, then leaving immediately',
+      'Asking questions about the security of the place/event',
+      'No reasonable explanation / uncooperative about why they\'re there',
+    ],
+    hook:'BAGGY · WIRES · HOODIE. Picture a nervous guy in a thick jacket in hot Singapore weather, wires poking out, hood up. Something\'s wrong.',
+    bm:'Baggy = <b>baju besar</b>, Wires = <b>wayar terkeluar</b>, Hoodie = <b>tudung muka</b>.'
+  },
+  {
+    topic:'t3', q:7,
+    question:'Give TWO tell-tale signs of a suspected VEHICLE-borne IED (car bomb).',
+    pick:'Say any 2 (4 in the guide).',
+    answer:[
+      'Carrying flammable items (LPG cylinder) or suspicious items (box with wires sticking out)',
+      'Overly weighted / heavy load — sunken tyres and suspension',
+      'Foreign objects attached under the vehicle or beside the wheels',
+      'Signs of tampering — e.g. a new licence plate on an old, dirty car',
+    ],
+    hook:'"LOW-RIDER WITH A GAS TANK." A car squatting low (sunken tyres) carrying a gas cylinder = run the checks.',
+    bm:'Sunken tyres = <b>tayar tenggelam</b> (berat), gas cylinder = <b>tong gas</b>.'
+  },
+  {
+    topic:'t4', q:8,
+    question:'Give TWO tell-tale signs of a suspected MAIL / parcel with an IED.',
+    pick:'Say any 2 (5 in the guide).',
+    answer:[
+      'Oily stain or discoloration on the item',
+      'Wires or aluminium foil protruding from it',
+      'A clock-like ticking sound',
+      'Excessive string / adhesive tape',
+      'Unusual smell (e.g. almond or marzipan)',
+    ],
+    hook:'"OILY, TICKING, ALMONDS." A letter that\'s greasy, ticking, and smells like almonds is NOT a love letter.',
+    bm:'Oily = <b>berminyak</b>, ticking = <b>bunyi detik jam</b>, smell = <b>bau pelik (badam)</b>.'
+  },
+  {
+    topic:'t4', q:9,
+    question:'Give TWO tell-tale signs of suspected casing/surveillance by a UAV (drone).',
+    pick:'Say any 2 (3 in the guide).',
+    answer:[
+      'A drone flying at a security-sensitive location',
+      'No drone operator (pilot) visible in the vicinity',
+      'The drone hovering at the same spot for a period of time',
+    ],
+    hook:'"GHOST DRONE." Hovering over a sensitive spot, with no pilot anywhere = ghost drone, report it.',
+    bm:'Drone = <b>dron</b>, no operator = <b>tiada juruterbang</b>, hovering = <b>terapung di tempat sama</b>.'
+  },
+];
+
+const ROLEPLAYS = [
+  {
+    topic:'t2', title:'Activity 1 — Person-borne',
+    setting:'You are on patrol at Lobby A, ABC Building (a security-sensitive site).',
+    injects:[
+      { who:'Assessor (Inject 1)',
+        said:'A suspicious person is loitering and discreetly taking pictures of the premises with his handphone.',
+        moves:[
+          {t:'do', x:'Observe and take a full description before approaching.'},
+          {t:'say', x:'Charlie 1 to Control, there is a suspicious person loitering at Lobby A, taking pictures of the premises with his handphone.'},
+          {t:'say', x:'Description: Caucasian man, 40s, tall, big build, black tee-shirt and black jeans.'},
+          {t:'say', x:'Please focus the CCTV camera on him and record the image, over.'},
+          {t:'ask', x:'Approach him: "Can I help you?"'},
+        ]},
+      { who:'Assessor (Inject 2)',
+        said:'"I\'m waiting for a friend who works here. May I go in to look for him?"',
+        moves:[
+          {t:'ask', x:'May I know your friend\'s name?'},
+          {t:'ask', x:'Which department does he work in, and his contact number?'},
+          {t:'ask', x:'You were taking pictures of the premises — can I know the reason?'},
+        ]},
+      { who:'Assessor (Inject 3)',
+        said:'He gets nervous, runs away, and leaves behind a black bag. Show your actions.',
+        moves:[
+          {t:'do', x:'Move toward the bag cautiously; check for sticking wires / ticking sound — verbalise what you see.'},
+          {t:'do', x:'Do NOT use your walkie-talkie or handphone near the suspicious bag — switch them OFF. Radio waves from either can trigger a radio-controlled IED.'},
+          {t:'say', x:'(From a safe distance) Use the LANDLINE — NOT your walkie-talkie or handphone — to report to Control: "Charlie 1 to Control, the suspicious person got nervous and ran when questioned. He left a long black bag with a zipper, no clear signs of threat. Please inform Supervisor for an on-site assessment."'},
+          {t:'write', x:'Pocket Book → Occurrence Book → raise Incident Report. One copy to Supervisor, one to Management.',
+            pb:['Date & time','Location: Lobby A','Person: Caucasian male, 40s, tall, big build, black tee & jeans','Behaviour: took photos of premises, ran off when questioned','Item left behind: long black bag with zipper','Action taken: reported to Control / Supervisor']},
+        ]},
+    ]
+  },
+  {
+    topic:'t3', title:'Activity 2 — Vehicle-borne',
+    setting:'You are on static duty at the main gate.',
+    injects:[
+      { who:'Assessor (Inject 1)',
+        said:'A car has driven past the building 3 times at slow speed. What do you do?',
+        moves:[
+          {t:'say', x:'Verbalise to the assessor: "Sir, this is a suspicious vehicle."'},
+          {t:'write', x:'Record it in your Pocket Book.',
+            pb:['Date: 01/12/2024','Time: 1000hrs','Car Registration Number: SAA1234B','Colour: White','Model: Honda Accord','Suspicious vehicle drove past the building 3 times at slow speed']},
+        ]},
+      { who:'Assessor (Inject 2)',
+        said:'The car is heading toward the main gate again, slowly.',
+        moves:[
+          {t:'say', x:'Charlie 1 to Control, suspicious car passed the building 3 times and is now heading to the main gate at slow speed. Reg SAA1234B, white Honda Accord. Over.'},
+          {t:'do', x:'Check for other passengers · watch for any change of behaviour · look for tell-tale vehicle-IED signs (sunken tyres, odd cargo).'},
+        ]},
+      { who:'Assessor (Inject 3)',
+        said:'The car stops at the gate. Driver looks nervous, no other passenger.',
+        moves:[
+          {t:'ask', x:'Sir, may I know the purpose of entry?'},
+          {t:'ask', x:'May I have your photo ID?'},
+        ]},
+      { who:'Assessor (Inject 4)',
+        said:'The driver reverses, accelerates into people (2 injured), and flees.',
+        moves:[
+          {t:'say', x:'Charlie 1 to Control, suspicious driver — Caucasian male, 40s, tall, big build, blue tee-shirt and blue jeans.'},
+          {t:'say', x:'He was nervous, no passenger. On questioning he reversed and deliberately drove into staff leaving the premises, injuring two; he fled towards Tampines Road.'},
+          {t:'say', x:'Please send backup, inform Supervisor and Management, call Police and SCDF for an ambulance immediately, over.'},
+          {t:'write', x:'Pocket Book now → back at guardroom update Occurrence Book → raise Incident Report. One copy to Supervisor, one to Management.',
+            pb:['Date & time','Driver: Caucasian male, 40s, tall, big build, blue tee & jeans','Vehicle: white Honda Accord, SAA1234B','Incident: drove into staff, 2 injured, fled toward Tampines Road','Action: called backup, Police, SCDF; informed Supervisor & Management']},
+        ]},
+      { who:'Assessor (Inject 5)',
+        said:'What if the driver is STILL at the scene?',
+        moves:[
+          {t:'do', x:'When backup arrives, detain the driver to the guardhouse.'},
+          {t:'do', x:'Attend to the two injured persons while waiting for the ambulance and Police.'},
+        ]},
+    ]
+  },
+  {
+    topic:'t4', title:'Activity 3 — Object-based (white powder)',
+    setting:'Mailroom staff alert you to a parcel with traces of white powder.',
+    injects:[
+      { who:'Assessor (Inject 1)',
+        said:'You assess the situation in the mailroom. What is your course of action?',
+        moves:[
+          {t:'say', x:'Verbalise: "Sir, this is a biological agent — treat as Anthrax."'},
+          {t:'do', x:'Warn mailroom staff: do NOT touch or handle the parcel.'},
+          {t:'do', x:'Turn OFF the fan and air-con (so powder isn\'t blown around).'},
+          {t:'do', x:'Close and SEAL all windows with tape.'},
+          {t:'do', x:'LEAVE the mailroom with all staff.'},
+          {t:'do', x:'Close and SEAL the door.'},
+        ]},
+      { who:'Assessor (Inject 2)',
+        said:'What do you do AFTER leaving the mailroom?',
+        moves:[
+          {t:'say', x:'Charlie 1 to Control, there is a parcel with traces of white powder in the mailroom. Please send backup with cordon tape and danger sign, inform Supervisor and Management, call Police and SCDF, over.'},
+          {t:'do', x:'When backup arrives, cordon off the area and place the danger sign.'},
+          {t:'do', x:'Wash hands and exposed areas with soap and warm water; advise mailroom staff to do the same.'},
+          {t:'write', x:'Pocket Book → Occurrence Book → raise Incident Report. One copy to Supervisor, one to Management.',
+            pb:['Date & time','Location: mailroom','What found: parcel with traces of white powder','Action: contained room, evacuated staff, cordoned area','Notified: Supervisor, Management, Police, SCDF']},
+        ]},
+    ]
+  },
+];
+
+const HOOKS = [
+  { t:'t1', big:'O-T-P', for:'Q5 stages of planning',
+    line:'Objectives → Targets → Planning. (Targets = Hard · Soft · People · Places-of-meaning)' },
+  { t:'t1', big:'SNAP · STAY · SNOOP', for:'Q1 casing/surveillance',
+    line:'Takes photos, lingers too long, fishes for info.' },
+  { t:'t1', big:'3 D\'s + a cry', for:'Q2 impact of an attack',
+    line:'Death · Disruption · Destruction… plus psychological trauma.' },
+  { t:'t1', big:'More loners, more often', for:'Q3 current trends',
+    line:'More self-radicalised lone wolves; attacks more frequent.' },
+  { t:'t1', big:'Solo vs Squad', for:'Q4 types of attack',
+    line:'Lone wolf (alone) vs Group (coordinated).' },
+  { t:'t2', big:'BAGGY · WIRES · HOODIE', for:'Q6 person-borne IED',
+    line:'Oversized clothes, wires poking out, hidden face.' },
+  { t:'t3', big:'Low-rider with a gas tank', for:'Q7 vehicle-borne IED',
+    line:'Sunken tyres (heavy) + flammable/odd cargo + tampering.' },
+  { t:'t4', big:'Oily, Ticking, Almonds', for:'Q8 mail IED',
+    line:'Greasy stain, ticking sound, marzipan smell.' },
+  { t:'t4', big:'Ghost Drone', for:'Q9 UAV/drone',
+    line:'Hovers over sensitive spot, no pilot in sight.' },
+  { t:'intro', big:'Always close with PB → OB → IR', for:'Every role-play ending',
+    line:'Pocket Book → Occurrence Book → Incident Report. Then 2 copies: Supervisor + Management.' },
+  { t:'intro', big:'Emergency? Police + SCDF', for:'Injuries / ambulance',
+    line:'Send backup, inform Supervisor & Management, call Police and SCDF.' },
+  { t:'intro', big:'White powder = STOP', for:'Anthrax / biological',
+    line:'Don\'t touch → switch off aircon → seal windows → step out → seal door.' },
+];
+
+const FACTS = {
+  exam:[
+    { b:'9 Oral Q&A', s:'Spoken questions — practise saying answers out loud, not just reading.' },
+    { b:'3 Role-Plays', s:'Person-borne · Vehicle-borne · Object-based. You act out the response.' },
+    { b:'Be smartly attired', s:'Dress smart. Bring your IC or work permit card / letter.' },
+    { b:'Not Yet Competent?', s:'You can retake the assessment within 60 days. No shame — just go again.' },
+  ],
+  what:[
+    { b:'What is terrorism?', s:'Violence (or threat of it) used as a means to an end — to create fear and instability in society for a political aim.' },
+    { b:'Why is S\'pore vulnerable?', s:'Large foreign presence; friendly with the West / part of the anti-ISIS coalition; jihadi groups want a caliphate in SE Asia.' },
+    { b:'Current sources of threat', s:'Global jihadists (ISIS, Al-Qaeda, Jemaah Islamiyah) and far-right extremists.' },
+    { b:'Online radicalisation', s:'No fixed profile — anyone can be vulnerable. Watch for: surfing extremist sites, sharing extremist views, sudden behaviour changes, hateful remarks, intent to do violence.' },
+  ],
+  hotlines:[
+    { name:'ISD Counter-Terrorism Centre', num:'1800-2626-473' },
+    { name:'Police Hotline', num:'1800-255-000' },
+  ]
+};
+
+const app = document.getElementById('app');
+const tabs = [...document.querySelectorAll('.tab')];
+let gotSet = new Set();
+let order = CARDS.map((_,i)=>i);
+let idx = 0;
+let revealed = false;
+
+function setGotCount(){ document.getElementById('gotCount').textContent = gotSet.size; }
+
+tabs.forEach(t=>t.addEventListener('click',()=>switchMode(t.dataset.mode)));
+
+function switchMode(mode){
+  tabs.forEach(t=>t.setAttribute('aria-selected', String(t.dataset.mode===mode)));
+  if(mode==='home') renderHome();
+  else if(mode==='cards'){ revealed=false; renderCard(); }
+  else if(mode==='roleplay') renderRolePlays();
+  else if(mode==='hooks') renderHooks();
+  else if(mode==='facts') renderFacts();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderHome(){
+  app.innerHTML = `
+    <div class="intro-hello">
+      <h2>Hey — let's get you licensed. 👮</h2>
+      <p>Your exam is <b>9 spoken questions</b> + <b>3 role-plays</b>. That's it. We'll drill each one in tiny, colour-coded chunks so nothing feels like a textbook.</p>
+      <p>Tip for the brain: do <b>one card at a time</b>, say the answer <b>out loud</b>, then tap "Got it ✓". Watch your nailed-count climb. 📈</p>
+      <div class="chips"><span>ADHD-friendly: 1 card at a time</span><span>Dyslexia-friendly fonts</span><span>Say it out loud</span></div>
+    </div>
+    <div class="panel">
+      <h3>How to use this (30 seconds)</h3>
+      <div class="factgrid">
+        <div class="fact"><b>🃏 Drill Cards</b><span>The 9 questions. Tap to flip, read the model answer + a silly memory hook, then self-grade.</span></div>
+        <div class="fact"><b>🎬 Role-Plays</b><span>The 3 acting scenes. Read what the assessor says, guess your move, then reveal the script.</span></div>
+        <div class="fact"><b>🧠 Memory Hooks</b><span>All the funny anchors on one page — your last-minute scan before walking in.</span></div>
+        <div class="fact"><b>📌 Quick Facts</b><span>Exam logistics, hotlines, and the "what is terrorism" background.</span></div>
+      </div>
+    </div>
+    <div class="panel" style="text-align:center">
+      <h3 style="margin-bottom:10px">Ready?</h3>
+      <button class="tap-pill" id="goCards">Start the 9 questions →</button>
+    </div>`;
+  document.getElementById('goCards').onclick = ()=>switchMode('cards');
+}
+
+function renderCard(){
+  const c = CARDS[order[idx]];
+  const tp = TOPIC[c.topic];
+  const isGot = gotSet.has(order[idx]);
+  const pct = Math.round((gotSet.size/CARDS.length)*100);
+  app.innerHTML = `
+    <div class="meta-row">
+      <span>Question ${idx+1} of ${CARDS.length}</span>
+      <span class="count">${gotSet.size}/${CARDS.length} nailed</span>
+    </div>
+    <div class="progress"><i style="width:${pct}%"></i></div>
+
+    <div class="card pop" id="card">
+      <span class="topictab" style="background:${tp.c}">${tp.name}</span>
+      <div class="qno">ORAL QUESTION ${c.q}${isGot?' · ✓ nailed':''}</div>
+      <div class="qtext">${c.question}</div>
+      <div class="pick">👉 ${c.pick}</div>
+
+      <div id="reveal">
+        ${revealed ? answerHTML(c) : `<button class="tap-pill" id="flip">👀 Tap to reveal the answer</button>
+        <p class="hint">Try to say your answer out loud first — then check.</p>`}
+      </div>
+    </div>
+
+    ${revealed ? `<div class="grade">
+        <button class="got" id="got">✓ Got it</button>
+        <button class="rev" id="rev">↻ Review again</button>
+      </div>`:''}
+
+    <div class="nav-arrows">
+      <button id="prev" ${idx===0?'disabled':''}>← Prev</button>
+      <button id="next" ${idx===CARDS.length-1?'disabled':''}>Next →</button>
+    </div>
+    <div class="toolbar">
+      <button id="shuffle">🔀 Shuffle</button>
+      <button id="reset">↺ Reset progress</button>
+    </div>`;
+
+  const flip = document.getElementById('flip');
+  if(flip) flip.onclick = ()=>{ revealed=true; renderCard(); };
+  const got = document.getElementById('got');
+  if(got) got.onclick = ()=>{ gotSet.add(order[idx]); setGotCount(); goNext(); };
+  const rev = document.getElementById('rev');
+  if(rev) rev.onclick = ()=>{ gotSet.delete(order[idx]); setGotCount(); goNext(); };
+  document.getElementById('prev').onclick = ()=>{ if(idx>0){idx--;revealed=false;renderCard();} };
+  document.getElementById('next').onclick = goNext;
+  document.getElementById('shuffle').onclick = ()=>{ order=shuffle(order.slice()); idx=0; revealed=false; renderCard(); };
+  document.getElementById('reset').onclick = ()=>{ gotSet.clear(); setGotCount(); idx=0; revealed=false; renderCard(); };
+}
+function goNext(){ if(idx<CARDS.length-1){idx++;} revealed=false; renderCard(); }
+
+function answerHTML(c){
+  return `<div class="answer">
+      <h4>Model answer</h4>
+      <ul class="ans">${c.answer.map(a=>`<li>${a}</li>`).join('')}</ul>
+      <div class="hook">
+        <span class="lab">🧠 Memory hook</span>
+        <p>${c.hook}</p>
+        <span class="bm">BM: ${c.bm}</span>
+      </div>
+    </div>`;
+}
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+const MOVE_META = {
+  say:  {label:'SAY',   icon:'📻', cls:'mv-say'},
+  ask:  {label:'ASK',   icon:'❓', cls:'mv-ask'},
+  do:   {label:'DO',    icon:'🛠️', cls:'mv-do'},
+  write:{label:'WRITE', icon:'✍️', cls:'mv-write'},
+};
+function moveHTML(m){
+  const meta = MOVE_META[m.t] || MOVE_META.do;
+  let body = `<div class="mv ${meta.cls}"><span class="mv-tag">${meta.icon} ${meta.label}</span><span class="mv-txt">${m.x}</span>`;
+  if(m.pb){
+    body += `<div class="pb-card"><div class="pb-title">📒 Pocket Book entry — say these out loud</div><ul>${m.pb.map(p=>`<li>${p}</li>`).join('')}</ul></div>`;
+  }
+  body += `</div>`;
+  return body;
+}
+
+function renderRolePlays(){
+  app.innerHTML = `
+    <div class="meta-row"><span>3 acting scenes — read the assessor's line, plan your move, then reveal.</span></div>
+    <div class="legend">
+      <span class="lg-say">📻 SAY = radio Control</span>
+      <span class="lg-ask">❓ ASK = question the suspect</span>
+      <span class="lg-do">🛠️ DO = physical action</span>
+      <span class="lg-write">✍️ WRITE = your books</span>
+    </div>
+    ${ROLEPLAYS.map((r,ri)=>{
+      const tp = TOPIC[r.topic];
+      return `<div class="scene">
+        <div class="scn-head"><span class="topictab" style="background:${tp.c};margin:0">${tp.name}</span></div>
+        <h3>${r.title}</h3>
+        <p class="setting">📍 ${r.setting}</p>
+        ${r.injects.map((inj,ii)=>`
+          <div class="inject">
+            <div class="who">${inj.who}</div>
+            <p class="said">"${inj.said}"</p>
+            <button class="doreveal" data-r="${ri}" data-i="${ii}">🎬 Reveal your move</button>
+            <div class="yourmove hidden" id="move-${ri}-${ii}">
+              ${inj.moves.map(m=>moveHTML(m)).join('')}
+            </div>
+          </div>`).join('')}
+      </div>`;
+    }).join('')}
+    <div class="panel">
+      <h3>🧠 The pattern that repeats in ALL 3</h3>
+      <p class="lead">End every scene the same way: <b>Pocket Book → Occurrence Book → Incident Report</b>, then <b>2 copies</b> (Supervisor + Management). For injuries: <b>backup + Police + SCDF</b>. Memorise this once, use it everywhere.</p>
+    </div>`;
+  document.querySelectorAll('.doreveal').forEach(b=>{
+    b.onclick=()=>{
+      const el=document.getElementById(`move-${b.dataset.r}-${b.dataset.i}`);
+      el.classList.toggle('hidden');
+      b.textContent = el.classList.contains('hidden') ? '🎬 Reveal your move' : '🙈 Hide';
+    };
+  });
+}
+
+function renderHooks(){
+  app.innerHTML = `
+    <div class="meta-row"><span>Your last-minute scan. One funny anchor per question.</span></div>
+    ${HOOKS.map(h=>{
+      const tp = TOPIC[h.t];
+      return `<div class="panel" style="border-left:6px solid ${tp.c}">
+        <h3><span class="dot" style="background:${tp.c}"></span>${h.big}</h3>
+        <p style="margin:2px 0 4px;font-size:.8rem;color:var(--muted);font-weight:700">for ${h.for}</p>
+        <p class="lead" style="margin:0">${h.line}</p>
+      </div>`;
+    }).join('')}`;
+}
+
+function renderFacts(){
+  app.innerHTML = `
+    <div class="panel">
+      <h3>📝 The exam, in plain terms</h3>
+      <div class="factgrid">${FACTS.exam.map(f=>`<div class="fact"><b>${f.b}</b><span>${f.s}</span></div>`).join('')}</div>
+    </div>
+    <div class="panel">
+      <h3>📚 Background (good to know for oral Q&A)</h3>
+      <div class="factgrid">${FACTS.what.map(f=>`<div class="fact"><b>${f.b}</b><span>${f.s}</span></div>`).join('')}</div>
+    </div>
+    <div class="panel">
+      <h3>☎️ Important hotlines</h3>
+      ${FACTS.hotlines.map(h=>`<div class="hot"><b>${h.name}:</b> <a href="tel:${h.num.replace(/-/g,'')}">${h.num}</a></div>`).join('')}
+    </div>`;
+}
+
+document.addEventListener('keydown',e=>{
+  const onCards = document.querySelector('.tab[data-mode="cards"]').getAttribute('aria-selected')==='true';
+  if(!onCards) return;
+  if(e.code==='Space'){ e.preventDefault(); if(!revealed){revealed=true;renderCard();} }
+  if(e.code==='ArrowRight'){ document.getElementById('next')?.click(); }
+  if(e.code==='ArrowLeft'){ document.getElementById('prev')?.click(); }
+});
+
+renderHome();
+setGotCount();
+</script>
+</body>
+</html>

@@ -90,6 +90,11 @@ const siteConfig = {
             repo: "https://github.com/danialzac/kopi-connect",
             description: "A Singapore mental-health service finder with an emotion-aware chatbot that maps users to local support options through a lightweight frontend build.",
         },
+        "rtt-exam-drill": {
+            demo: "demos/rtt-exam-drill/index.html",
+            repo: "https://github.com/danialzac/rtt-exam-drill",
+            description: "An interactive, ADHD- and dyslexia-friendly study app for Singapore's WSQ security licensing exam — 9 oral questions plus 3 role-play scenario drills, bilingual (English + Malay), with memory hooks. Shows accessible UX design and clean state handling in dependency-free JavaScript.",
+        },
     },
 };
 
