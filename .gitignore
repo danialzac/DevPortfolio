@@ -1,2 +1,11 @@
+# Editor / OS junk
 .claude
 .DS_Store
+.vscode
+
+# Backup files
+*.bak
+
+# Separate project living in this folder — NOT part of the portfolio website.
+# (If you want to showcase it, it should be its own repo + a project card.)
+learning-app/
