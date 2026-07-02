@@ -42,7 +42,7 @@ const siteConfig = {
             description: "A full-stack platform demonstrating secure access, structured content, backend integration, and a scalable foundation for sharing electronics-related learning material.",
         },
         "spotify-playlist": {
-            demo: "https://lucent-maamoul-066f68.netlify.app/",
+            demo: "#",
             repo: "https://github.com/danialzac/spotify-jamming.git",
             description: "A React playlist app demonstrating component structure, state handling, and a smooth search-to-save user flow.",
         },
@@ -92,7 +92,7 @@ const siteConfig = {
         },
         "rtt-exam-drill": {
             demo: "demos/rtt-exam-drill/index.html",
-            repo: "https://github.com/danialzac/rtt-exam-drill",
+            repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/rtt-exam-drill",
             description: "An interactive, ADHD- and dyslexia-friendly study app for Singapore's WSQ security licensing exam — 9 oral questions plus 3 role-play scenario drills, bilingual (English + Malay), with memory hooks. Shows accessible UX design and clean state handling in dependency-free JavaScript.",
         },
     },
