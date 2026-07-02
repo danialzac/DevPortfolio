@@ -95,6 +95,11 @@ const siteConfig = {
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/rtt-exam-drill",
             description: "An interactive, ADHD- and dyslexia-friendly study app for Singapore's WSQ security licensing exam — 9 oral questions plus 3 role-play scenario drills, bilingual (English + Malay), with memory hooks. Shows accessible UX design and clean state handling in dependency-free JavaScript.",
         },
+        "folio-dashboard": {
+            demo: "https://folio-chi-ten.vercel.app",
+            repo: "https://github.com/danialzac/folio",
+            description: "A personal trading portfolio dashboard that fetches live equity prices from Yahoo Finance, computes annualised returns and volatility, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation across CAPM, Momentum MPT, and Crypto RSI strategies. Built on the Next.js 14 App Router with server-side data fetching, 1-hour caching, and zero paid services.",
+        },
     },
 };
 
