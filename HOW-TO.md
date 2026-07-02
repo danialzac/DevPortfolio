@@ -26,9 +26,18 @@ I edit my files  →  double-click PUBLISH  →  GitHub rebuilds my site  →  i
 
 ---
 
-## ➕ How to add a new project
+## ➕ How to add a new project (the seamless way)
 
-I don't edit code by hand — **I ask Claude**: *"Add this project to my portfolio"* and paste the details. But if I ever want to know what happens:
+**In my other chat** (where I built the project): I paste the block from
+`PROJECT-HANDOFF-PROMPT.md`. It hands me back a clean package.
+
+**In my portfolio chat:** I paste that package and say *"Add this to my portfolio
+and settle everything."* It adds the card, saves the demo, records a demo video,
+audits the links, and publishes — automatically. I just build; it settles the rest.
+
+(Under the hood this is the `portfolio-publish` skill in `.claude/skills/`.)
+
+If I ever want to know what happens by hand:
 
 1. The project's words + links live in **one file**: `assets/js/site-config.js`
 2. The project's card lives in **`index.html`**

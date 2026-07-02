@@ -1,5 +1,6 @@
-# Editor / OS junk
-.claude
+# Editor / OS junk — ignore .claude EXCEPT the committed skills folder
+.claude/*
+!.claude/skills/
 .DS_Store
 .vscode
 
