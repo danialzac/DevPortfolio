@@ -98,7 +98,12 @@ const siteConfig = {
         "folio-dashboard": {
             demo: "https://folio-chi-ten.vercel.app",
             repo: "https://github.com/danialzac/folio",
-            description: "A personal trading portfolio dashboard that fetches live equity prices from Yahoo Finance, computes annualised returns and volatility, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation across CAPM, Momentum MPT, and Crypto RSI strategies. Built on the Next.js 14 App Router with server-side data fetching, 1-hour caching, and zero paid services.",
+            description: "A personal trading portfolio dashboard that fetches live prices from Yahoo Finance, computes annualised returns and volatility across six equities, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation. Features a strategy comparison across CAPM, Momentum MPT, and Crypto RSI, a head-to-head asset comparator, a market insight panel with Sharpe league table, and an interactive compound growth calculator — built on the Next.js 14 App Router with server-side caching and zero paid services.",
+        },
+        "bladepath": {
+            // NOTE: source is private by request — no repo key, so no repo button renders.
+            demo: "https://bladepath.vercel.app",
+            description: "A bilingual, mobile-first study platform for four sword arts — 30+ technique cards with memory aids and common-mistake callouts, instant cross-art search, video lesson slots, and a demo freemium flow with email lead capture. Demonstrates component architecture (a 500-line prototype refactored into clean data/components/pages modules), URL-driven state with React Router, shared state via Context, and CI/CD with auto-deploy on every push.",
         },
     },
 };
