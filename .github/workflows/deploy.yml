@@ -64,6 +64,30 @@ jobs:
         with:
           path: .
 
+      # GitHub's Pages service sometimes answers "Deployment failed, try again
+      # later" for no reason on our side. So we do exactly that — automatically.
+      # Attempt 1 → wait 45s → attempt 2 → wait 90s → attempt 3.
+      # Only if all three fail does the run go red.
       - name: Publish to the web
         id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 45
+
+      - name: Publish to the web (retry 1)
+        id: deployment_retry1
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before final retry
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry1.outcome == 'failure'
+        run: sleep 90
+
+      - name: Publish to the web (retry 2)
+        id: deployment_retry2
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry1.outcome == 'failure'
         uses: actions/deploy-pages@v4
