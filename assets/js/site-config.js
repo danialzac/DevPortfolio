@@ -68,7 +68,7 @@ const siteConfig = {
         "prayer-pattern-viewer": {
             demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
-            description: "A reflection-focused application exploring calm interface design, protected summaries, and backend implementation across different technology approaches.",
+            description: "Turns three inputs — birth year, starting age, and a consistency rate — into a Muslim's lifetime prayer footprint: counts, rakaats, and hours across the five daily prayers, Jumu'ah, Tarawih, and Eid. Deliberately guilt-free (\"mercy over panic\") with gentle reflection cards, login-protected saved summaries, and the same backend built twice — Spring Boot and FastAPI — to compare stacks.",
         },
         "colmar-academy": {
             demo: "#",
