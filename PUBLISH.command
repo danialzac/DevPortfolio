@@ -39,9 +39,8 @@ if git push origin main >/dev/null 2>&1; then
   echo "  🔎  Watch it build:  https://github.com/danialzac/DevPortfolio/actions"
 else
   echo ""
-  echo "  ⚠️   Upload failed. You may need to connect to the internet,"
-  echo "      or ask Claude to check it. Nothing was lost — your"
-  echo "      changes are saved locally."
+  echo "  ⚠️   Upload failed. Check your internet connection and try"
+  echo "      again. Nothing was lost — your changes are saved locally."
 fi
 
 echo ""

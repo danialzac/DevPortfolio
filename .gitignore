@@ -1,6 +1,4 @@
-# Editor / OS junk — ignore .claude EXCEPT the committed skills folder
-.claude/*
-!.claude/skills/
+# Editor / OS junk
 .DS_Store
 .vscode
 
@@ -8,5 +6,4 @@
 *.bak
 
 # Separate project living in this folder — NOT part of the portfolio website.
-# (If you want to showcase it, it should be its own repo + a project card.)
 learning-app/
