@@ -105,6 +105,11 @@ const siteConfig = {
             demo: "https://bladepath.vercel.app",
             description: "A bilingual, mobile-first study platform for four sword arts — 30+ technique cards with memory aids and common-mistake callouts, instant cross-art search, video lesson slots, and a demo freemium flow with email lead capture. Demonstrates component architecture (a 500-line prototype refactored into clean data/components/pages modules), URL-driven state with React Router, shared state via Context, and CI/CD with auto-deploy on every push.",
         },
+        "find-my-hat-pontianak": {
+            demo: "demos/find-my-hat-pontianak/index.html",
+            repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/find-my-hat-pontianak",
+            description: "A dependency-free browser game: race to your hat before a chasing Pontianak ghost catches you. Turn-based movement, a greedy-chase enemy AI, and difficulty that scales each level — with every randomly generated map verified as winnable by a breadth-first search before it loads. Shows pathfinding, game-state design, and shipping a self-contained frontend with zero build tooling.",
+        },
     },
 };
 
