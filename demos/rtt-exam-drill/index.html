@@ -263,6 +263,7 @@
     <button class="tab" role="tab" aria-selected="false" data-mode="roleplay">🎬 Role-Plays (3)</button>
     <button class="tab" role="tab" aria-selected="false" data-mode="hooks">🧠 Memory Hooks</button>
     <button class="tab" role="tab" aria-selected="false" data-mode="facts">📌 Quick Facts</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="kopi">☕ Belanja Kopi</button>
   </div>
 </nav>
 
@@ -274,7 +275,7 @@
   <div class="disc">
     © 2026 Muhammad Danial bin Saifulrohman. Original design, code, layout and study method by the author.
     Independent study aid based on the WSQ "Recognise Terrorist Threats" module; the underlying course content and official procedures remain the property of their respective owners (SkillsFuture Singapore / Security Industry Institute / PLRD).
-    <br><b>CONFIDENTIAL</b> — provided for the recipient's personal study only. Not to be copied, redistributed, or used commercially without the author's written permission.
+    <br><b>Free to use &amp; share</b> — send this link to any officer who needs it. Not for resale or commercial use without the author's written permission.
   </div>
 </footer>
 
@@ -579,7 +580,36 @@ function switchMode(mode){
   else if(mode==='roleplay') renderRolePlays();
   else if(mode==='hooks') renderHooks();
   else if(mode==='facts') renderFacts();
+  else if(mode==='kopi') renderKopi();
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------------- BELANJA KOPI (support) ---------------- */
+/* * The ask lives at the moment of value: free app, grateful user, zero guilt. */
+/* * BM: App ni percuma. Kalau ia bantu kau lulus, belanja kopi je — ikhlas.    */
+function renderKopi(){
+  app.innerHTML = `
+    <div class="intro-hello">
+      <h2>This app is free. Forever. ☕</h2>
+      <p>No ads, no sign-up, no paywall — built nights and weekends so shift workers can study anywhere.</p>
+      <p><b>If it helped you pass (or feel ready), belanja me a kopi.</b> Setiap kopi = minyak untuk kekalkan app ni percuma.</p>
+    </div>
+    <div class="panel" style="text-align:center">
+      <h3>Scan with any SG banking app (PayNow)</h3>
+      <img src="paynow-qr.jpeg" alt="PayNow QR code" style="width:min(280px,80%);border-radius:12px;border:2px solid var(--line);margin:12px 0">
+      <p style="font-size:.9rem;color:var(--muted);margin:0 0 10px">
+        📱 On your phone right now? <b>Screenshot this QR</b>, open your banking app,
+        choose <b>“Scan from album/gallery”</b>, pick the screenshot. Done.
+      </p>
+      <div class="factgrid">
+        <div class="fact"><b>☕ $3 — Kopi</b><span>One kopi-o for the late-night bug fixes.</span></div>
+        <div class="fact"><b>🍛 $8 — Makan</b><span>Nasi lemak fuel for the next feature.</span></div>
+        <div class="fact"><b>🦸 $15 — Legend</b><span>You keep this free for the next batch of officers.</span></div>
+      </div>
+      <p style="font-size:.85rem;color:var(--muted);margin-top:14px">
+        Any amount, or none at all — the drills stay free either way. Terima kasih 🙏
+      </p>
+    </div>`;
 }
 
 function renderHome(){
@@ -647,7 +677,11 @@ function renderCard(){
   const flip = document.getElementById('flip');
   if(flip) flip.onclick = ()=>{ revealed=true; renderCard(); };
   const got = document.getElementById('got');
-  if(got) got.onclick = ()=>{ gotSet.add(order[idx]); setGotCount(); goNext(); };
+  if(got) got.onclick = ()=>{
+    gotSet.add(order[idx]); setGotCount();
+    // ! The 9/9 moment — peak gratitude. Celebrate FIRST, then a soft kopi ask.
+    if(gotSet.size === CARDS.length){ renderPerfect(); } else { goNext(); }
+  };
   const rev = document.getElementById('rev');
   if(rev) rev.onclick = ()=>{ gotSet.delete(order[idx]); setGotCount(); goNext(); };
   document.getElementById('prev').onclick = ()=>{ if(idx>0){idx--;revealed=false;renderCard();} };
@@ -656,6 +690,29 @@ function renderCard(){
   document.getElementById('reset').onclick = ()=>{ gotSet.clear(); setGotCount(); idx=0; revealed=false; renderCard(); };
 }
 function goNext(){ if(idx<CARDS.length-1){idx++;} revealed=false; renderCard(); }
+
+/* * 9/9 celebration — shown once, right when they finish all cards. */
+function renderPerfect(){
+  app.innerHTML = `
+    <div class="intro-hello" style="text-align:center">
+      <h2>9/9 NAILED! 🎉🎩</h2>
+      <p><b>You're exam-ready.</b> Kau dah sedia. Walk in there smartly dressed, IC in hand, and say your answers OUT LOUD with confidence.</p>
+      <p>Next: run the 3 role-plays once more so the SAY / ASK / DO / WRITE pattern is automatic.</p>
+    </div>
+    <div class="panel" style="text-align:center">
+      <h3>☕ One small thing (totally optional)</h3>
+      <p class="lead">This app is free and stays free. If it helped you get here, <b>belanja me a kopi</b> — it keeps the drills alive for the next officer on shift.</p>
+      <button class="tap-pill" id="goKopi" style="margin-top:12px">☕ Belanja kopi ($3)</button>
+      <div style="margin-top:10px">
+        <button class="doreveal" id="goRoleplay">🎬 Do the role-plays again</button>
+        <button class="doreveal" id="keepDrilling" style="margin-left:8px">↺ Keep drilling</button>
+      </div>
+    </div>`;
+  document.getElementById('goKopi').onclick = ()=>switchMode('kopi');
+  document.getElementById('goRoleplay').onclick = ()=>switchMode('roleplay');
+  document.getElementById('keepDrilling').onclick = ()=>{ gotSet.clear(); setGotCount(); idx=0; revealed=false; renderCard(); };
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
 function answerHTML(c){
   return `<div class="answer">

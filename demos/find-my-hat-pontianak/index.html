@@ -109,6 +109,19 @@
 <div id="board"></div>
 <div id="status">Find your hat 🎩 before the Pontianak 👻 finds you...</div>
 <button id="restart">Play again</button>
+<!-- * Offering panel — only shown to hooked players (level 3+). Cheeky, zero guilt. -->
+<div id="offering" style="display:none; text-align:center; max-width:340px; margin-top:10px">
+  <details>
+    <summary style="cursor:pointer; color:var(--accent); font-size:.85rem">
+      🕯️ Enjoyed the chase? Leave a kopi offering — she might spare the developer.
+    </summary>
+    <img src="paynow-qr.jpeg" alt="PayNow QR code"
+         style="width:200px; border-radius:10px; border:1px solid #2a3140; margin:10px 0">
+    <div style="font-size:.75rem; color:var(--dim)">
+      Screenshot the QR → banking app → “Scan from album”. Any amount. Terima kasih 🙏
+    </div>
+  </details>
+</div>
 <div id="dpad">
   <button class="up">▲</button>
   <button class="left">◀</button>
@@ -312,11 +325,14 @@ function gameOver(msg) {
   render();
   say(msg + ` You survived to level ${state.level}.`, 'danger');
   document.getElementById('restart').style.display = 'inline-block';
+  // * Level 3+ = they were hooked. Only then show the offering — earned, not begged.
+  document.getElementById('offering').style.display = state.level >= 3 ? 'block' : 'none';
 }
 
 function newGame() {
   state = makeLevel(1);
   document.getElementById('restart').style.display = 'none';
+  document.getElementById('offering').style.display = 'none';
   render();
   say('Find your hat 🎩 before the Pontianak 👻 finds you...');
 }
