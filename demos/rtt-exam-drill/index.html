@@ -609,7 +609,17 @@ function renderKopi(){
       <p style="font-size:.85rem;color:var(--muted);margin-top:14px">
         Any amount, or none at all — the drills stay free either way. Terima kasih 🙏
       </p>
+      <button class="tap-pill" id="shareBtn" style="margin-top:6px">📤 Send this app to your course mates</button>
     </div>`;
+  document.getElementById('shareBtn').onclick = shareApp;
+}
+
+/* * Share = the growth engine. Every user who shares recruits the next batch. */
+function shareApp(){
+  const url = 'https://danialzac.github.io/DevPortfolio/demos/rtt-exam-drill/';
+  const text = 'Taking the WSQ RTT exam soon? Free study app — all 9 oral questions + 3 role-plays with memory hooks (EN + BM). No ads, no sign-up: ';
+  if (navigator.share) { navigator.share({ title: 'RTT Exam Drill', text, url }).catch(()=>{}); }
+  else { window.open('https://wa.me/?text=' + encodeURIComponent(text + url), '_blank'); }
 }
 
 function renderHome(){
@@ -704,11 +714,13 @@ function renderPerfect(){
       <p class="lead">This app is free and stays free. If it helped you get here, <b>belanja me a kopi</b> — it keeps the drills alive for the next officer on shift.</p>
       <button class="tap-pill" id="goKopi" style="margin-top:12px">☕ Belanja kopi ($3)</button>
       <div style="margin-top:10px">
-        <button class="doreveal" id="goRoleplay">🎬 Do the role-plays again</button>
+        <button class="doreveal" id="shareWin">📤 Send to course mates</button>
+        <button class="doreveal" id="goRoleplay" style="margin-left:8px">🎬 Role-plays again</button>
         <button class="doreveal" id="keepDrilling" style="margin-left:8px">↺ Keep drilling</button>
       </div>
     </div>`;
   document.getElementById('goKopi').onclick = ()=>switchMode('kopi');
+  document.getElementById('shareWin').onclick = shareApp;
   document.getElementById('goRoleplay').onclick = ()=>switchMode('roleplay');
   document.getElementById('keepDrilling').onclick = ()=>{ gotSet.clear(); setGotCount(); idx=0; revealed=false; renderCard(); };
   window.scrollTo({top:0,behavior:'smooth'});
