@@ -29,10 +29,6 @@ const siteConfig = {
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
         email: "danialzac@gmail.com",
-        resume: {
-            href: "assets/cv/CVdania.pdf",
-            download: "Danial-Zac-CV.pdf",
-        },
     },
     projects: {
         // EDIT: Each project key must match the data-project-* names used in index.html.
@@ -207,11 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // EDIT: Add another branch here if you create a new reusable contact link type later.
     document.querySelectorAll("[data-site-link]").forEach((element) => {
         const linkType = element.getAttribute("data-site-link");
-
-        if (linkType === "resume") {
-            element.setAttribute("href", siteConfig.personal.resume.href);
-            element.setAttribute("download", siteConfig.personal.resume.download);
-        }
 
         if (linkType === "email") {
             element.setAttribute("href", `mailto:${siteConfig.personal.email}`);
