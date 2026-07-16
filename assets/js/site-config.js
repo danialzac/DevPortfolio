@@ -24,8 +24,8 @@ const siteConfig = {
     personal: {
         // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
-        title: "Danial Zac | Developer Portfolio",
-        description: "Danial Zac's portfolio: full-stack developer, financial-services professional, and technical educator building dependable software with real-world context.",
+        title: "Danial Zac | Builder · Product Portfolio · FinTech",
+        description: "Danial Zac builds and ships products across finance, education, and community — combining five years of regulated financial-services experience with end-to-end engineering and business thinking.",
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
         email: "danialzac@gmail.com",
