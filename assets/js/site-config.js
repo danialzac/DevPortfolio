@@ -25,7 +25,7 @@ const siteConfig = {
         // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
         title: "Danial Zac | Builder · Product Portfolio · FinTech",
-        description: "Danial Zac builds and ships products across finance, education, and community — combining five years of regulated financial-services experience with end-to-end engineering and business thinking.",
+        description: "Danial Zac builds and ships products across finance, education, and community — combining 15+ years in and around banking and FinTech with end-to-end engineering and business thinking.",
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
         email: "danialzac@gmail.com",
