@@ -99,7 +99,7 @@ const siteConfig = {
         "bladepath": {
             // NOTE: source is private by request — no repo key, so no repo button renders.
             demo: "https://bladepath.vercel.app",
-            description: "A bilingual, mobile-first study platform for four sword arts — 30+ technique cards with memory aids and common-mistake callouts, instant cross-art search, video lesson slots, and a demo freemium flow with email lead capture. Demonstrates component architecture (a 500-line prototype refactored into clean data/components/pages modules), URL-driven state with React Router, shared state via Context, and CI/CD with auto-deploy on every push.",
+            description: "A strategic three-year build at the crossroads of two things I practise daily: martial arts and software. Year 1 — shipped: a bilingual, mobile-first platform for four sword arts with 30+ technique cards, memory aids, instant cross-art search, and a freemium flow. Years 2–3 — deepen the technique library with instructor partnerships, then open licensing for dojos and schools. Under the hood: clean component architecture refactored from a 500-line prototype, URL-driven state with React Router, and CI/CD auto-deploy on every push.",
         },
         "find-my-hat-pontianak": {
             demo: "demos/find-my-hat-pontianak/index.html",
