@@ -94,12 +94,17 @@ const siteConfig = {
         "folio-dashboard": {
             demo: "https://folio-chi-ten.vercel.app",
             repo: "https://github.com/danialzac/folio",
-            description: "A personal trading portfolio dashboard that fetches live prices from Yahoo Finance, computes annualised returns and volatility across six equities, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation. Features a strategy comparison across CAPM, Momentum MPT, and Crypto RSI, a head-to-head asset comparator, a market insight panel with Sharpe league table, and an interactive compound growth calculator — built on the Next.js 14 App Router with server-side caching and zero paid services.",
+            description: "A personal trading portfolio dashboard that fetches live prices from Yahoo Finance, computes annualised returns and volatility across six equities, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation. Features a strategy comparison across CAPM, Momentum MPT, and Crypto RSI, a head-to-head asset comparator, a market insight panel with Sharpe league table, an interactive compound growth calculator, a portfolio health gauge, and Singapore-market tools for CPF, HDB, and Halal screening — built on the Next.js 14 App Router with server-side caching and zero paid services.",
         },
         "bladepath": {
             // NOTE: source is private by request — no repo key, so no repo button renders.
             demo: "https://bladepath.vercel.app",
-            description: "A strategic three-year build at the crossroads of two things I practise daily: martial arts and software. Year 1 — shipped: a bilingual, mobile-first platform for four sword arts with 30+ technique cards, memory aids, instant cross-art search, and a freemium flow. Years 2–3 — deepen the technique library with instructor partnerships, then open licensing for dojos and schools. Under the hood: clean component architecture refactored from a 500-line prototype, URL-driven state with React Router, and CI/CD auto-deploy on every push.",
+            description: "A strategic three-year build at the crossroads of two things I practise daily: martial arts and software. Year 1 — shipped: a bilingual, mobile-first platform for five blade arts — Shinkendo, HEMA, Kali, Miao Dao, and Silat — with 30+ technique cards, memory aids, drill-progress badges, instant cross-art search, and a freemium flow. Years 2–3 — deepen the technique library with instructor partnerships, then open licensing for dojos and schools. Under the hood: clean component architecture refactored from a 500-line prototype, URL-driven state with React Router, and CI/CD auto-deploy on every push.",
+        },
+        "find-my-katana-ronin": {
+            demo: "demos/find-my-katana-ronin/index.html",
+            repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/find-my-katana-ronin",
+            description: "The armed sequel to Pontianak Edition, built on the same dependency-free engine — a cursed forest stole your katana, and this time you fight back: slash combat, oni that hunt you through a bamboo night, and difficulty that scales every level. Shows engine reuse and mechanic extension in pure JavaScript.",
         },
         "find-my-hat-pontianak": {
             demo: "demos/find-my-hat-pontianak/index.html",
