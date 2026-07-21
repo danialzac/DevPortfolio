@@ -64,7 +64,7 @@ const siteConfig = {
         "prayer-pattern-viewer": {
             demo: "assets/media/prayer-pattern-viewer-demo.mp4",
             repo: "#",
-            description: "Turns three inputs — birth year, starting age, and a consistency rate — into a Muslim's lifetime prayer footprint: counts, rakaats, and hours across the five daily prayers, Jumu'ah, Tarawih, and Eid. Deliberately guilt-free (\"mercy over panic\") with gentle reflection cards, login-protected saved summaries, and the same backend built twice — Spring Boot and FastAPI — to compare stacks.",
+            description: "A full-stack app that estimates a lifetime of prayer from birth year, start age, and consistency rates — rendered live as a consistency ring, a 100-tile life mosaic, and per-prayer bars that recalculate as you move the sliders. It bundles worship planners: zakat against the gold nisab (SGD), Quran khatam pacing, and missed-fasts return scheduling. Engineering highlights: debounced real-time form-state to API, custom SVG data visualisations, JWT auth with Spring Security, JPA persistence, and dual-mode architecture — full-stack server, or a browser-only static build with the calculation engine ported to JavaScript.",
         },
         "colmar-academy": {
             demo: "#",
