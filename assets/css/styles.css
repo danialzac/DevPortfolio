@@ -583,6 +583,8 @@ nav a:focus-visible {
     overflow: hidden;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 247, 236, 0.92));
     box-shadow: var(--shadow-soft);
+    /* * Smooth, unhurried hover — cheap sites snap, premium ones ease. */
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease;
 }
 
 .project-card-wide {
