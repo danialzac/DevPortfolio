@@ -106,6 +106,11 @@ const siteConfig = {
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/find-my-katana-ronin",
             description: "The armed sequel to Pontianak Edition, built on the same dependency-free engine — a cursed forest stole your katana, and this time you fight back: slash combat, oni that hunt you through a bamboo night, and difficulty that scales every level. Shows engine reuse and mechanic extension in pure JavaScript.",
         },
+        "egsi-food-scanner": {
+            demo: "demos/egsi-food-scanner/index.html",
+            repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/egsi-food-scanner",
+            description: "An on-device sensory instrument: drop a food photo and it infers freshness, oxidation, texture, and aroma, then reconstructs a predicted human perception — umami depth, mouthfeel, likely emotional response — through the EGSI→EHPE latent-perception pipeline. A built-in Melt Lab models cheese-and-bread pairings. Pure HTML/Canvas, zero dependencies, runs entirely in the browser with a clear path from phone camera to real sensor hardware (e-nose, e-tongue, bite-force rig).",
+        },
         "find-my-hat-pontianak": {
             demo: "demos/find-my-hat-pontianak/index.html",
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/find-my-hat-pontianak",
