@@ -62,9 +62,9 @@ const siteConfig = {
             description: "A luxury storefront build completed to practice premium presentation, clearer browsing flow, and a more polished checkout-style experience.",
         },
         "prayer-pattern-viewer": {
-            demo: "assets/media/prayer-pattern-viewer-demo.mp4",
-            repo: "#",
-            description: "A full-stack app that estimates a lifetime of prayer from birth year, start age, and consistency rates — rendered live as a consistency ring, a 100-tile life mosaic, and per-prayer bars that recalculate as you move the sliders. It bundles worship planners: zakat against the gold nisab (SGD), Quran khatam pacing, and missed-fasts return scheduling. Engineering highlights: debounced real-time form-state to API, custom SVG data visualisations, JWT auth with Spring Security, JPA persistence, and dual-mode architecture — full-stack server, or a browser-only static build with the calculation engine ported to JavaScript.",
+            demo: "https://danialzac.github.io/prayer-pattern-viewer/",
+            repo: "https://github.com/danialzac/prayer-pattern-viewer",
+            description: "Estimates a lifetime of prayer from birth year, start age, and consistency rate — rendered live as a consistency ring, a 100-tile life mosaic, and per-prayer bars that recalculate as you move the sliders. Grows with a digital tasbih, spaced-repetition Quran lessons, and a Telegram Q&A companion (@bayanQAbot), alongside worship planners for zakat against the gold nisab (SGD), Quran khatam pacing, and missed-fasts return scheduling. Private by design — every estimate runs client-side and saved summaries never leave the browser. Engineering highlights: custom SVG data visualisations, spaced-repetition scheduling, and a dual-mode architecture — full-stack Spring Boot server, or a browser-only static build with the calculation engine ported to JavaScript.",
         },
         "colmar-academy": {
             demo: "#",
