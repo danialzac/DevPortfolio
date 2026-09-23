@@ -25,7 +25,7 @@ const siteConfig = {
         // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
         title: "Danial Zac | Builder · Product Portfolio · FinTech",
-        description: "Danial Zac builds and ships products across finance, hospitality, fitness, education, and community — pairing deep banking and FinTech grounding with end-to-end engineering and business thinking.",
+        description: "Danial Zac builds and ships real products across finance, hospitality, fitness, education, and community, backed by deep banking and FinTech experience.",
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
         email: "danialzac@gmail.com",
@@ -64,7 +64,7 @@ const siteConfig = {
         "prayer-pattern-viewer": {
             demo: "https://danialzac.github.io/prayer-pattern-viewer/",
             repo: "https://github.com/danialzac/prayer-pattern-viewer",
-            description: "Estimates a lifetime of prayer from birth year, start age, and consistency rate — rendered live as a consistency ring, a 100-tile life mosaic, and per-prayer bars that recalculate as you move the sliders. Grows with a digital tasbih, spaced-repetition Quran lessons, and a Telegram Q&A companion (@bayanQAbot), alongside worship planners for zakat against the gold nisab (SGD), Quran khatam pacing, and missed-fasts return scheduling. Private by design — every estimate runs client-side and saved summaries never leave the browser. Engineering highlights: custom SVG data visualisations, spaced-repetition scheduling, and a dual-mode architecture — full-stack Spring Boot server, or a browser-only static build with the calculation engine ported to JavaScript.",
+            description: "Estimates a lifetime of prayer from birth year, start age, and consistency rate, rendered live as a consistency ring, a 100-tile life mosaic, and per-prayer bars that recalculate as you move the sliders. Grows with a digital tasbih, spaced-repetition Quran lessons, and a Telegram Q&A companion (@bayanQAbot), alongside worship planners for zakat against the gold nisab (SGD), Quran khatam pacing, and missed-fasts return scheduling. Private by design: every estimate runs client-side and saved summaries never leave the browser. Engineering highlights include custom SVG data visualisations, spaced-repetition scheduling, and a dual-mode architecture: full-stack Spring Boot server, or a browser-only static build with the calculation engine ported to JavaScript.",
         },
         "colmar-academy": {
             demo: "#",
@@ -89,42 +89,42 @@ const siteConfig = {
         "rtt-exam-drill": {
             demo: "demos/rtt-exam-drill/index.html",
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/rtt-exam-drill",
-            description: "An interactive, ADHD- and dyslexia-friendly study app for Singapore's WSQ security licensing exam — 9 oral questions plus 3 role-play scenario drills, bilingual (English + Malay), with memory hooks. Shows accessible UX design and clean state handling in dependency-free JavaScript.",
+            description: "An interactive, ADHD- and dyslexia-friendly study app for Singapore's WSQ security licensing exam. 9 oral questions plus 3 role-play scenario drills, bilingual (English and Malay), with memory hooks. Shows accessible UX design and clean state handling in dependency-free JavaScript.",
         },
         "folio-dashboard": {
             demo: "https://folio-chi-ten.vercel.app",
             repo: "https://github.com/danialzac/folio",
-            description: "A personal trading portfolio dashboard that fetches live prices from Yahoo Finance, computes annualised returns and volatility across six equities, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation. Features a strategy comparison across CAPM, Momentum MPT, and Crypto RSI, a head-to-head asset comparator, a market insight panel with Sharpe league table, an interactive compound growth calculator, a portfolio health gauge, and Singapore-market tools for CPF, HDB, and Halal screening — built on the Next.js 14 App Router with server-side caching and zero paid services.",
+            description: "A personal trading portfolio dashboard that fetches live prices from Yahoo Finance, computes annualised returns and volatility across six equities, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation. Features a strategy comparison across CAPM, Momentum MPT, and Crypto RSI, a head-to-head asset comparator, a market insight panel with Sharpe league table, an interactive compound growth calculator, a portfolio health gauge, and Singapore-market tools for CPF, HDB, and Halal screening. Built on the Next.js 14 App Router with server-side caching and zero paid services.",
         },
         "greenkook": {
             demo: "demos/greenkook/",
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/greenkook",
-            description: "A one-page ordering site built for a real private chef — no login, no shopping cart, no monthly software bill. Customers browse a categorised menu and tap through to WhatsApp or email with the order already written out. Every word, price, and dish lives in one plain-English content file, so the chef can update the whole site himself without touching code. Built and shipped as a freelance client project on Next.js and Tailwind.",
+            description: "A one-page ordering site built for a real private chef. No login, no shopping cart, no monthly software bill. Customers browse a categorised menu and tap through to WhatsApp or email with the order already written out. Every word, price, and dish lives in one plain-English content file, so the chef can update the whole site himself without touching code. Built and shipped as a freelance client project on Next.js and Tailwind.",
         },
         "sesh": {
             demo: "demos/sesh/",
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/sesh",
-            description: "A booking site for a 1-to-1 sports coach — boxing, Muay Thai, kickboxing, circuits, and tennis across Singapore. Clients pick a discipline, package, location, and time slot, and the site writes them a WhatsApp message with everything pre-filled, ready to send. No accounts, no payment gateway, no admin dashboard to maintain — just a fast, good-looking front door for a coaching business. Built and shipped as a freelance client project on Next.js and Tailwind.",
+            description: "A booking site for a 1-to-1 sports coach: boxing, Muay Thai, kickboxing, circuits, and tennis across Singapore. Clients pick a discipline, package, location, and time slot, and the site writes them a WhatsApp message with everything pre-filled, ready to send. No accounts, no payment gateway, no admin dashboard to maintain. Just a fast, good-looking front door for a coaching business. Built and shipped as a freelance client project on Next.js and Tailwind.",
         },
         "bladepath": {
             // NOTE: source is private by request — no repo key, so no repo button renders.
             demo: "https://bladepath.vercel.app",
-            description: "A strategic three-year build at the crossroads of two things I practise daily: martial arts and software. Year 1 — shipped: a bilingual, mobile-first platform for five blade arts — Shinkendo, HEMA, Kali, Miao Dao, and Silat — with 30+ technique cards, memory aids, drill-progress badges, instant cross-art search, and a freemium flow. Years 2–3 — deepen the technique library with instructor partnerships, then open licensing for dojos and schools. Under the hood: clean component architecture refactored from a 500-line prototype, URL-driven state with React Router, and CI/CD auto-deploy on every push.",
+            description: "A strategic three-year build at the crossroads of two things I practise daily: martial arts and software. Year 1, shipped: a bilingual, mobile-first platform for five blade arts (Shinkendo, HEMA, Kali, Miao Dao, and Silat) with 30+ technique cards, memory aids, drill-progress badges, instant cross-art search, and a freemium flow. Years 2 to 3: deepen the technique library with instructor partnerships, then open licensing for dojos and schools. Under the hood: clean component architecture refactored from a 500-line prototype, URL-driven state with React Router, and CI/CD auto-deploy on every push.",
         },
         "find-my-katana-ronin": {
             demo: "demos/find-my-katana-ronin/index.html",
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/find-my-katana-ronin",
-            description: "The armed sequel to Pontianak Edition, built on the same dependency-free engine — a cursed forest stole your katana, and this time you fight back: slash combat, oni that hunt you through a bamboo night, and difficulty that scales every level. Shows engine reuse and mechanic extension in pure JavaScript.",
+            description: "The armed sequel to Pontianak Edition, built on the same dependency-free engine. A cursed forest stole your katana, and this time you fight back: slash combat, oni that hunt you through a bamboo night, and difficulty that scales every level. Shows engine reuse and mechanic extension in pure JavaScript.",
         },
         "egsi-food-scanner": {
             demo: "demos/egsi-food-scanner/index.html",
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/egsi-food-scanner",
-            description: "An on-device sensory instrument: drop a food photo and it infers freshness, oxidation, texture, and aroma, then reconstructs a predicted human perception — umami depth, mouthfeel, likely emotional response — through the EGSI→EHPE latent-perception pipeline. A built-in Melt Lab models cheese-and-bread pairings. Pure HTML/Canvas, zero dependencies, runs entirely in the browser with a clear path from phone camera to real sensor hardware (e-nose, e-tongue, bite-force rig).",
+            description: "An on-device sensory instrument: drop a food photo and it infers freshness, oxidation, texture, and aroma, then reconstructs a predicted human perception (umami depth, mouthfeel, likely emotional response) through the EGSI to EHPE latent-perception pipeline. A built-in Melt Lab models cheese-and-bread pairings. Pure HTML/Canvas, zero dependencies, runs entirely in the browser with a clear path from phone camera to real sensor hardware (e-nose, e-tongue, bite-force rig).",
         },
         "find-my-hat-pontianak": {
             demo: "demos/find-my-hat-pontianak/index.html",
             repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/find-my-hat-pontianak",
-            description: "A dependency-free browser game: race to your hat before a chasing Pontianak ghost catches you. Turn-based movement, a greedy-chase enemy AI, and difficulty that scales each level — with every randomly generated map verified as winnable by a breadth-first search before it loads. Shows pathfinding, game-state design, and shipping a self-contained frontend with zero build tooling.",
+            description: "A dependency-free browser game: race to your hat before a chasing Pontianak ghost catches you. Turn-based movement, a greedy-chase enemy AI, and difficulty that scales each level. Every randomly generated map is verified as winnable by a breadth-first search before it loads. Shows pathfinding, game-state design, and shipping a self-contained frontend with zero build tooling.",
         },
     },
 };
@@ -177,12 +177,12 @@ function pickAmount(amount) {
     // WHY: Specific, personal copy converts better than generic "thank you" text.
     // Each line answers "what does MY money actually do?" — the #1 question before giving.
     const purposes = {
-        5:   'Enter $5 in your app — a small contribution toward learning resources.',
-        15:  'Enter $15 in your app — helps cover course material, tools, or practice resources.',
-        30:  'Enter $30 in your app — supports hosting, subscriptions, and continued project work.',
-        50:  'Enter $50 in your app — goes toward a course or certification preparation cost.',
-        100: 'Enter $100 in your app — meaningful support for deeper learning and project time.',
-        200: 'Enter $200 in your app — generous support for the next stage of growth.',
+        5:   'Enter $5 in your app, a small contribution toward learning resources.',
+        15:  'Enter $15 in your app, helping cover course material, tools, or practice resources.',
+        30:  'Enter $30 in your app, supporting hosting, subscriptions, and continued project work.',
+        50:  'Enter $50 in your app, going toward a course or certification preparation cost.',
+        100: 'Enter $100 in your app, meaningful support for deeper learning and project time.',
+        200: 'Enter $200 in your app, generous support for the next stage of growth.',
     };
 
     document.getElementById('amount-hint').textContent = purposes[amount] || `Enter $${amount} in your banking app`;

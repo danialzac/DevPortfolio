@@ -803,7 +803,8 @@ nav a:focus-visible {
     display: none;
 }
 
-.contact-links a {
+.contact-links a,
+.contact-links .copy-email-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
@@ -814,10 +815,15 @@ nav a:focus-visible {
     color: rgba(255, 251, 246, 0.95);
     text-decoration: none;
     font-weight: 800;
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
 }
 
 .contact-links a:hover,
-.contact-links a:focus-visible {
+.contact-links a:focus-visible,
+.contact-links .copy-email-btn:hover,
+.contact-links .copy-email-btn:focus-visible {
     transform: translateY(-2px);
     background: rgba(181, 106, 45, 0.18);
     border-color: rgba(255, 222, 196, 0.22);
