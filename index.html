@@ -68,35 +68,6 @@
 </head>
 
 <body>
-    <!-- * The intro: one first-impression moment before the site reveals itself. -->
-    <!-- * Bukaan: satu detik "wow" sebelum laman betul-betul muncul. Sekali je, then padam sendiri. -->
-    <!-- WHY: A portfolio that looks exactly like every other template doesn't stick in a recruiter's memory. This does, and it costs nothing in page weight: it's the same stamp motif from the hero, just given its moment. Plays once per browser session (sessionStorage), skipped entirely for prefers-reduced-motion. -->
-    <div id="intro-overlay" aria-hidden="true">
-        <div class="intro-stamp">
-            <span class="intro-stamp__mono">DZ</span>
-        </div>
-    </div>
-    <script>
-        (function () {
-            var seen = sessionStorage.getItem('introPlayed');
-            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var overlay = document.getElementById('intro-overlay');
-            if (seen || reduced) {
-                overlay.remove();
-                return;
-            }
-            sessionStorage.setItem('introPlayed', '1');
-            document.body.classList.add('intro-lock');
-            setTimeout(function () {
-                overlay.classList.add('intro-overlay--leaving');
-                document.body.classList.remove('intro-lock');
-            }, 1500);
-            overlay.addEventListener('animationend', function (e) {
-                if (e.target === overlay) overlay.remove();
-            });
-        })();
-    </script>
-
     <!-- * The scroll path: turns scrolling into a small journey instead of a static read. -->
     <!-- * Laluan skrol: skrol jadi macam perjalanan kecil, bukan baca statik je. -->
     <!-- WHY: desktop-only enhancement (mobile keeps the plain nav pills, no room for this there). Click a stop to jump straight to that section; the marker tracks scroll position live. -->
@@ -187,13 +158,7 @@
         <!-- EDIT: If you want to change first-impression content later, start with the eyebrow, hero-role, hero-summary, and CTA buttons here. -->
         <div class="landing-content">
             <span class="eyebrow">Strategist & Builder · FinTech</span>
-            <div class="profile-photo-wrap">
-                <img src="assets/img/profileimage1.jpg" class="profile-pic-large" alt="Danial Zac">
-                <!-- * Personal signature stamp: a wax-seal-style monogram. Banking runs on approvals; this is mine. -->
-                <div class="stamp-seal" aria-hidden="true">
-                    <span class="stamp-seal__mono">DZ</span>
-                </div>
-            </div>
+            <img src="assets/img/profileimage1.jpg" class="profile-pic-large" alt="Danial Zac">
             <p class="intro-line">
                 Hello, I&apos;m
             </p>
