@@ -245,6 +245,69 @@ nav a:focus-visible {
     box-shadow: var(--shadow-strong);
 }
 
+/* * The stamp: one small personal signature instead of a generic badge. */
+/* * Cop kecil: satu tanda peribadi, bukan badge generik. Macam stempel bank. */
+.profile-photo-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.stamp-seal {
+    position: absolute;
+    bottom: -0.6rem;
+    right: -1.1rem;
+    width: 4.6rem;
+    height: 4.6rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    background: var(--color-paper-soft);
+    border: 2px solid var(--color-accent);
+    outline: 1px dashed var(--color-accent-strong);
+    outline-offset: -5px;
+    box-shadow: var(--shadow-soft);
+    transform: rotate(-7deg);
+    animation: stamp-press 480ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-delay: 550ms;
+}
+
+.stamp-seal__line {
+    font-size: 0.42rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-accent-strong);
+    line-height: 1;
+}
+
+.stamp-seal__mono {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.1;
+}
+
+@keyframes stamp-press {
+    0% {
+        opacity: 0;
+        transform: rotate(-22deg) scale(1.6);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(-7deg) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stamp-seal {
+        animation: none;
+    }
+}
+
 .intro-line {
     font-size: 0.88rem;
     letter-spacing: 0.18em;
