@@ -25,7 +25,7 @@ const siteConfig = {
         // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
         title: "Danial Zac | Builder · Product Portfolio · FinTech",
-        description: "Danial Zac builds and ships products across finance, education, and community — combining 15+ years in and around banking and FinTech with end-to-end engineering and business thinking.",
+        description: "Danial Zac builds and ships products across finance, hospitality, fitness, education, and community — pairing deep banking and FinTech grounding with end-to-end engineering and business thinking.",
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
         email: "danialzac@gmail.com",
@@ -95,6 +95,16 @@ const siteConfig = {
             demo: "https://folio-chi-ten.vercel.app",
             repo: "https://github.com/danialzac/folio",
             description: "A personal trading portfolio dashboard that fetches live prices from Yahoo Finance, computes annualised returns and volatility across six equities, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation. Features a strategy comparison across CAPM, Momentum MPT, and Crypto RSI, a head-to-head asset comparator, a market insight panel with Sharpe league table, an interactive compound growth calculator, a portfolio health gauge, and Singapore-market tools for CPF, HDB, and Halal screening — built on the Next.js 14 App Router with server-side caching and zero paid services.",
+        },
+        "greenkook": {
+            demo: "demos/greenkook/",
+            repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/greenkook",
+            description: "A one-page ordering site built for a real private chef — no login, no shopping cart, no monthly software bill. Customers browse a categorised menu and tap through to WhatsApp or email with the order already written out. Every word, price, and dish lives in one plain-English content file, so the chef can update the whole site himself without touching code. Built and shipped as a freelance client project on Next.js and Tailwind.",
+        },
+        "sesh": {
+            demo: "demos/sesh/",
+            repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/sesh",
+            description: "A booking site for a 1-to-1 sports coach — boxing, Muay Thai, kickboxing, circuits, and tennis across Singapore. Clients pick a discipline, package, location, and time slot, and the site writes them a WhatsApp message with everything pre-filled, ready to send. No accounts, no payment gateway, no admin dashboard to maintain — just a fast, good-looking front door for a coaching business. Built and shipped as a freelance client project on Next.js and Tailwind.",
         },
         "bladepath": {
             // NOTE: source is private by request — no repo key, so no repo button renders.
