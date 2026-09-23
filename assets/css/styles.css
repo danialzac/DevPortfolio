@@ -274,18 +274,9 @@ nav a:focus-visible {
     animation-delay: 550ms;
 }
 
-.stamp-seal__line {
-    font-size: 0.42rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--color-accent-strong);
-    line-height: 1;
-}
-
 .stamp-seal__mono {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
+    font-size: 1.6rem;
     font-weight: 600;
     color: var(--color-ink);
     line-height: 1.1;
@@ -305,6 +296,171 @@ nav a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
     .stamp-seal {
         animation: none;
+    }
+}
+
+/* * The intro overlay: one first-impression moment, then it removes itself. */
+/* * Overlay bukaan: satu detik, lepas tu hilang sendiri dari halaman. */
+body.intro-lock {
+    overflow: hidden;
+}
+
+#intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-paper);
+}
+
+#intro-overlay.intro-overlay--leaving {
+    animation: intro-overlay-out 550ms ease-in forwards;
+    pointer-events: none;
+}
+
+.intro-stamp {
+    position: relative;
+    width: 9.5rem;
+    height: 9.5rem;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    background: var(--color-paper-soft);
+    border: 3px solid var(--color-accent);
+    outline: 2px dashed var(--color-accent-strong);
+    outline-offset: -9px;
+    box-shadow: var(--shadow-strong);
+    animation: intro-stamp-press 620ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.intro-stamp::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    opacity: 0;
+    animation: intro-ring-pulse 700ms ease-out 560ms both;
+}
+
+.intro-stamp__mono {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.2;
+}
+
+@keyframes intro-stamp-press {
+    0% {
+        opacity: 0;
+        transform: scale(1.9) rotate(-24deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(-6deg);
+    }
+}
+
+@keyframes intro-ring-pulse {
+    0% {
+        opacity: 0.55;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.9);
+    }
+}
+
+@keyframes intro-overlay-out {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #intro-overlay {
+        display: none;
+    }
+}
+
+/* * The scroll path: a small vertical journey rail, desktop only. */
+/* * Laluan skrol: rel menegak kecil, untuk desktop je (mobile guna nav pill biasa). */
+#scroll-path {
+    position: fixed;
+    top: 50%;
+    right: 1.6rem;
+    left: auto;
+    width: auto;
+    margin: 0;
+    transform: translateY(-50%);
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+    padding: 0.4rem 0;
+}
+
+#scroll-path::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--color-line);
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+#scroll-path button {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    background: var(--color-paper-soft);
+    padding: 0;
+    cursor: pointer;
+    transition: transform var(--transition), background var(--transition);
+}
+
+#scroll-path button:hover {
+    transform: scale(1.3);
+}
+
+#scroll-path button.is-active {
+    background: var(--color-accent);
+    transform: scale(1.35);
+}
+
+.scroll-path__marker {
+    position: absolute;
+    left: 50%;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--color-accent-strong);
+    box-shadow: 0 0 0 4px var(--color-accent-glow);
+    transform: translate(-50%, -50%);
+    transition: top 120ms linear;
+    pointer-events: none;
+}
+
+@media (max-width: 62rem) {
+    #scroll-path {
+        display: none;
     }
 }
 

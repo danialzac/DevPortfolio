@@ -68,6 +68,82 @@
 </head>
 
 <body>
+    <!-- * The intro: one first-impression moment before the site reveals itself. -->
+    <!-- * Bukaan: satu detik "wow" sebelum laman betul-betul muncul. Sekali je, then padam sendiri. -->
+    <!-- WHY: A portfolio that looks exactly like every other template doesn't stick in a recruiter's memory. This does, and it costs nothing in page weight: it's the same stamp motif from the hero, just given its moment. Plays once per browser session (sessionStorage), skipped entirely for prefers-reduced-motion. -->
+    <div id="intro-overlay" aria-hidden="true">
+        <div class="intro-stamp">
+            <span class="intro-stamp__mono">DZ</span>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var seen = sessionStorage.getItem('introPlayed');
+            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var overlay = document.getElementById('intro-overlay');
+            if (seen || reduced) {
+                overlay.remove();
+                return;
+            }
+            sessionStorage.setItem('introPlayed', '1');
+            document.body.classList.add('intro-lock');
+            setTimeout(function () {
+                overlay.classList.add('intro-overlay--leaving');
+                document.body.classList.remove('intro-lock');
+            }, 1500);
+            overlay.addEventListener('animationend', function (e) {
+                if (e.target === overlay) overlay.remove();
+            });
+        })();
+    </script>
+
+    <!-- * The scroll path: turns scrolling into a small journey instead of a static read. -->
+    <!-- * Laluan skrol: skrol jadi macam perjalanan kecil, bukan baca statik je. -->
+    <!-- WHY: desktop-only enhancement (mobile keeps the plain nav pills, no room for this there). Click a stop to jump straight to that section; the marker tracks scroll position live. -->
+    <nav id="scroll-path" aria-label="Page sections">
+        <button type="button" data-target="#landing" aria-label="Home"><span></span></button>
+        <button type="button" data-target="#about" aria-label="About"><span></span></button>
+        <button type="button" data-target="#projects" aria-label="Projects"><span></span></button>
+        <button type="button" data-target="#contact" aria-label="Contact"><span></span></button>
+        <div class="scroll-path__marker" aria-hidden="true"></div>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var path = document.getElementById('scroll-path');
+            if (!path) return;
+            var buttons = Array.prototype.slice.call(path.querySelectorAll('button'));
+            var sections = buttons.map(function (b) { return document.querySelector(b.getAttribute('data-target')); });
+            var marker = path.querySelector('.scroll-path__marker');
+
+            buttons.forEach(function (btn, i) {
+                btn.addEventListener('click', function () {
+                    if (sections[i]) sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            var ticking = false;
+            function update() {
+                ticking = false;
+                var railHeight = path.offsetHeight;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                var progress = docHeight > 0 ? Math.min(1, window.scrollY / docHeight) : 0;
+                marker.style.top = (progress * railHeight) + 'px';
+
+                var mid = window.scrollY + window.innerHeight / 3;
+                var activeIndex = 0;
+                sections.forEach(function (sec, i) {
+                    if (sec && sec.offsetTop <= mid) activeIndex = i;
+                });
+                buttons.forEach(function (b, i) { b.classList.toggle('is-active', i === activeIndex); });
+            }
+            window.addEventListener('scroll', function () {
+                if (!ticking) { requestAnimationFrame(update); ticking = true; }
+            }, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        });
+    </script>
+
     <!-- ! Start of nav (Main Navigation) -->
     <!-- ═══════════════════════════════════════════════════════════
          NAV — the sticky top menu that follows you everywhere
@@ -113,11 +189,9 @@
             <span class="eyebrow">Strategist & Builder · FinTech</span>
             <div class="profile-photo-wrap">
                 <img src="assets/img/profileimage1.jpg" class="profile-pic-large" alt="Danial Zac">
-                <!-- * Personal signature stamp: a callback to "check twice, ship once" in the About section. Banking runs on approvals; this is mine. -->
+                <!-- * Personal signature stamp: a wax-seal-style monogram. Banking runs on approvals; this is mine. -->
                 <div class="stamp-seal" aria-hidden="true">
-                    <span class="stamp-seal__line">Check Twice</span>
                     <span class="stamp-seal__mono">DZ</span>
-                    <span class="stamp-seal__line">Ship Once</span>
                 </div>
             </div>
             <p class="intro-line">
@@ -220,7 +294,7 @@
                     I turn domain problems into shipped systems, and I run each build like a business.
                 </h3>
                 <p>
-                    Most of my experience is in banking, insurance, and public-sector systems, the kind of environment where a shortcut in testing turns into a headline. I picked up a rule there that never left: check twice, ship once, and never trust data you haven&apos;t verified yourself.<br><br>
+                    Most of my experience is in banking, insurance, and public-sector systems, the kind of environment where a shortcut in testing turns into a headline. I learned early to test twice and never trust data I haven&apos;t verified myself.<br><br>
 
                     That instinct runs through everything I build now. Folio helps people make sharper calls with their own money. BladePath teaches five martial arts through one bilingual app I built because nothing like it existed yet. That same approach works just as well at a smaller scale: an ordering page for a private chef, a booking site for a sports coach. The scale changes. The standard doesn&apos;t.<br><br>
 
@@ -562,6 +636,31 @@
             </div>
 
             <!-- RTT Exam Drill — visible and ready -->
+            <!-- Folio — visible and ready (live on Vercel). Moved first: strongest domain-relevant proof before anything else. -->
+            <div class="project-card">
+                <video class="project-image" controls muted playsinline preload="metadata" poster="assets/media/folio-dashboard-demo-poster.jpg">
+                    <source src="assets/media/folio-dashboard-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Finance Dashboard</span>
+                        <h3>Folio</h3>
+                        <p data-project-description="folio-dashboard"></p>
+                        <ul class="toolused">
+                            <li>Next.js 14</li>
+                            <li>TypeScript</li>
+                            <li>Tailwind CSS</li>
+                            <li>Recharts</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="folio-dashboard-demo" href="https://folio-chi-ten.vercel.app">View Demo</a>
+                        <a data-project-link="folio-dashboard-repo" href="https://github.com/danialzac/folio">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card">
                 <video class="project-image" controls muted playsinline preload="metadata" poster="assets/media/rtt-exam-drill-demo-poster.jpg">
                     <source src="assets/media/rtt-exam-drill-demo.mp4" type="video/mp4">
@@ -583,31 +682,6 @@
                     <div class="project-links">
                         <a data-project-link="rtt-exam-drill-demo" href="#">View Demo</a>
                         <a data-project-link="rtt-exam-drill-repo" href="https://github.com/danialzac/DevPortfolio/tree/main/demos/rtt-exam-drill">GitHub Repo</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Folio — visible and ready (live on Vercel) -->
-            <div class="project-card">
-                <video class="project-image" controls muted playsinline preload="metadata" poster="assets/media/folio-dashboard-demo-poster.jpg">
-                    <source src="assets/media/folio-dashboard-demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="project-details">
-                    <div>
-                        <span class="project-eyebrow">Finance Dashboard</span>
-                        <h3>Folio</h3>
-                        <p data-project-description="folio-dashboard"></p>
-                        <ul class="toolused">
-                            <li>Next.js 14</li>
-                            <li>TypeScript</li>
-                            <li>Tailwind CSS</li>
-                            <li>Recharts</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a data-project-link="folio-dashboard-demo" href="https://folio-chi-ten.vercel.app">View Demo</a>
-                        <a data-project-link="folio-dashboard-repo" href="https://github.com/danialzac/folio">GitHub Repo</a>
                     </div>
                 </div>
             </div>
@@ -707,7 +781,32 @@
                 </div>
             </div>
 
-            <!-- Find My Hat — Pontianak Edition — self-contained browser game (live in demos/) -->
+            <!-- EGSI Food Scanner — on-device sensory instrument. Moved ahead of the games: strong technical work, shouldn't be buried last. -->
+            <div class="project-card">
+                <video class="project-image" controls muted playsinline preload="metadata">
+                    <source src="assets/media/egsi-food-scanner-demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="project-details">
+                    <div>
+                        <span class="project-eyebrow">Computer Vision</span>
+                        <h3>EGSI Food Scanner</h3>
+                        <p data-project-description="egsi-food-scanner"></p>
+                        <ul class="toolused">
+                            <li>HTML</li>
+                            <li>Canvas</li>
+                            <li>JavaScript</li>
+                            <li>On-Device Vision</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a data-project-link="egsi-food-scanner-demo" href="demos/egsi-food-scanner/index.html">Play Demo</a>
+                        <a data-project-link="egsi-food-scanner-repo" href="https://github.com/danialzac/DevPortfolio/tree/main/demos/egsi-food-scanner">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Find My Hat — Pontianak Edition — self-contained browser game (live in demos/). Games grouped last on purpose: fun side work, after the professional proof. -->
             <div class="project-card">
                 <video class="project-image" controls muted playsinline preload="metadata" poster="assets/media/find-my-hat-pontianak-demo-poster.jpg">
                     <source src="assets/media/find-my-hat-pontianak-demo.mp4" type="video/mp4">
@@ -753,31 +852,6 @@
                     <div class="project-links">
                         <a data-project-link="find-my-katana-ronin-demo" href="demos/find-my-katana-ronin/index.html">Play Demo</a>
                         <a data-project-link="find-my-katana-ronin-repo" href="https://github.com/danialzac/DevPortfolio/tree/main/demos/find-my-katana-ronin">GitHub Repo</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- EGSI Food Scanner — on-device sensory instrument -->
-            <div class="project-card">
-                <video class="project-image" controls muted playsinline preload="metadata">
-                    <source src="assets/media/egsi-food-scanner-demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="project-details">
-                    <div>
-                        <span class="project-eyebrow">Computer Vision</span>
-                        <h3>EGSI Food Scanner</h3>
-                        <p data-project-description="egsi-food-scanner"></p>
-                        <ul class="toolused">
-                            <li>HTML</li>
-                            <li>Canvas</li>
-                            <li>JavaScript</li>
-                            <li>On-Device Vision</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a data-project-link="egsi-food-scanner-demo" href="demos/egsi-food-scanner/index.html">Play Demo</a>
-                        <a data-project-link="egsi-food-scanner-repo" href="https://github.com/danialzac/DevPortfolio/tree/main/demos/egsi-food-scanner">GitHub Repo</a>
                     </div>
                 </div>
             </div>
