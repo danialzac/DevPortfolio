@@ -24,7 +24,7 @@ const siteConfig = {
     personal: {
         // EDIT: These values control visible identity, metadata, and contact links across the whole site.
         name: "Danial Zac",
-        title: "Danial Zac | Builder · Product Portfolio · FinTech",
+        title: "Danial Zac | Strategist & Builder · FinTech",
         description: "Danial Zac builds and ships real products across finance, hospitality, fitness, education, and community, backed by deep banking and FinTech experience.",
         github: "https://github.com/danialzac",
         linkedin: "https://www.linkedin.com/in/danial-rohman/",
