@@ -148,6 +148,12 @@ h2 {
     color: var(--color-deep);
 }
 
+.section-subtext {
+    margin-top: 0.9rem;
+    font-size: 1.05rem;
+    color: var(--color-ink-soft);
+}
+
 nav {
     /* Sticky nav stays visible while scrolling so the user can jump between sections easily. */
     /* EDIT: If the nav ever feels crowded, adjust padding and gap here before changing each link individually. */
