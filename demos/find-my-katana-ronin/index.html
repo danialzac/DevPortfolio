@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Find My Katana — Ronin Edition</title>
+<title>Find My Katana: Ronin Edition</title>
 <style>
   /* * Cursed bamboo forest at night. Hitam + merah darah — samurai movie palette. */
   :root {
@@ -204,7 +204,7 @@
   <span class="petal" style="left: 91%; animation-duration: 14s; animation-delay: 10s;"></span>
 </div>
 
-<h1>FIND MY KATANA <span class="oni">— RONIN EDITION</span></h1>
+<h1>FIND MY KATANA <span class="oni">· RONIN EDITION</span></h1>
 <div id="hud">
   <span>Level <b id="level">1</b></span>
   <span>Blades reclaimed <b id="score">0</b></span>
@@ -219,7 +219,7 @@
   <button class="down">▼</button>
   <button class="right">▶</button>
 </div>
-<div id="help">Move: WASD / arrow keys. Pits ⚫ kill you. Walk INTO an oni 👹 to cut it down — but if it reaches YOU first, you die. Oni can't cross pits.</div>
+<div id="help">Move: WASD / arrow keys. Pits ⚫ kill you. Walk INTO an oni 👹 to cut it down, but if it reaches YOU first, you die. Oni can't cross pits.</div>
 <div id="footer">© 2026 Danial Zac</div>
 
 <script>
@@ -459,7 +459,7 @@ function tension() {
   if (state.over || state.oni.length === 0) return;
   const d = Math.min(...state.oni.map(o => dist(o, state.player)));
   if (d === 1) {
-    say('STEEL RINGS — an oni is beside you! Strike first or die!', 'danger');
+    say('STEEL RINGS: an oni is beside you! Strike first or die!', 'danger');
   } else if (d <= 3) {
     say('Heavy footsteps shake the bamboo... it has your scent.', 'tense');
   } else if (Math.random() < 0.15) {

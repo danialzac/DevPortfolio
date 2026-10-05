@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Find My Hat — Pontianak Edition</title>
+<title>Find My Hat: Pontianak Edition</title>
 <style>
   /* * Dark kampung-at-night vibe. Satu file saja — no build tools, no nonsense. */
   :root {
@@ -185,7 +185,7 @@
   <span class="wisp" style="left: 85%; animation-duration: 14s; animation-delay: 7s;"></span>
 </div>
 
-<h1>FIND MY HAT <span class="ghost">— PONTIANAK EDITION</span></h1>
+<h1>FIND MY HAT <span class="ghost">· PONTIANAK EDITION</span></h1>
 <div id="hud">
   <span>Level <b id="level">1</b></span>
   <span>Hats found <b id="score">0</b></span>
@@ -198,7 +198,7 @@
 <div id="offering" style="display:none; text-align:center; max-width:340px; margin-top:10px">
   <details>
     <summary style="cursor:pointer; color:var(--accent); font-size:.85rem">
-      🕯️ Enjoyed the chase? Leave a kopi offering — she might spare the developer.
+      🕯️ Enjoyed the chase? Leave a kopi offering and she might spare the developer.
     </summary>
     <img src="paynow-qr.jpeg" alt="PayNow QR code"
          style="width:200px; border-radius:10px; border:1px solid #2a3140; margin:10px 0">
@@ -213,7 +213,7 @@
   <button class="down">▼</button>
   <button class="right">▶</button>
 </div>
-<div id="help">Move: WASD / arrow keys. Holes 🕳️ kill you. The ghost floats over holes — you can't.</div>
+<div id="help">Move: WASD / arrow keys. Holes 🕳️ kill you. The ghost floats over holes. You can't.</div>
 <div id="footer">© 2026 Danial Zac</div>
 
 <script>
@@ -393,7 +393,7 @@ function spook() {
   if (state.over) return;
   const d = dist(state.ghost, state.player);
   if (d === 1) {
-    say("A shriek freezes your blood — she's RIGHT BESIDE YOU!", 'danger');
+    say("A shriek freezes your blood: she's RIGHT BESIDE YOU!", 'danger');
   } else if (d <= 3) {
     say('You smell frangipani flowers... she is close. Lari!', 'spooky');
   } else if (Math.random() < 0.15) {
@@ -415,7 +415,7 @@ function win() {
   const next = state.level + 1;
   state = makeLevel(next);
   render();
-  say(`You found your hat! 🎩 Level ${next} — the jungle gets darker...`, 'win');
+  say(`You found your hat! 🎩 Level ${next}: the jungle gets darker...`, 'win');
   msgTimer = setTimeout(() => spook(), 2500);
 }
 
@@ -462,8 +462,8 @@ document.getElementById('restart').addEventListener('click', newGame);
 // * Dare = growth engine. The player's level makes it personal — friends must beat it.
 document.getElementById('dare').addEventListener('click', () => {
   const url = 'https://danialzac.github.io/DevPortfolio/demos/find-my-hat-pontianak/';
-  const text = `I survived to level ${state.level} in Find My Hat — Pontianak Edition 👻 Beat that: `;
-  if (navigator.share) { navigator.share({ title: 'Find My Hat — Pontianak Edition', text, url }).catch(()=>{}); }
+  const text = `I survived to level ${state.level} in Find My Hat: Pontianak Edition 👻 Beat that: `;
+  if (navigator.share) { navigator.share({ title: 'Find My Hat: Pontianak Edition', text, url }).catch(()=>{}); }
   else { window.open('https://wa.me/?text=' + encodeURIComponent(text + url), '_blank'); }
 });
 

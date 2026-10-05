@@ -1,4 +1,4 @@
-<title>EGSI — Sensory Instrument</title>
+<title>EGSI: Sensory Instrument</title>
 <style>
   :root{
     --sans: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -334,7 +334,7 @@
     <div class="hero-text">
       <p class="eyebrow" style="margin-bottom:10px">EGSI · sensory instrument</p>
       <h1>Food in focus</h1>
-      <p class="sub"><b style="color:var(--ink)">See like a machine, reason like a taster.</b> Drop a photo and the camera reads freshness, texture, and the sensory story underneath it — then shows you exactly which real sensor to add next.</p>
+      <p class="sub"><b style="color:var(--ink)">See like a machine, reason like a taster.</b> Drop a photo and the camera reads freshness, texture, and the sensory story underneath it, then shows you exactly which real sensor to add next.</p>
     </div>
   </div>
 
@@ -355,7 +355,7 @@
       <p class="eyebrow">Sample</p>
       <div class="drop" id="drop" tabindex="0" role="button" aria-label="Upload or shoot a food photo">
         <div class="big">📷</div>
-        <div class="t1">Drop a food photo — or tap to use your camera</div>
+        <div class="t1">Drop a food photo, or tap to use your camera</div>
         <div class="t2">the camera is the one sensor you already own · read on-device, never uploaded</div>
         <img id="preview" alt="" hidden />
       </div>
@@ -374,11 +374,11 @@
           <p class="eyebrow">Reading</p>
           <div class="dishname" id="rd-name">Hainanese chicken rice</div>
         </div>
-        <div class="conf-pill">confidence <b id="rd-confpill">—</b></div>
+        <div class="conf-pill">confidence <b id="rd-confpill">-</b></div>
       </div>
 
       <div class="vpanel" id="visionPanel" hidden>
-        <div class="vhead"><span class="vt">◉ Machine vision</span><span class="vh">— what the camera detects, zone by zone (analysed on-device)</span></div>
+        <div class="vhead"><span class="vt">◉ Machine vision</span><span class="vh">· what the camera detects, zone by zone (analysed on-device)</span></div>
         <div class="vcanvas-wrap">
           <canvas id="visionCanvas" aria-label="Vision analysis overlay"></canvas>
           <div class="vlegend" id="visionLegend"></div>
@@ -392,20 +392,20 @@
         <div class="meters" id="meters"></div>
       </div>
 
-      <div class="subsection">Core reading <span class="hint">— the 10-point EGSI block</span></div>
+      <div class="subsection">Core reading <span class="hint">· the 10-point EGSI block</span></div>
       <div class="report" id="report"></div>
 
-      <div class="subsection">Latent perception space <span class="hint">— EHPE · where it sits between poles, band = uncertainty</span></div>
+      <div class="subsection">Latent perception space <span class="hint">· EHPE · where it sits between poles, band = uncertainty</span></div>
       <div class="latent" id="latent"></div>
 
-      <div class="subsection">Tastes like a memory of… <span class="hint">— sensory-memory activation</span></div>
+      <div class="subsection">Tastes like a memory of… <span class="hint">· sensory-memory activation</span></div>
       <div class="mem" id="memory"></div>
 
-      <div class="subsection">The satisfying bite <span class="hint">— oral-processing &amp; texture reward</span></div>
+      <div class="subsection">The satisfying bite <span class="hint">· oral-processing &amp; texture reward</span></div>
       <div class="macro-row" id="macroRow"></div>
       <div id="bite"></div>
 
-      <div class="subsection">Sensor upgrade path <span class="hint">— what you own vs what to buy for a sharper read</span></div>
+      <div class="subsection">Sensor upgrade path <span class="hint">· what you own vs what to buy for a sharper read</span></div>
       <div class="tiers" id="tiers"></div>
 
       <div class="legend">
@@ -414,20 +414,20 @@
         <div class="li"><span class="swatch" style="background:var(--predicted)"></span> Predicted</div>
         <div class="li"><span class="swatch" style="background:var(--unknown)"></span> Unknown</div>
       </div>
-      <p class="note"><b>Reading this honestly:</b> everything here is computed from the sliders, not a live nose, tongue, or force-probe — so confidence is capped and every latent read carries an uncertainty band. Feed real sensor streams and the same engine tightens fast.</p>
+      <p class="note"><b>Reading this honestly:</b> everything here is computed from the sliders, not a live nose, tongue, or force-probe, so confidence is capped and every latent read carries an uncertainty band. Feed real sensor streams and the same engine tightens fast.</p>
       <p class="note" style="margin-top:6px">Food photos via Wikimedia Commons (CC). Swap in your own shots before any commercial launch.</p>
     </section>
 
   </div>
 
   <!-- MELT LAB -->
-  <section class="card pad meltlab" aria-label="Melt Lab — cheese and bread air-fry">
+  <section class="card pad meltlab" aria-label="Melt Lab: cheese and bread air-fry">
     <div class="ml-hero">
       <img class="ml-heroimg" id="mlHero" alt="Melted cheese on toast" />
       <div>
         <p class="eyebrow">Module · for your Cold Storage runs</p>
         <h2 class="ml-title">🧀 Melt Lab</h2>
-        <p class="ml-tag">Pick a cheese and a bread, set the air-fryer, and see how it melts — the pull, the browning, the oil, and whether the combo sings or goes soggy. Built for experimenting.</p>
+        <p class="ml-tag">Pick a cheese and a bread, set the air-fryer, and see how it melts: the pull, the browning, the oil, and whether the combo sings or goes soggy. Built for experimenting.</p>
       </div>
     </div>
     <div class="ml-grid">
@@ -450,7 +450,7 @@
 
 <!-- * Kredit ringkas — nama pemilik je, senyap dan kemas kat kaki laman. -->
 <footer style="text-align:center;padding:28px 16px;font-size:.8rem;opacity:.6;font-family:var(--font-sans,system-ui,sans-serif)">
-  © 2026 Danial Zac · EGSI — an on-device food-sensory experiment
+  © 2026 Danial Zac · EGSI: an on-device food-sensory experiment
 </footer>
 
 <script>
@@ -707,9 +707,9 @@
   var TIERS=[
     {cls:"", name:"Tier 0 · You already own", price:"S$0", sub:"phone + mic", gear:["Phone camera","Any microphone"],
       axes:"Freshness · browning · oil · char · crispness", conf:"confidence ~50%"},
-    {cls:"", name:"Tier 1 · Starter kit", price:"~S$40", sub:"add a nose", gear:["BME680 — VOC / gas / humidity","MLX90614 — IR serving temp","ESP32 board"],
+    {cls:"", name:"Tier 1 · Starter kit", price:"~S$40", sub:"add a nose", gear:["BME680: VOC / gas / humidity","MLX90614: IR serving temp","ESP32 board"],
       axes:"+ real aroma · oxidation · spoilage gas · serving temp", conf:"confidence ~70%"},
-    {cls:"pro", name:"Tier 2 · Pro rig", price:"~S$120", sub:"add taste + bite", gear:["AS7341 — spectral (fat / ripeness)","HX711 + load cell — bite force","TDS + pH probe — acidity / water"],
+    {cls:"pro", name:"Tier 2 · Pro rig", price:"~S$120", sub:"add taste + bite", gear:["AS7341: spectral (fat / ripeness)","HX711 + load cell: bite force","TDS + pH probe: acidity / water"],
       axes:"+ umami & acidity · fat & ripeness · true fracture force", conf:"confidence ~85%"}
   ];
   function renderTiers(){
@@ -773,9 +773,9 @@
     if(!per.length) per.push("a mild, balanced, low-contrast profile");
 
     var emo;
-    if(fresh<45 || ox>60) emo="Unease — a 'something's off' reflex before the first bite finishes.";
+    if(fresh<45 || ox>60) emo="Unease: a 'something's off' reflex before the first bite finishes.";
     else if(ac>55 && tp<40) emo="Refreshing and brightening; resets the palate.";
-    else if(ri>65 && (um>60||sa>55) && tp>42) emo="Comfort — the homey, 'this has soul' satisfaction.";
+    else if(ri>65 && (um>60||sa>55) && tp>42) emo="Comfort: the homey, 'this has soul' satisfaction.";
     else if(sw>60 && ri>60) emo="Indulgent and craveable; a treat, not a meal.";
     else if(cr>55) emo="Playful and moreish; the crunch keeps you going.";
     else emo="Pleasant but neutral; unlikely to be remembered.";
@@ -783,20 +783,20 @@
     var comp=[];
     if(tp<40 && shouldBeHot) comp.push("A 'no soul' complaint here is more likely served-too-cool (thermal) than poor ingredient (chemistry).");
     if(sa>62 && um<60) comp.push("High salt with only modest umami can read as MSG masking a thin stock.");
-    if(ox>50) comp.push("The off-note could be oil / lipid oxidation rather than stale spice — GC-MS would separate them.");
-    if(fm>60) comp.push("Funk could be intended fermentation or early spoilage — microbiology tells them apart.");
+    if(ox>50) comp.push("The off-note could be oil / lipid oxidation rather than stale spice; GC-MS would separate them.");
+    if(fm>60) comp.push("Funk could be intended fermentation or early spoilage; microbiology tells them apart.");
     if(fresh>80 && ox>50) comp.push("Freshness and oxidation readings disagree; one sensor may be miscalibrated.");
-    if(!comp.length) comp.push("No strong competing hypothesis — readings are internally consistent.");
+    if(!comp.length) comp.push("No strong competing hypothesis: readings are internally consistent.");
 
     var rec=[];
-    if(visionFeat) rec.push("Photo read only — add an e-tongue to confirm umami / salt / sweet, and a live e-nose for aroma & spoilage.");
+    if(visionFeat) rec.push("Photo read only: add an e-tongue to confirm umami / salt / sweet, and a live e-nose for aroma & spoilage.");
     if(conf<70) rec.push("Live e-nose (GC-MS) at the moment of serving.");
     if(tp<40 || tp>70) rec.push("Thermal probe at plating + a 5-minute cooling curve.");
     if(ox>45) rec.push("Spectral imaging for hidden bruising / lipid oxidation.");
     if(fm>55 || fresh<50) rec.push("Microbiology panel: spoilage vs beneficial fermentation.");
     if(fr>40 || cr>50) rec.push("Acoustic emission capture to confirm crunch persistence across chews.");
     if(!authKnown) rec.push("A reference sample of the authentic dish for side-by-side comparison.");
-    if(!rec.length) rec.push("None critical — current confidence is acceptable for a sample read.");
+    if(!rec.length) rec.push("None critical: current confidence is acceptable for a sample read.");
 
     // ---- EHPE latent axes (uncertainty band widens as confidence drops) ----
     var unc=round(clamp(6 + (70-conf)*0.7, 6, 26));
@@ -861,56 +861,56 @@
     else if(topArch.name==="Textural-Contrast"){optimal=55;width=16;}
     var wdist=round(resistance-optimal);
     var winState = Math.abs(wdist)<=width ? "in the sweet spot"
-      : (wdist<0 ? "softer than ideal — under-rewarding" : "firmer than ideal — tips toward jaw work");
+      : (wdist<0 ? "softer than ideal: under-rewarding" : "firmer than ideal: tips toward jaw work");
 
     // hedonic + repeat-bite
     var nutrient=clamp(0.5*um + 0.3*ri + 0.2*sw);
     var xbonus=0, xnotes=[];
     if(cr>55 && fr>50){xbonus+=6; xnotes.push("Crunch loudness raises perceived crispness &amp; freshness beyond the fracture itself.");}
-    if(ri>60 && a>65){xbonus+=6; xnotes.push("Fat carries aroma retronasally — richness reads higher than the lipid number alone.");}
+    if(ri>60 && a>65){xbonus+=6; xnotes.push("Fat carries aroma retronasally: richness reads higher than the lipid number alone.");}
     if(contrast>50){xbonus+=6; xnotes.push("Crisp-over-soft contrast lifts total reward above the sum of the two textures.");}
     if(benignDanger>50){xbonus+=4; xnotes.push("A safe 'danger' cue (sour / funk) fires a thrill-then-relief loop that adds craving.");}
-    if(um>65 && ri>55){xbonus+=4; xnotes.push("Glutamate + nucleotide + fat is an ancient 'valuable food' signal — reward biased upward.");}
-    if(!xnotes.length) xnotes.push("No strong cross-modal amplification detected — reward tracks the raw composition.");
+    if(um>65 && ri>55){xbonus+=4; xnotes.push("Glutamate + nucleotide + fat is an ancient 'valuable food' signal: reward biased upward.");}
+    if(!xnotes.length) xnotes.push("No strong cross-modal amplification detected; reward tracks the raw composition.");
     var hedonic=round(clamp(0.42*topArch.score + 0.18*fresh + 0.20*nutrient + xbonus + 8));
     var sat=Math.max(0,(ri + Math.max(0,sw-40))/2 - 55)*0.5;
     var repeat=round(clamp(hedonic - sat));
 
     // bite lifecycle phases
-    var phase1 = fr>60 ? "Clean, loud snap — high fracture feedback, strong first impression."
+    var phase1 = fr>60 ? "Clean, loud snap: high fracture feedback, strong first impression."
       : fr>30 ? "A defined bite-through; moderate fracture before it gives."
-      : "Yields softly, almost no fracture — little first-bite signal.";
-    var phase2 = sp>60 ? "Springs back between chews — invites a steady, soothing cadence ('jaw massage')."
+      : "Yields softly, almost no fracture; little first-bite signal.";
+    var phase2 = sp>60 ? "Springs back between chews: invites a steady, soothing cadence ('jaw massage')."
       : sp>32 ? "Some spring-back; a few comfortable chews to the swallow threshold."
       : "Collapses in 2–3 chews; the chewing reward is brief.";
     var phase3 = ri>65 ? "Fat releases and coats the mouth; saliva demand is low, bolus binds easily."
-      : fresh<50 ? "Dryish — draws saliva; bolus can fragment before it binds."
+      : fresh<50 ? "Dryish: draws saliva; bolus can fragment before it binds."
       : "Even moisture release; forms a clean, cohesive bolus.";
     var phase4 = (proc>55||ri>78) ? "Slight greasy / pasty clingage lingers after the swallow."
-      : "Clean clearance — little residue left behind.";
-    var phase5 = (um>60||ri>60) ? "Umami &amp; fat persist retronasally — the finish pulls the next bite."
+      : "Clean clearance: little residue left behind.";
+    var phase5 = (um>60||ri>60) ? "Umami &amp; fat persist retronasally; the finish pulls the next bite."
       : ox>50 ? "An oxidised drag sits on the finish and discourages the next bite."
       : "Short, clean finish; the memory fades quickly.";
 
     // cultural texture verdicts (spring-centric)
     function cell(cls,txt){ return '<span class="'+cls+'">'+txt+'</span>'; }
     var chewless = resistance<16;
-    var cSG = chewless ? cell("verdict-mid","△ spoon food")+" — a drink or soft/creamy bite; QQ-chew expectations don't apply."
-      : sp>=55 ? cell("verdict-good","✓ QQ delight")+" — bouncy, springy; exactly the prized mouthfeel."
-      : sp<32 ? cell("verdict-warn","⚠ reads limp")+" — a soft bite here is a defect, not neutral."
-      : cell("verdict-mid","△ acceptable")+" — not springy enough to excite the QQ palate.";
-    var cJP = chewless ? cell("verdict-mid","△ soft / drink")+" — judged on flavour, not shokkan."
-      : sp>60 ? cell("verdict-good","mochi-mochi")+" — chewy-elastic; shokkan highly valued."
-      : (cr>55||fr>55) ? cell("verdict-good","shaki-shaki")+" — crisp-fresh; texture reads clearly."
-      : (ri>70&&sp<30) ? cell("verdict-mid","fuwa-fuwa")+" — soft/light; pleasant but texture-quiet."
-      : cell("verdict-warn","flat")+" — shokkan under-delivers; texture lacks a clear character.";
-    var cCN = chewless ? cell("verdict-mid","△ n/a")+" — no chew surface to judge Q / 弹 on."
-      : sp>55 ? cell("verdict-good","✓ Q / 弹")+" — the bounce Chinese texture prizes is there."
-      : cell("verdict-mid","△")+" — lacks the springy Q-bounce.";
-    var cEU = chewless ? cell("verdict-mid","△ n/a")+" — not a cut-and-bite food."
-      : (fr>=35&&fr<=72&&sp>=30&&sp<=72) ? cell("verdict-good","✓ al dente")+" — firm-correct, precise bite."
-      : resistance<30 ? cell("verdict-warn","⚠ overcooked")+" — reads soft / past the correctness standard."
-      : cell("verdict-mid","△ firm")+" — borderline tough for an al-dente standard.";
+    var cSG = chewless ? cell("verdict-mid","△ spoon food")+": a drink or soft/creamy bite; QQ-chew expectations don't apply."
+      : sp>=55 ? cell("verdict-good","✓ QQ delight")+": bouncy, springy; exactly the prized mouthfeel."
+      : sp<32 ? cell("verdict-warn","⚠ reads limp")+": a soft bite here is a defect, not neutral."
+      : cell("verdict-mid","△ acceptable")+": not springy enough to excite the QQ palate.";
+    var cJP = chewless ? cell("verdict-mid","△ soft / drink")+": judged on flavour, not shokkan."
+      : sp>60 ? cell("verdict-good","mochi-mochi")+": chewy-elastic; shokkan highly valued."
+      : (cr>55||fr>55) ? cell("verdict-good","shaki-shaki")+": crisp-fresh; texture reads clearly."
+      : (ri>70&&sp<30) ? cell("verdict-mid","fuwa-fuwa")+": soft/light; pleasant but texture-quiet."
+      : cell("verdict-warn","flat")+": shokkan under-delivers; texture lacks a clear character.";
+    var cCN = chewless ? cell("verdict-mid","△ n/a")+": no chew surface to judge Q / 弹 on."
+      : sp>55 ? cell("verdict-good","✓ Q / 弹")+": the bounce Chinese texture prizes is there."
+      : cell("verdict-mid","△")+": lacks the springy Q-bounce.";
+    var cEU = chewless ? cell("verdict-mid","△ n/a")+": not a cut-and-bite food."
+      : (fr>=35&&fr<=72&&sp>=30&&sp<=72) ? cell("verdict-good","✓ al dente")+": firm-correct, precise bite."
+      : resistance<30 ? cell("verdict-warn","⚠ overcooked")+": reads soft / past the correctness standard."
+      : cell("verdict-mid","△ firm")+": borderline tough for an al-dente standard.";
     var culture=[
       {cx:"Singapore / Malaysia", cv:cSG},
       {cx:"Japan (shokkan)",      cv:cJP},
@@ -966,16 +966,16 @@
   function sweep(){ var svg=document.getElementById("radar"); if(!svg)return; svg.classList.remove("sweeping"); void svg.offsetWidth; svg.classList.add("sweeping"); clearTimeout(sweepT); sweepT=setTimeout(function(){svg.classList.remove("sweeping");},750); }
 
   function renderReport(d,sensor,perc,authBody){
-    function procLabel(p){ return p<35?"low — tastes cooked-to-order, not reheated":p<65?"moderate — some seasoning / holding, still real food":"high — heavily seasoned or held; flavour is engineered"; }
+    function procLabel(p){ return p<35?"low (tastes cooked-to-order, not reheated)":p<65?"moderate (some seasoning / holding, still real food)":"high (heavily seasoned or held; flavour is engineered)"; }
     var out="";
     out+=item("01","Objective sensor findings","measured","Measured", sensor);
     out+=item("02","Predicted human perception","predicted","Predicted", perc, true);
     out+=item("03","Likely emotional response","predicted","Predicted", d.emo, true);
-    out+=item("04","Freshness estimate","inferred","Inferred", "<b>"+d.fresh+"%</b> — "+labelFor(d.fresh,"past its best; oxidation / time showing","holding, but the clock is ticking","bright and freshly prepared")+".");
-    out+=item("05","Ingredient quality","inferred","Inferred", "<b>"+d.qual+"%</b> — "+labelFor(d.qual,"budget or tired ingredients likely","decent, honest ingredients","real, well-kept ingredients")+".");
-    out+=item("06","Processing intensity","inferred","Inferred", "<b>"+d.proc+"%</b> — "+procLabel(d.proc)+".");
+    out+=item("04","Freshness estimate","inferred","Inferred", "<b>"+d.fresh+"%</b>: "+labelFor(d.fresh,"past its best; oxidation / time showing","holding, but the clock is ticking","bright and freshly prepared")+".");
+    out+=item("05","Ingredient quality","inferred","Inferred", "<b>"+d.qual+"%</b>: "+labelFor(d.qual,"budget or tired ingredients likely","decent, honest ingredients","real, well-kept ingredients")+".");
+    out+=item("06","Processing intensity","inferred","Inferred", "<b>"+d.proc+"%</b>: "+procLabel(d.proc)+".");
     out+=item("07","Authenticity",(d.authKnown?"inferred":"unknown"),(d.authKnown?"Inferred":"Unknown"), authBody);
-    out+=item("08","Confidence score","meta","Sample", "<b>"+d.conf+"%</b> — capped because this is slider input, not a live probe. Contradictory readings dock it further.");
+    out+=item("08","Confidence score","meta","Sample", "<b>"+d.conf+"%</b>: capped because this is slider input, not a live probe. Contradictory readings dock it further.");
     out+=listItem("09","Competing explanations","predicted","Predicted", d.comp);
     out+=listItem("10","Recommended additional sensors","inferred","Inferred", d.rec);
     return out;
@@ -1011,19 +1011,19 @@
         '</div>'+
       '</div>';
 
-    var archRow='<div class="subsection" style="margin-top:18px">Bite archetypes <span class="hint">— which reward mechanism fires</span></div>'+
+    var archRow='<div class="subsection" style="margin-top:18px">Bite archetypes <span class="hint">· which reward mechanism fires</span></div>'+
       '<div class="arch-row">'+ d.arch.map(function(x){ var on=x.score>=45?"1":"0";
         return '<span class="arch" data-on="'+on+'" title="'+x.mech+'">'+x.name+' · <b>'+x.score+'</b></span>'; }).join("") +'</div>'+
-      '<p class="note" style="margin-top:8px"><b>Driver:</b> '+d.topArch.name+' — '+d.topArch.mech+'.</p>';
+      '<p class="note" style="margin-top:8px"><b>Driver:</b> '+d.topArch.name+' · '+d.topArch.mech+'.</p>';
 
     var pnames=["First fracture · 0–200ms","Chew dynamics · 0.2–20s","Bolus formation","Swallow &amp; clearance","Aftertaste &amp; memory"];
     var phases='<div class="subsection" style="margin-top:18px">Bite lifecycle</div><div class="phases">'+
       d.phases.map(function(t,i){ return '<div class="phase"><div class="p">'+pnames[i]+'</div><div class="d">'+t+'</div></div>'; }).join("")+'</div>';
 
-    var xn='<div class="subsection" style="margin-top:18px">Cross-modal amplification <span class="hint">— where the whole beats the parts</span></div><ul class="xnotes">'+
+    var xn='<div class="subsection" style="margin-top:18px">Cross-modal amplification <span class="hint">· where the whole beats the parts</span></div><ul class="xnotes">'+
       d.xnotes.map(function(x){return '<li>'+x+'</li>';}).join("")+'</ul>';
 
-    var cult='<div class="subsection" style="margin-top:18px">Cultural texture match <span class="hint">— same bite, different verdict</span></div><div class="culture">'+
+    var cult='<div class="subsection" style="margin-top:18px">Cultural texture match <span class="hint">· same bite, different verdict</span></div><div class="culture">'+
       d.culture.map(function(c){ return '<div class="crow"><span class="cx">'+c.cx+'</span><span class="cv">'+c.cv+'</span></div>'; }).join("")+'</div>';
 
     return top+archRow+phases+xn+cult;
@@ -1043,10 +1043,10 @@
       "; e-nose aroma "+d.a+", oxidation "+d.ox+", ferment "+d.fm+
       "; texture crisp "+d.cr+", rich "+d.ri+", spring "+d.sp+", fracture "+d.fr+
       "; thermal <b>"+d.tp+"°C</b>; "+d.hr+"h since prep."+
-      (visionFeat?" <i style='color:var(--faint)'>(vision-derived — taste axes estimated from appearance)</i>":"");
+      (visionFeat?" <i style='color:var(--faint)'>(vision-derived: taste axes estimated from appearance)</i>":"");
     var perc="Likely perceived as "+d.per.join(", ").replace(/,([^,]*)$/," and$1")+".";
     var authBody=d.authKnown
-      ? "<b>"+d.auth+"%</b> match to the "+currentPreset+" reference profile — "+labelFor(d.auth,"a noticeable drift from","a fair match to","a strong match to")+" the canonical version."
+      ? "<b>"+d.auth+"%</b> match to the "+currentPreset+" reference profile: "+labelFor(d.auth,"a noticeable drift from","a fair match to","a strong match to")+" the canonical version."
       : "No reference profile loaded for this sample, so authenticity can't be scored yet.";
 
     document.getElementById("report").innerHTML=renderReport(d,sensor,perc,authBody);
@@ -1059,7 +1059,7 @@
   // ================= MELT LAB =================
   var CHEESES={
     "Low-moist mozzarella":{melt:88,stretch:92,browning:45,fat:55,moisture:50,salt:40,funk:5,note:"the pull king"},
-    "Fresh mozzarella":{melt:70,stretch:64,browning:30,fat:45,moisture:80,salt:30,funk:5,note:"wet — soggy risk"},
+    "Fresh mozzarella":{melt:70,stretch:64,browning:30,fat:45,moisture:80,salt:30,funk:5,note:"wet: soggy risk"},
     "Mild cheddar":{melt:80,stretch:30,browning:60,fat:55,moisture:37,salt:55,funk:15,note:"classic gooey"},
     "Mature cheddar":{melt:72,stretch:20,browning:66,fat:56,moisture:33,salt:60,funk:38,note:"sharp, oilier"},
     "Gruyère":{melt:86,stretch:55,browning:62,fat:50,moisture:35,salt:50,funk:32,note:"nutty, melts like a dream"},
@@ -1068,7 +1068,7 @@
     "Blue (Stilton/Gorg)":{melt:66,stretch:15,browning:40,fat:58,moisture:44,salt:62,funk:92,note:"pungent, creamy"},
     "Smoked gouda":{melt:80,stretch:34,browning:60,fat:55,moisture:38,salt:52,funk:34,note:"smoky, even melt"},
     "Parmesan":{melt:44,stretch:10,browning:86,fat:43,moisture:30,salt:72,funk:42,note:"fricos into lace"},
-    "Halloumi":{melt:8,stretch:5,browning:70,fat:47,moisture:45,salt:66,funk:10,note:"won't melt — crisps & squeaks"},
+    "Halloumi":{melt:8,stretch:5,browning:70,fat:47,moisture:45,salt:66,funk:10,note:"won't melt: crisps & squeaks"},
     "Feta":{melt:12,stretch:5,browning:42,fat:45,moisture:55,salt:68,funk:32,note:"softens, browns, holds"}
   };
   var BREADS={
@@ -1081,7 +1081,7 @@
     "Roti / instant prata":{crumb:35,crust:45,moisture:34,sugar:28,sturdiness:52,flaky:true,note:"flaky, buttery, crisps up"},
     "Ciabatta":{crumb:45,crust:66,moisture:42,sugar:18,sturdiness:62,note:"airy holes"},
     "Croissant":{crumb:30,crust:60,moisture:36,sugar:46,sturdiness:32,note:"buttery, burns easy"},
-    "Tortilla wrap":{crumb:35,crust:20,moisture:30,sugar:25,sturdiness:46,note:"thin — quesadilla crisp"}
+    "Tortilla wrap":{crumb:35,crust:20,moisture:30,sugar:25,sturdiness:46,note:"thin: quesadilla crisp"}
   };
   var MLCOMBOS=[
     {name:"Bagel + blue", cheese:"Blue (Stilton/Gorg)", bread:"Bagel", temp:190, time:7},
@@ -1109,7 +1109,7 @@
     var sog = solo ? 0 : clamp((C.moisture-45)*1.15 + (55-B.sturdiness)*0.8 - flow*0.08);
 
     var state;
-    if(burnt>55) state="Burnt — pull it sooner";
+    if(burnt>55) state="Burnt: pull it sooner";
     else if(C.melt<25) state = crisp>45 ? "Crisp golden shards" : dose>45 ? "Griddled, holds shape, squeaky" : "Warmed, still firm";
     else state = flow<30 ? "Barely softened" : flow<55 ? "Soft & pliable" : browning<32 ? "Molten & glossy" : (crisp>45 ? "Golden with lacy crisp edges" : "Golden, bubbling, ready");
 
@@ -1117,7 +1117,7 @@
     var recTemp = C.melt<25 ? 200 : (C.browning>72 ? 185 : (!solo && B.sugar>42 ? 180 : 195));
     var recTime = C.melt<25 ? (C.moisture>50?9:8) : (C.moisture>62?8:6);
     var recWhy;
-    if(C.melt<25) recWhy=ml.cheese+" won't flow — high heat, longer, to crisp and brown the edges.";
+    if(C.melt<25) recWhy=ml.cheese+" won't flow: high heat, longer, to crisp and brown the edges.";
     else if(!solo && B.sugar>42) recWhy="Soft / sweet bread browns fast, so keep it low and let the cheese catch up.";
     else recWhy="Enough heat to go molten and golden, short enough to keep the pull before the oil breaks.";
 
@@ -1132,15 +1132,15 @@
     score=round(clamp(score));
 
     var verdict;
-    if(burnt>50) verdict="<b>Overshooting.</b> The bread/cheese is tipping into burnt — back off temp or time.";
-    else if(sog>45) verdict="<b>Soggy risk.</b> Wet cheese on a soft base — toast the bread first, then add cheese.";
+    if(burnt>50) verdict="<b>Overshooting.</b> The bread/cheese is tipping into burnt; back off temp or time.";
+    else if(sog>45) verdict="<b>Soggy risk.</b> Wet cheese on a soft base: toast the bread first, then add cheese.";
     else if(score>=80) verdict="<b>A proper match.</b> Sturdy base, clean melt, holds together in the hand.";
-    else if(score>=66) verdict="<b>Solid combo.</b> Works well — small tweaks below push it higher.";
+    else if(score>=66) verdict="<b>Solid combo.</b> Works well: small tweaks below push it higher.";
     else verdict="<b>Workable, not wow.</b> The base and the melt aren't quite pulling the same direction.";
 
     // bite archetype
     var arch;
-    if(stretch>55) arch={n:"Chew-Reward",m:"the cheese pull — stringy, satisfying, chew-me-again."};
+    if(stretch>55) arch={n:"Chew-Reward",m:"the cheese pull, stringy, satisfying, chew-me-again."};
     else if(crisp>=45) arch={n:"Crunch-Thrill",m:"crisp lacy edges with an audible shatter."};
     else if(C.funk>60) arch={n:"Benign-Danger",m:"pungent funk fires a safe thrill-then-relief loop."};
     else if(!solo && B.crust>55 && flow>55) arch={n:"Textural-Contrast",m:"crisp crust over a molten core, in one bite."};
@@ -1148,14 +1148,14 @@
 
     // tips
     var tips=[];
-    if(!solo && sog>38) tips.push("<b>Toast the bread alone 2–3 min first</b>, then add cheese — kills the sog.");
-    if(!solo && B.sugar>42) tips.push("<b>Sweet/soft bread browns fast</b> — drop to 180°C or shield the edges with foil.");
-    if(oil>55) tips.push("<b>Lay baking paper down</b> — this one pools oil as it heats.");
-    if(C.melt<25) tips.push("<b>No oil needed</b> — you're chasing crisp, not melt; flip halfway.");
+    if(!solo && sog>38) tips.push("<b>Toast the bread alone 2–3 min first</b>, then add cheese to kill the sog.");
+    if(!solo && B.sugar>42) tips.push("<b>Sweet/soft bread browns fast</b>: drop to 180°C or shield the edges with foil.");
+    if(oil>55) tips.push("<b>Lay baking paper down</b>: this one pools oil as it heats.");
+    if(C.melt<25) tips.push("<b>No oil needed</b>: you're chasing crisp, not melt; flip halfway.");
     if(stretch>58) tips.push("<b>Eat within ~30s</b> of the fryer for max pull; it sets as it cools.");
     if(B.flaky) tips.push("<b>Press the prata lightly</b> so the cheese anchors to the flakes.");
-    if(C.funk>70) tips.push("<b>Pair with something sweet</b> (honey, fig) — tames the funk beautifully.");
-    if(!tips.length) tips.push("Dialled in nicely — just watch the last minute so it doesn't tip past golden.");
+    if(C.funk>70) tips.push("<b>Pair with something sweet</b> (honey, fig): tames the funk beautifully.");
+    if(!tips.length) tips.push("Dialled in nicely: just watch the last minute so it doesn't tip past golden.");
 
     return {C:C,B:B,dose:round(dose),flow:round(flow),browning:round(browning),burnt:round(burnt),
       stretch:round(stretch),oil:round(oil),crisp:round(crisp),sog:round(sog),
