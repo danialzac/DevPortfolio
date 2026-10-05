@@ -12,7 +12,7 @@
 NAME='portfolio'
 PORT='3001'
 SUBDIR='.'
-RUN='python3 -m http.server 3001'
+RUN='python3 -m http.server 3001 --bind 127.0.0.1'
 PRE=''
 NOTE=''
 
@@ -59,13 +59,13 @@ if command -v tmux >/dev/null; then
       "export PATH='$PATH'; $RUN; echo; echo '  Server stopped. Press Enter to close.'; read"
   fi
   # Wait until the site answers (tunggu sampai website hidup), max ~60s
-  for _ in $(seq 1 60); do nc -z localhost "$PORT" 2>/dev/null && break; sleep 1; done
-  open "http://localhost:$PORT"
-  echo "  ✅  Running at http://localhost:$PORT"
+  for _ in $(seq 1 60); do nc -z 127.0.0.1 "$PORT" 2>/dev/null && break; sleep 1; done
+  open "http://127.0.0.1:$PORT"
+  echo "  ✅  Running at http://127.0.0.1:$PORT (only visible on this Mac)"
   echo "  ⏹   Ctrl + C to stop."
   echo ""
   tmux attach -t "$SESSION"
 else
-  ( for _ in $(seq 1 60); do nc -z localhost "$PORT" 2>/dev/null && break; sleep 1; done; open "http://localhost:$PORT" ) &
+  ( for _ in $(seq 1 60); do nc -z 127.0.0.1 "$PORT" 2>/dev/null && break; sleep 1; done; open "http://127.0.0.1:$PORT" ) &
   eval "$RUN"
 fi
