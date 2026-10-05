@@ -1,5 +1,19 @@
 # HTML and CSS Styling Guide
 
+<!-- cheat-sheet -->
+## ⚡ Cheat sheet
+
+| | |
+|---|---|
+| **What** | My developer portfolio website. |
+| **Run** | Double-click `START.command`. It opens http://localhost:3001 |
+| **Edit** | `index.html` and `assets/` |
+| **Go live** | Double-click `PUBLISH.command`. It's live in about 1 min (GitHub Pages). |
+| **Secrets** | None. |
+| **Live link** | https://danialzac.github.io/DevPortfolio/ |
+
+<!-- /cheat-sheet -->
+
 **Objective:**
 Create a portfolio page by:
 
