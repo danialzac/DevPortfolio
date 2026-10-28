@@ -97,9 +97,9 @@ const siteConfig = {
             description: "A personal trading portfolio dashboard that fetches live prices from Yahoo Finance, computes annualised returns and volatility across six equities, and runs 100,000 simulated portfolios to surface the optimal Sharpe-ratio allocation. Features a strategy comparison across CAPM, Momentum MPT, and Crypto RSI, a head-to-head asset comparator, a market insight panel with Sharpe league table, an interactive compound growth calculator, a portfolio health gauge, and Singapore-market tools for CPF, HDB, and Halal screening. Built on the Next.js 14 App Router with server-side caching and zero paid services.",
         },
         "greenkook": {
-            demo: "demos/greenkook/",
-            repo: "https://github.com/danialzac/DevPortfolio/tree/main/demos/greenkook",
-            description: "A one-page ordering site built for a real private chef. No login, no shopping cart, no monthly software bill. Customers browse a categorised menu and tap through to WhatsApp or email with the order already written out. Every word, price, and dish lives in one plain-English content file, so the chef can update the whole site himself without touching code. Built and shipped as a freelance client project on Next.js and Tailwind.",
+            // NOTE: source repo is private, so no repo key and no repo button. Demo is the real live site.
+            demo: "https://greenkook.pages.dev",
+            description: "A live ordering site for a real private chef in Singapore, serving Malay mains and bakes cooked to order. Customers browse the menu, tap Order, and WhatsApp opens with a short order form already typed out; the chef confirms the date and sends a PayNow number to lock it in. Prices stay on request until confirmed, and every dish, photo, and line of copy lives in one plain-English content file the chef can edit himself. Built with Next.js and Tailwind, exported as static files and hosted on Cloudflare Pages, so there is no server and no monthly software bill.",
         },
         "sesh": {
             demo: "demos/sesh/",
